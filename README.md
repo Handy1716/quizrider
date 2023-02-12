@@ -2,7 +2,7 @@
 
 ## Adatbázis szerkezet:
 
-## creator:
+## Creator:
     id
     email
     password
@@ -22,4 +22,11 @@
     questionId
     Text
     RightAnswer
+## Scoreboard:
+    id
+    deviceId
+    quizId
+    created
+    points
+    
     
