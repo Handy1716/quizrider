@@ -25,6 +25,7 @@
 ## Scoreboard:
     id
     deviceId
+    name
     runCodeId
     created
     points
