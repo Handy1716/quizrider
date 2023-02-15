@@ -45,3 +45,15 @@
 ### RunCode play
     runcode
     GET /quiz/play/:runcode
+### tags new
+    text
+    POST /tags
+### tags modify
+    text
+    PUT /tags
+### tags delete
+    id
+    DELETE /tags/:id
+### tags list
+    quizId
+    GET/tags/quizId
