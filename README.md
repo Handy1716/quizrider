@@ -25,7 +25,7 @@
 ## Scoreboard:
     id
     deviceId
-    quizId
+    runCodeId
     created
     points
 ## Tags
@@ -34,5 +34,7 @@
 ## QuizTags
     quizId
     tagsId
-    
-    
+## RunCode
+    id
+    quizId
+    runCode
