@@ -28,5 +28,11 @@
     quizId
     created
     points
+## Tags
+    id
+    Text
+## QuizTags
+    quizId
+    tagsId
     
     
