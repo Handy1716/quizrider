@@ -8,6 +8,12 @@
     email
     password
     POST /login
+### Quiz list
+    GET /quiz
+    GET /quiz/public
+### Quiz get
+    id
+    GET /quiz/:id
 ### Quiz (new)
     name
     public
@@ -33,4 +39,9 @@
 ### Quiz (delete)
     id
     DELETE /quiz/:id
-
+### RunCode generate
+    quizId
+    GET /runcode/:quizId
+### RunCode play
+    runcode
+    GET /quiz/play/:runcode
