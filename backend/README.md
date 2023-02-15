@@ -3,5 +3,6 @@
 ### Register
     email
     password
-    '''
+    ```
     POST
+    ```
