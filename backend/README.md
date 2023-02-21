@@ -1,10 +1,12 @@
 # Backend
 ## Rest API plan
 ### Register
-    name
-    email
-    password
     POST /creator
+    {
+        name
+        email
+        password
+    }
     curl.exe -X POST -H "Content-Type: application/json" -d '{\"name\": \"Teszt2\", \"email\": \"teszt2@quizrider.com\", \"password\": \"12345\"}' http://localhost:3000/creator
 ### Log In
     email
