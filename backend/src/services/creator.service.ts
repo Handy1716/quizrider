@@ -12,4 +12,10 @@ export class CreatorService {
   async findAll(): Promise<Creator[]> {
     return this.creatorRepository.find();
   }
+
+  async findById(id: number): Promise<Creator> {
+    return this.creatorRepository.findOneBy({
+      id
+    })
+  }
 }
