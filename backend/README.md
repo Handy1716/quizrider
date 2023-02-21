@@ -1,6 +1,7 @@
 # Backend
 ## Rest API plan
 ### Register
+    name
     email
     password
     POST /creator

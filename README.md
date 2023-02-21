@@ -4,9 +4,9 @@
 
 ## Creator:
     id
+    name
     email
     password
-    created
 ## Quiz:
     id
     creatorId
@@ -16,23 +16,24 @@
 ## Questions:
     id
     quizId
-    Text
+    text
 ## Answer:
     id
     questionId
-    Text
-    RightAnswer
+    text
+    rightAnswer
 ## Scoreboard:
     id
     deviceId
     name
     runCodeId
-    created
+    finishTime
     points
 ## Tags
     id
-    Text
+    text
 ## QuizTags
+    id
     quizId
     tagsId
 ## RunCode
