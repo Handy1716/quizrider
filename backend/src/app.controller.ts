@@ -1,12 +1,17 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { DataSource } from "typeorm";
+import './app.datasource';
 
-@Controller("")
+@Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private dataSource: DataSource
+  ) {}
 
-  @Get("")
-  getHello(): string {
-    return this.appService.getHello();
+  @Get()
+  default(): string {
+    return this.appService.default();
   }
 }

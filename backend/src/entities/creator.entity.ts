@@ -5,10 +5,19 @@ export default class Creator {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    length: 100,
+  })
+  name: string;
+
+  @Column({
+    length: 100,
+  })
   email: string;
 
-  @Column()
+  @Column({
+    length: 100,
+  })
   password: string;
 
   @Column()
