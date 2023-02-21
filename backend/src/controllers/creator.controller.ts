@@ -1,4 +1,5 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { CreatorDto } from 'src/dtos/creator.dto';
 import Creator from 'src/entities/creator.entity';
 import { CreatorService } from '../services/creator.service';
 
@@ -11,5 +12,10 @@ export class CreatorController {
   @Get("/:id")
   findById(@Param('id') id: number): Promise<Creator> {
     return this.creatorService.findById(id)
+  }
+
+  @Post()
+  create(@Body() creatorDto: CreatorDto): Promise<Creator> {
+    return this.creatorService.create(creatorDto)
   }
 }

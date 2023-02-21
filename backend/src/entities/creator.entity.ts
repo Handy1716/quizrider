@@ -19,7 +19,4 @@ export default class Creator {
     length: 100,
   })
   password: string;
-
-  @Column()
-  created: Date;
 }
