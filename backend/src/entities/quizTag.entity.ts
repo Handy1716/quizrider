@@ -6,10 +6,4 @@ import Tag from './tag.entity';
 export default class QuizTag {
   @PrimaryGeneratedColumn()
   id: number;
-
-  @ManyToOne(() => Quiz, (quiz) => quiz.quizTags)
-  quiz: Quiz;
-
-  @ManyToOne(() => Tag, (tag) => tag.quizTags)
-  tag: Tag;
 }

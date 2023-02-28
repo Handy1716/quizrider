@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import Question from './question.entity';
+import Quiz from './quiz.entity';
 
 @Entity()
 export default class Creator {
@@ -19,4 +21,7 @@ export default class Creator {
     length: 100,
   })
   password: string;
+
+  @OneToMany(() => Quiz, (quiz) => quiz.creator)
+    quizzes: Quiz[]
 }
