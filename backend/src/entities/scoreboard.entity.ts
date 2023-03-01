@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import Runcode from './runcode.entity';
 
 @Entity()
 export default class Scoreboard {
@@ -14,4 +15,9 @@ export default class Scoreboard {
   created: Date;
   @Column()
   points: number;
+
+  @OneToOne(() => Runcode)
+    @JoinColumn()
+    runcode: Runcode
 }
+

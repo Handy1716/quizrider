@@ -2,10 +2,11 @@ import {
   Column,
   Entity,
   JoinColumn,
+  ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import Quiestion from './question.entity';
+import Question from './question.entity';
 
 @Entity()
 export default class Answer {
@@ -18,7 +19,6 @@ export default class Answer {
   @Column()
   rightAnswer: boolean;
 
-  @OneToOne(() => Quiestion)
-  @JoinColumn()
-  question: Quiestion;
+  @ManyToOne(() => Question, (question) => question.answers)
+  question: Question
 }

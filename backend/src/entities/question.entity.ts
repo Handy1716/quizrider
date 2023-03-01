@@ -1,14 +1,18 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import Answer from './answer.entity';
 import Quiz from './quiz.entity';
 
 @Entity()
-export default class Quiestion {
+export default class Question {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   text: string;
 
-  @ManyToOne(() => Quiz, (quiz) => quiz.questions)
-  quiz: Quiz;
+  @ManyToOne(() => Quiz, (quiz) => quiz.Questions)
+    quiz: Quiz
+
+  @OneToMany(() => Answer, (answer) => answer.question)
+    answers: Answer[]
 }
