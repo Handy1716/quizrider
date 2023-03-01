@@ -23,5 +23,5 @@ export default class Creator {
   password: string;
 
   @OneToMany(() => Quiz, (quiz) => quiz.creator)
-    quizzes: Quiz[]
+  quizzes: Quiz[]
 }

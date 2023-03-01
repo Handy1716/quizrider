@@ -7,12 +7,14 @@ export default class Question {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    length: 255,
+  })
   text: string;
 
-  @ManyToOne(() => Quiz, (quiz) => quiz.Questions)
+  @ManyToOne(() => Quiz, (quiz) => quiz.questions)
     quiz: Quiz
 
   @OneToMany(() => Answer, (answer) => answer.question)
-    answers: Answer[]
+  answers: Answer[]
 }

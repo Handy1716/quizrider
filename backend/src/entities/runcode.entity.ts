@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import Quiz from './quiz.entity';
 import Scoreboard from './scoreboard.entity';
 
@@ -7,10 +7,15 @@ export default class Runcode {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    length: 16,
+    unique: true
+  })
   runCode: number;
   
-    @OneToOne(() => Quiz)
-    @JoinColumn()
-    quiz: Quiz
+  @ManyToOne(() => Quiz, (quiz) => quiz.runcodes)
+  quiz: Quiz;
+
+  @OneToMany(() => Scoreboard, (scoreboard) => scoreboard.runcode)
+  scoreboards: Scoreboard[]
 }

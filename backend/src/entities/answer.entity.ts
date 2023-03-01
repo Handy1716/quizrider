@@ -13,7 +13,9 @@ export default class Answer {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    length: 255,
+  })
   text: string;
 
   @Column()

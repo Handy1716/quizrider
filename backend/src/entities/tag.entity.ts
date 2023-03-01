@@ -1,13 +1,16 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import QuizTag from './quizTag.entity';
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import Quiz from './quiz.entity';
 
 @Entity()
 export default class Tag {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+
+  @Column({
+    length: 100,
+  })
   text: string;
 
-  @OneToMany(() => QuizTag, (quizTags) => quizTags.tag)
-  quizTags: QuizTag[];
+  @ManyToMany(() => Quiz, (quiz) => quiz.tags)
+  quizzes: Quiz[];
 }

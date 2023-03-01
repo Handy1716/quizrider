@@ -1,82 +1,82 @@
 # Backend
-## Rest API
-### Creator
-#### Register
+## Creator
+### Register
     POST /creator
     {
         name,
         email,
-        password
+        password,
+        quizzes: []
     }
-#### Log In
+### Log In
     POST /login
     {
         email,
         password
     }
-#### Get
+### Get
     GET /creator/:id
 
-### Quiz
-#### List
+## Quiz
+### List
     GET /quiz
-#### List public
+### List public
     GET /quiz/public
-#### Get
+### Get
     GET /quiz/:id
-#### Quiz (new)
+### Quiz (new)
     POST /quiz
     {
-        "name":"quiz1",
-        "public":true,
-        "oneRound":true,
-        "questions":[
+        name,
+        public,
+        oneRound,
+        questions: [
             {
-                "text":"kerdes1",
-                "answers":[
+                text,
+                answers: [
                     {
-                    "text":"valasz1",
-                    "rightAnswer":false
-                    },
-                    {
-                    "text":"valasz2",
-                    "rightAnswer":true
+                        text,
+                        rightAnswer
                     }
                 ]
             }
         ]
     }
-### Quiz (modify)
+## Quiz (modify)
     PUT /quiz
     {
         name,
         public,
         oneRound,
-        questions,
-            text
-        answers,
-            text,
-            rightAnswer
-        tags
+        questions: [
+            {
+                text,
+                answers: [
+                    {
+                        text,
+                        rightAnswer
+                    }
+                ]
+            }
+        ]
     }
-### Quiz (delete)
-    id
+## Quiz (delete)
     DELETE /quiz/:id
-### RunCode generate
-    quizId
+## RunCode generate
     GET /runcode/:quizId
-### RunCode play
-    runcode
-    GET /quiz/play/:runcode
-### tags new
-    text
+## RunCode play
+    GET /play/:runcode
+## Tags (new)
     POST /tags
-### tags modify
-    text
+    {
+        text
+    }
+## Tags (modify)
     PUT /tags
-### tags delete
-    id
+    {
+        text
+    }
+## Tags (delete)
     DELETE /tags/:id
-### tags list
-    quizId
-    GET/tags/quizId
+## Tags list
+    GET /tags/quizId

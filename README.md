@@ -1,42 +1,40 @@
 # QuizRider
-
-## Adatbázis szerkezet:
-
-## Creator:
+## Adatbázis szerkezet
+### Creator:
     id
     name
     email
     password
-## Quiz:
+### Quiz:
     id
     creatorId
     name
     public
     oneRound
-## Questions:
+### Questions:
     id
     quizId
     text
-## Answer:
+### Answer:
     id
     questionId
     text
     rightAnswer
-## Scoreboard:
+### Scoreboard:
     id
     deviceId
     name
     runCodeId
     finishTime
     points
-## Tags
+### Tags
     id
     text
-## QuizTags
+### QuizTags
     id
     quizId
     tagsId
-## RunCode
+### RunCode
     id
     quizId
     runCode
