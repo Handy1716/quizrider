@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AnswerController } from 'src/controllers/answer.controller';
+import { AnswerController } from '../controllers/answer.controller';
 import { DatabaseModule } from '../database/database.module';
 import { answerProviders } from '../providers/answer.providers';
 import { AnswerService } from '../services/answer.service';

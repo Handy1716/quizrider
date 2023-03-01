@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { RuncodeDto } from 'src/dtos/runcode.dto';
-import Runcode from 'src/entities/runcode.entity';
+import { RuncodeDto } from '../dtos/runcode.dto';
+import Runcode from '../entities/runcode.entity';
 import { RuncodeService } from '../services/runcode.service';
 
 @Controller("/runcode")

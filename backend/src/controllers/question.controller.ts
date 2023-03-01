@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { QuestionDto } from 'src/dtos/question.dto';
-import Question from "src/entities/question.entity";
+import { QuestionDto } from '../dtos/question.dto';
+import Question from "../entities/question.entity";
 import { QuestionService } from '../services/question.service';
 
 

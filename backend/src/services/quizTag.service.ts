@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { QuizTagDto } from 'src/dtos/quizTag.dto';
+import { QuizTagDto } from '../dtos/quizTag.dto';
 import { Repository } from 'typeorm';
 import QuizTag from '../entities/quizTag.entity';
 

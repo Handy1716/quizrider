@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import Scoreboard from 'src/entities/scoreboard.entity';
 import { AppController } from '../controllers/app.controller';
 import { AppService } from '../services/app.service';
 import { AnswerModule } from './answer.module';

@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { AnswerDto } from 'src/dtos/answer.dto';
-import Question from 'src/entities/question.entity';
+import { AnswerDto } from '../dtos/answer.dto';
+import Question from '../entities/question.entity';
 import { Repository } from 'typeorm';
 import Answer from '../entities/answer.entity';
 

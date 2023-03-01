@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { TagDto } from 'src/dtos/tag.dto';
+import { TagDto } from '../dtos/tag.dto';
 import { Repository } from 'typeorm';
 import Tag from '../entities/tag.entity';
 

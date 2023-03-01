@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { QuizDto } from 'src/dtos/quiz.dto';
-import Quiz from 'src/entities/quiz.entity';
+import { QuizDto } from '../dtos/quiz.dto';
+import Quiz from '../entities/quiz.entity';
 import { QuizService } from '../services/quiz.service';
 
 @Controller("/quiz")

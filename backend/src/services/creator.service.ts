@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { CreatorDto } from 'src/dtos/creator.dto';
+import { CreatorDto } from '../dtos/creator.dto';
 import { Repository } from 'typeorm';
 import Creator from '../entities/creator.entity';
 

@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { ScoreboardDto } from 'src/dtos/scoreboard.dto';
+import { ScoreboardDto } from '../dtos/scoreboard.dto';
 import { Repository } from 'typeorm';
 import Scoreboard from '../entities/scoreboard.entity';
 

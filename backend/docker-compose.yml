@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  node:
+    image: "node"
+    user: "node"
+    working_dir: /home/node/app
+    tty: true
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - ${FRONTEND_PORT}:3000
+    links:
+      - mysql
+
+  mysql:
+    image: mysql:5.7.16
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: Europe/Budapest
+    ports:
+      - ${MYSQL_PORT}:3306
+    expose:
+      - 3306
+    volumes:
+      - ./.docker/volumes/mysql:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - ${PMA_PORT}:80

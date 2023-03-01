@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { QuizTagController } from 'src/controllers/quizTag.controller';
+import { QuizTagController } from '../controllers/quizTag.controller';
 import { DatabaseModule } from '../database/database.module';
 import { quizTagProviders } from '../providers/quizTag.providers';
 import { QuizTagService } from '../services/quizTag.service';

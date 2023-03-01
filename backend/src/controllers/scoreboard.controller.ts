@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { ScoreboardDto } from 'src/dtos/scoreboard.dto';
-import Scoreboard from 'src/entities/scoreboard.entity';
+import { ScoreboardDto } from '../dtos/scoreboard.dto';
+import Scoreboard from '../entities/scoreboard.entity';
 import { ScoreboardService } from '../services/scoreboard.service';
 
 @Controller("/scoreboard")

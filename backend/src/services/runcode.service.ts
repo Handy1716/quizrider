@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { RuncodeDto } from 'src/dtos/runcode.dto';
+import { RuncodeDto } from '../dtos/runcode.dto';
 import { Repository } from 'typeorm';
 import Runcode from '../entities/runcode.entity';
 

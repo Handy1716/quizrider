@@ -1,65 +1,64 @@
 # Backend
-## Rest API plan
-### Register
+## Rest API
+### Creator
+#### Register
     POST /creator
     {
-        name
-        email
+        name,
+        email,
         password
     }
-    curl.exe -X POST -H "Content-Type: application/json" -d '{\"name\": \"Teszt2\", \"email\": \"teszt2@quizrider.com\", \"password\": \"12345\"}' http://localhost:3000/creator
-### Log In
-    email
-    password
+#### Log In
     POST /login
-### Quiz list
+    {
+        email,
+        password
+    }
+#### Get
+    GET /creator/:id
+
+### Quiz
+#### List
     GET /quiz
+#### List public
     GET /quiz/public
-### Quiz get
-    id
+#### Get
     GET /quiz/:id
-### Quiz (new)
-    name
-    public
-    oneRound
-    questions
-        text
-        answers
-            text
-            rightAnswer
-    tags
+#### Quiz (new)
     POST /quiz
     {
-    "name":"quiz1",
-    "public":true,
-    "oneRound":true,
-    "questions":[
-        {
-            "text":"kerdes1",
-            "answers":[
-                {
-                "text":"valasz1",
-                "rightAnswer":false
-                },
-                {
-                "text":"valasz2",
-                "rightAnswer":true
-                }
-            ]
-        }
-    ]
+        "name":"quiz1",
+        "public":true,
+        "oneRound":true,
+        "questions":[
+            {
+                "text":"kerdes1",
+                "answers":[
+                    {
+                    "text":"valasz1",
+                    "rightAnswer":false
+                    },
+                    {
+                    "text":"valasz2",
+                    "rightAnswer":true
+                    }
+                ]
+            }
+        ]
     }
 ### Quiz (modify)
-    name
-    public
-    oneRound
-    questions
-        text
-        answers
-            text
-            rightAnswer
-    tags
     PUT /quiz
+    {
+        name,
+        public,
+        oneRound,
+        questions,
+            text
+        answers,
+            text,
+            rightAnswer
+        tags
+    }
 ### Quiz (delete)
     id
     DELETE /quiz/:id

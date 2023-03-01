@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { RuncodeController } from 'src/controllers/runcode.controller';
+import { RuncodeController } from '../controllers/runcode.controller';
 import { DatabaseModule } from '../database/database.module';
 import { runcodeProviders } from '../providers/runcode.providers';
 import { RuncodeService } from '../services/runcode.service';
