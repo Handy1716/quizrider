@@ -1,4 +1,4 @@
-import { IsBoolean, isDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class ScoreboardDto {
   @IsNumber()
@@ -13,7 +13,7 @@ export class ScoreboardDto {
   @IsNotEmpty()
   runCodeId: number;
 
-  @isDate()
+  @IsDate()
   finishTime: Date;
 
   @IsBoolean()

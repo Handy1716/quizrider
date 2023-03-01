@@ -29,6 +29,26 @@
             rightAnswer
     tags
     POST /quiz
+    {
+    "name":"quiz1",
+    "public":true,
+    "oneRound":true,
+    "questions":[
+        {
+            "text":"kerdes1",
+            "answers":[
+                {
+                "text":"valasz1",
+                "rightAnswer":false
+                },
+                {
+                "text":"valasz2",
+                "rightAnswer":true
+                }
+            ]
+        }
+    ]
+    }
 ### Quiz (modify)
     name
     public

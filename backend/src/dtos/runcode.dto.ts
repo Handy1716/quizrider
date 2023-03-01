@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber } from 'class-validator';
+import { isNotEmpty, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class RuncodeDto {
   @IsNumber()
@@ -6,6 +6,7 @@ export class RuncodeDto {
   quizId: number;
 
   @IsNumber()
+  @IsNotEmpty()
   runcode: number;
 
 }
