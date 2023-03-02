@@ -13,7 +13,7 @@ export default class Question {
   text: string;
 
   @ManyToOne(() => Quiz, (quiz) => quiz.questions)
-    quiz: Quiz
+  quiz: Quiz
 
   @OneToMany(() => Answer, (answer) => answer.question)
   answers: Answer[]

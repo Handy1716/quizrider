@@ -1,10 +1,8 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { QuestionDto } from "src/dtos/question.dto";
+import Quiz from "src/entities/quiz.entity";
 import { Repository } from "typeorm";
 import Question from '../entities/question.entity';
-
-
-
 
 @Injectable()
 export class QuestionService {
@@ -23,9 +21,9 @@ export class QuestionService {
         })
     }
 
-    async create(params: QuestionDto): Promise<Question> {
+    async create(params: QuestionDto, quiz: Quiz): Promise<Question> {
         const question: Question = new Question();
-        question.quiz = params.quiz;
+        question.quiz = quiz;
         question.text = params.text;
         return this.questionRepository.save(question);
     }

@@ -21,9 +21,9 @@ export class AnswerService {
     })
   }
 
-  async create(params: AnswerDto): Promise<Answer> {
+  async create(params: AnswerDto, question: Question): Promise<Answer> {
     const answer: Answer = new Answer();
-    answer.question = new Question();
+    answer.question = question;
     answer.text = params.text;
     answer.rightAnswer = params.rightAnwer;
     return this.answerRepository.save(answer);

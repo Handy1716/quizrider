@@ -23,7 +23,7 @@ export class RuncodeService {
   async create(params: RuncodeDto): Promise<Runcode> {
     const runcode: Runcode = new Runcode();
     runcode.quizId = params.quizId;
-    runcode.runcode = params.runcode;
+    runcode.runCode = 1; // TODO generalni egy kodot;
     return this.runcodeRepository.save(runcode);
   }
 }
