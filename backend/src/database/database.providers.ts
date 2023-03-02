@@ -1,5 +1,4 @@
 import { DataSource } from 'typeorm';
-import CreatorEntity from '../entities/creator.entity';
 
 export const databaseProviders = [
   {
@@ -13,7 +12,7 @@ export const databaseProviders = [
         password: 'quiz',
         database: 'quiz',
         entities: [
-            CreatorEntity,
+            '../entities/*.entity.ts'
         ],
         synchronize: true,
       });
