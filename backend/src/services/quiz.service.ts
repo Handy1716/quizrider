@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@nestjs/common';
 import { QuizDto } from '../dtos/quiz.dto';
 import { Repository } from 'typeorm';
 import Quiz from '../entities/quiz.entity';
+import e from 'express';
 
 @Injectable()
 export class QuizService {
@@ -25,13 +26,7 @@ export class QuizService {
     quiz.name = params.name;
     quiz.public = params.public;
     quiz.oneRound = params.oneRound;
-    
-    // for vegig a params.quest...
-    // new Question
-    // question.text
-    // question.Quiz = quiz
-
-
+    quiz.creator = undefined; // TODO a belepett user kell majd
     return this.quizRepository.save(quiz);
   }
 }
