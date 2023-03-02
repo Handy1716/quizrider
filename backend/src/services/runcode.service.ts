@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@nestjs/common';
 import { RuncodeDto } from '../dtos/runcode.dto';
 import { Repository } from 'typeorm';
 import RuncodeEntity from '../entities/runcode.entity';
+import QuizEntity from 'src/entities/quiz.entity';
 
 @Injectable()
 export class RuncodeService {
@@ -20,10 +21,16 @@ export class RuncodeService {
     })
   }
 
-  async create(params: RuncodeDto): Promise<RuncodeEntity> {
-    const runcode: RuncodeEntity = new RuncodeEntity();
-    runcode.quizId = params.quizId;
-    runcode.runCode = 1; // TODO generalni egy kodot;
+  private generateRuncode(): number {
+    return 1;
+  }
+
+  async create(params: RuncodeDto, quiz: QuizEntity): Promise<RuncodeEntity> {
+    const runcode: RuncodeEntity = RuncodeEntity.create();
+    runcode.runCode = this.generateRuncode();
+    runcode.quiz = quiz;
+    runcode.scoreboards = [];
     return this.runcodeRepository.save(runcode);
   }
+  
 }

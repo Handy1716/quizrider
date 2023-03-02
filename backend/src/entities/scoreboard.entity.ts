@@ -3,7 +3,8 @@ import {
   Column,
   Entity, 
   ManyToOne,
-  PrimaryGeneratedColumn
+  PrimaryGeneratedColumn,
+  CreateDateColumn
 } from 'typeorm';
 import RuncodeEntity from './runcode.entity';
 
@@ -22,7 +23,7 @@ export default class ScoreboardEntity extends BaseEntity {
   })
   name: string;
 
-  @Column()
+  @CreateDateColumn()
   finishTime: Date;
 
   @Column()

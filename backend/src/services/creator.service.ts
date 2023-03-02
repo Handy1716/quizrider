@@ -21,10 +21,11 @@ export class CreatorService {
   }
 
   async create(params: CreatorDto): Promise<CreatorEntity> {
-    const creator: CreatorEntity = new CreatorEntity();
+    const creator: CreatorEntity = CreatorEntity.create();
     creator.name = params.name;
     creator.email = params.email;
     creator.password = params.password;
+    creator.quizzes = [];
     return this.creatorRepository.save(creator);
   }
 }

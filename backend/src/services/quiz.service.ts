@@ -3,6 +3,7 @@ import { QuizDto } from '../dtos/quiz.dto';
 import { Repository } from 'typeorm';
 import QuizEntity from '../entities/quiz.entity';
 import e from 'express';
+import CreatorEntity from 'src/entities/creator.entity';
 
 @Injectable()
 export class QuizService {
@@ -21,12 +22,15 @@ export class QuizService {
     })
   }
 
-  async create(params: QuizDto): Promise<QuizEntity> {
-    const quiz: QuizEntity = new QuizEntity();
+  async create(params: QuizDto, creator: CreatorEntity): Promise<QuizEntity> {
+    const quiz: QuizEntity = QuizEntity.create();
     quiz.name = params.name;
     quiz.public = params.public;
     quiz.oneRound = params.oneRound;
-    quiz.creator = undefined; // TODO a belepett user kell majd
+    quiz.creator = creator;
+    quiz.questions = [];
+    quiz.runcodes = [];
+    quiz.tags = [];
     return this.quizRepository.save(quiz);
   }
 }

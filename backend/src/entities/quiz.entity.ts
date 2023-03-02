@@ -3,6 +3,7 @@ import {
   Column,
   Entity,
   OneToMany,
+  ManyToOne,
   ManyToMany,
   JoinTable,
   PrimaryGeneratedColumn,
@@ -29,8 +30,8 @@ export default class QuizEntity extends BaseEntity {
   @Column()
   oneRound: boolean;
 
-  @OneToMany(() => CreatorEntity, (creator) => creator.quizzes)
-  creator: CreatorEntity[]
+  @ManyToOne(() => CreatorEntity, (creator) => creator.quizzes)
+  creator: CreatorEntity
 
   @OneToMany(() => QuestionEntity, (question) => question.quiz)
   questions: QuestionEntity[]

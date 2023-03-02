@@ -21,8 +21,9 @@ export class TagService {
   }
 
   async create(params: TagDto): Promise<TagEntity> {
-    const tag: TagEntity = new TagEntity();
+    const tag: TagEntity = TagEntity.create();
     tag.text = params.text;
+    tag.quizzes = [];
     return this.tagRepository.save(tag);
   }
 }

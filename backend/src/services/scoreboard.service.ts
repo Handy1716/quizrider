@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@nestjs/common';
 import { ScoreboardDto } from '../dtos/scoreboard.dto';
 import { Repository } from 'typeorm';
 import ScoreboardEntity from '../entities/scoreboard.entity';
+import RuncodeEntity from 'src/entities/runcode.entity';
 
 @Injectable()
 export class ScoreboardService {
@@ -20,13 +21,12 @@ export class ScoreboardService {
     })
   }
 
-  async create(params: ScoreboardDto): Promise<ScoreboardEntity> {
-    const scoreboard: ScoreboardEntity = new ScoreboardEntity();
+  async create(params: ScoreboardDto, runcode: RuncodeEntity): Promise<ScoreboardEntity> {
+    const scoreboard: ScoreboardEntity = ScoreboardEntity.create();
     scoreboard.deviceId = params.deviceId;
     scoreboard.name = params.name;
-    scoreboard.runCodeId = params.runCodeId;
-    scoreboard.finishTime = params.finishTime;
     scoreboard.points = params.points;
+    scoreboard.runcode = runcode;
     return this.scoreboardRepository.save(scoreboard);
   }
 }

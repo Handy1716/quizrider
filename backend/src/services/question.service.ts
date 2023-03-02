@@ -22,9 +22,10 @@ export class QuestionService {
     }
 
     async create(params: QuestionDto, quiz: QuizEntity): Promise<QuestionEntity> {
-        const question: QuestionEntity = new QuestionEntity();
-        question.quiz = quiz;
+        const question: QuestionEntity = QuestionEntity.create();
         question.text = params.text;
+        question.quiz = quiz;
+        question.answers = [];
         return this.questionRepository.save(question);
     }
 }

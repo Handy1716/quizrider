@@ -22,10 +22,10 @@ export class AnswerService {
   }
 
   async create(params: AnswerDto, question: QuestionEntity): Promise<AnswerEntity> {
-    const answer: AnswerEntity = new AnswerEntity();
-    answer.question = question;
+    const answer: AnswerEntity = AnswerEntity.create();
     answer.text = params.text;
     answer.rightAnswer = params.rightAnwer;
+    answer.question = question;
     return this.answerRepository.save(answer);
   }
 }
