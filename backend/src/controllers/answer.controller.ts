@@ -14,9 +14,8 @@ export class AnswerController {
     return this.answerService.findById(id)
   }
 
-  @Post()
-  create(@Body() answerDto: AnswerDto): Promise<AnswerEntity> {
-    return this.answerService.create(answerDto)
-  }
+  // @Post()
+  // create(@Body() answerDto: AnswerDto): Promise<AnswerEntity> {
+  //   return this.answerService.create(answerDto)
+  // }
 }
-

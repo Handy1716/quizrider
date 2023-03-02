@@ -14,8 +14,8 @@ export class ScoreboardController {
     return this.scoreboardService.findById(id)
   }
 
-  @Post()
-  create(@Body() scoreboardDto: ScoreboardDto): Promise<ScoreboardEntity> {
-    return this.scoreboardService.create(scoreboardDto)
-  }
+  // @Post()
+  // create(@Body() scoreboardDto: ScoreboardDto): Promise<ScoreboardEntity> {
+  //   return this.scoreboardService.create(scoreboardDto)
+  // }
 }

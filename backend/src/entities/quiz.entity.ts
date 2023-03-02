@@ -10,7 +10,6 @@ import {
 } from 'typeorm';
 import CreatorEntity from './creator.entity';
 import QuestionEntity from './question.entity';
-import QuizTag from './quizTag.entity';
 import RunCode from './runcode.entity';
 import TagEntity from './tag.entity';
 

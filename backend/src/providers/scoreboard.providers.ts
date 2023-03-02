@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import ScoreboardEntity from '../entities/scoreboard.entity';
 
-export const creatorProviders = [
+export const scoreboardProviders = [
   {
     provide: 'SCOREBOARD_REPOSITORY',
     useFactory: (dataSource: DataSource) => dataSource.getRepository(ScoreboardEntity),

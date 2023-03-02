@@ -5,7 +5,6 @@ import { AnswerModule } from './answer.module';
 import { CreatorModule } from './creator.module';
 import { QuestionModule } from './question.module';
 import { QuizModule } from './quiz.module';
-import { QuizTagModule } from './quizTag.module';
 import { RuncodeModule } from './runcode.module';
 import { ScoreboardModule } from './scoreboard.module';
 import { TagModule } from './tag.module';

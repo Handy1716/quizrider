@@ -14,9 +14,9 @@ export class RuncodeController {
     return this.runcodeService.findById(id)
   }
 
-  @Post()
-  create(@Body() runcodeDto: RuncodeDto): Promise<RuncodeEntity> {
-    return this.runcodeService.create(runcodeDto)
-  }
+  // @Post()
+  // create(@Body() runcodeDto: RuncodeDto): Promise<RuncodeEntity> {
+  //   return this.runcodeService.create(runcodeDto)
+  // }
 }
 
