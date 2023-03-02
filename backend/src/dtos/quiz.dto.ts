@@ -1,10 +1,10 @@
 import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { CreatorDto } from './creator.dto';
+import { QuestionDto } from './question.dto';
+import { RuncodeDto } from './runcode.dto';
+import { TagDto } from './tag.dto';
 
 export class QuizDto {
-  @IsNumber()
-  @IsNotEmpty()
-  creatorId: number;
-
   @IsString()
   @IsNotEmpty()
   name: string;
@@ -16,4 +16,12 @@ export class QuizDto {
   @IsBoolean()
   @IsNotEmpty()
   oneRound: boolean;
+
+  creator: CreatorDto;
+
+  questions: QuestionDto[];
+
+  runcodes: RuncodeDto[];
+
+  tags: TagDto[];
 }

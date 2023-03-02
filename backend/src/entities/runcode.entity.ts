@@ -1,9 +1,16 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import Quiz from './quiz.entity';
-import Scoreboard from './scoreboard.entity';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn
+} from 'typeorm';
+import QuizEntity from './quiz.entity';
+import ScoreboardEntity from './scoreboard.entity';
 
 @Entity()
-export default class Runcode {
+export default class RuncodeEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -13,9 +20,9 @@ export default class Runcode {
   })
   runCode: number;
   
-  @ManyToOne(() => Quiz, (quiz) => quiz.runcodes)
-  quiz: Quiz;
+  @ManyToOne(() => QuizEntity, (quiz) => quiz.runcodes)
+  quiz: QuizEntity;
 
-  @OneToMany(() => Scoreboard, (scoreboard) => scoreboard.runcode)
-  scoreboards: Scoreboard[]
+  @OneToMany(() => ScoreboardEntity, (scoreboard) => scoreboard.runcode)
+  scoreboards: ScoreboardEntity[]
 }

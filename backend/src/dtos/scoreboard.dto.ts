@@ -1,9 +1,10 @@
 import { IsBoolean, IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { RuncodeDto } from './runcode.dto';
 
 export class ScoreboardDto {
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  deviceId: number;
+  deviceId: string;
 
   @IsString()
   @IsNotEmpty()
@@ -16,11 +17,8 @@ export class ScoreboardDto {
   @IsDate()
   finishTime: Date;
 
-  @IsBoolean()
-  @IsNotEmpty()
-  oneRound: boolean;
-
   @IsNumber()
   points: number;
 
+  runcode: RuncodeDto;
 }

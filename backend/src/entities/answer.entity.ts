@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   Entity,
   JoinColumn,
@@ -6,10 +7,10 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import Question from './question.entity';
+import QuestionEntity from './question.entity';
 
 @Entity()
-export default class Answer {
+export default class AnswerEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -21,6 +22,6 @@ export default class Answer {
   @Column()
   rightAnswer: boolean;
 
-  @ManyToOne(() => Question, (question) => question.answers)
-  question: Question
+  @ManyToOne(() => QuestionEntity, (question) => question.answers)
+  question: QuestionEntity
 }

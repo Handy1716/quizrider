@@ -1,9 +1,15 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import Question from './question.entity';
-import Quiz from './quiz.entity';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn
+} from 'typeorm';
+import QuestionEntity from './question.entity';
+import QuizEntity from './quiz.entity';
 
 @Entity()
-export default class Creator {
+export default class CreatorEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -22,6 +28,6 @@ export default class Creator {
   })
   password: string;
 
-  @OneToMany(() => Quiz, (quiz) => quiz.creator)
-  quizzes: Quiz[]
+  @OneToMany(() => QuizEntity, (quiz) => quiz.creator)
+  quizzes: QuizEntity[]
 }

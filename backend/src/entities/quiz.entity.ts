@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   Entity,
   OneToMany,
@@ -6,14 +7,14 @@ import {
   JoinTable,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import Creator from './creator.entity';
-import Question from './question.entity';
+import CreatorEntity from './creator.entity';
+import QuestionEntity from './question.entity';
 import QuizTag from './quizTag.entity';
 import RunCode from './runcode.entity';
-import Tag from './tag.entity';
+import TagEntity from './tag.entity';
 
 @Entity()
-export default class Quiz {
+export default class QuizEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -28,16 +29,16 @@ export default class Quiz {
   @Column()
   oneRound: boolean;
 
-  @OneToMany(() => Creator, (creator) => creator.quizzes)
-  creator: Creator[]
+  @OneToMany(() => CreatorEntity, (creator) => creator.quizzes)
+  creator: CreatorEntity[]
 
-  @OneToMany(() => Question, (question) => question.quiz)
-  questions: Question[]
+  @OneToMany(() => QuestionEntity, (question) => question.quiz)
+  questions: QuestionEntity[]
 
   @OneToMany(() => RunCode, (runcode) => runcode.quiz)
   runcodes: RunCode[]
   
-  @ManyToMany(() => Tag, (tag) => tag.quizzes)
+  @ManyToMany(() => TagEntity, (tag) => tag.quizzes)
   @JoinTable()
-  tags: Tag[]
+  tags: TagEntity[]
 }

@@ -1,27 +1,27 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { ScoreboardDto } from '../dtos/scoreboard.dto';
 import { Repository } from 'typeorm';
-import Scoreboard from '../entities/scoreboard.entity';
+import ScoreboardEntity from '../entities/scoreboard.entity';
 
 @Injectable()
 export class ScoreboardService {
   constructor(
     @Inject('SCOREBOARD_REPOSITORY')
-    private scoreboardRepository: Repository<Scoreboard>,
+    private scoreboardRepository: Repository<ScoreboardEntity>,
   ) {}
 
-  async findAll(): Promise<Scoreboard[]> {
+  async findAll(): Promise<ScoreboardEntity[]> {
     return this.scoreboardRepository.find();
   }
 
-  async findById(id: number): Promise<Scoreboard> {
+  async findById(id: number): Promise<ScoreboardEntity> {
     return this.scoreboardRepository.findOneBy({
       id
     })
   }
 
-  async create(params: ScoreboardDto): Promise<Scoreboard> {
-    const scoreboard: Scoreboard = new Scoreboard();
+  async create(params: ScoreboardDto): Promise<ScoreboardEntity> {
+    const scoreboard: ScoreboardEntity = new ScoreboardEntity();
     scoreboard.deviceId = params.deviceId;
     scoreboard.name = params.name;
     scoreboard.runCodeId = params.runCodeId;

@@ -1,10 +1,10 @@
 import { DataSource } from 'typeorm';
-import Question from '../entities/question.entity';
+import QuestionEntity from '../entities/question.entity';
 
 export const questionProviders = [
   {
     provide: 'QUESTION_REPOSITORY',
-    useFactory: (dataSource: DataSource) => dataSource.getRepository(Question),
+    useFactory: (dataSource: DataSource) => dataSource.getRepository(QuestionEntity),
     inject: ['DATA_SOURCE'],
   },
 ];

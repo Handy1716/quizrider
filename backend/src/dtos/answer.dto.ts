@@ -1,4 +1,5 @@
 import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { QuestionDto } from './question.dto';
 
 export class AnswerDto {
   @IsNumber()
@@ -12,5 +13,6 @@ export class AnswerDto {
   @IsBoolean()
   @IsNotEmpty()
   rightAnwer: boolean;
-}
 
+  question: QuestionDto;
+}

@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { RuncodeDto } from '../dtos/runcode.dto';
-import Runcode from '../entities/runcode.entity';
+import RuncodeEntity from '../entities/runcode.entity';
 import { RuncodeService } from '../services/runcode.service';
 
 @Controller("/runcode")
@@ -10,12 +10,12 @@ export class RuncodeController {
   ) {}
 
   @Get("/:id")
-  findById(@Param('id') id: number): Promise<Runcode> {
+  findById(@Param('id') id: number): Promise<RuncodeEntity> {
     return this.runcodeService.findById(id)
   }
 
   @Post()
-  create(@Body() runcodeDto: RuncodeDto): Promise<Runcode> {
+  create(@Body() runcodeDto: RuncodeDto): Promise<RuncodeEntity> {
     return this.runcodeService.create(runcodeDto)
   }
 }

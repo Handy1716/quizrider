@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { TagDto } from '../dtos/tag.dto';
-import Tag from '../entities/tag.entity';
+import TagEntity from '../entities/tag.entity';
 import { TagService } from '../services/tag.service';
 
 @Controller("/tag")
@@ -10,12 +10,12 @@ export class TagController {
   ) {}
 
   @Get("/:id")
-  findById(@Param('id') id: number): Promise<Tag> {
+  findById(@Param('id') id: number): Promise<TagEntity> {
     return this.tagService.findById(id)
   }
 
   @Post()
-  create(@Body() tagDto: TagDto): Promise<Tag> {
+  create(@Body() tagDto: TagDto): Promise<TagEntity> {
     return this.tagService.create(tagDto)
   }
 }

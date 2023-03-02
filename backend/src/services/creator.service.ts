@@ -1,27 +1,27 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { CreatorDto } from '../dtos/creator.dto';
 import { Repository } from 'typeorm';
-import Creator from '../entities/creator.entity';
+import CreatorEntity from '../entities/creator.entity';
 
 @Injectable()
 export class CreatorService {
   constructor(
     @Inject('CREATOR_REPOSITORY')
-    private creatorRepository: Repository<Creator>,
+    private creatorRepository: Repository<CreatorEntity>,
   ) {}
 
-  async findAll(): Promise<Creator[]> {
+  async findAll(): Promise<CreatorEntity[]> {
     return this.creatorRepository.find();
   }
 
-  async findById(id: number): Promise<Creator> {
+  async findById(id: number): Promise<CreatorEntity> {
     return this.creatorRepository.findOneBy({
       id
     })
   }
 
-  async create(params: CreatorDto): Promise<Creator> {
-    const creator: Creator = new Creator();
+  async create(params: CreatorDto): Promise<CreatorEntity> {
+    const creator: CreatorEntity = new CreatorEntity();
     creator.name = params.name;
     creator.email = params.email;
     creator.password = params.password;

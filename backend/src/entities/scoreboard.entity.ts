@@ -1,8 +1,14 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import Runcode from './runcode.entity';
+import {
+  BaseEntity,
+  Column,
+  Entity, 
+  ManyToOne,
+  PrimaryGeneratedColumn
+} from 'typeorm';
+import RuncodeEntity from './runcode.entity';
 
 @Entity()
-export default class Scoreboard {
+export default class ScoreboardEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -17,11 +23,11 @@ export default class Scoreboard {
   name: string;
 
   @Column()
-  created: Date;
+  finishTime: Date;
 
   @Column()
   points: number;
 
-  @ManyToOne(() => Runcode, (runcode) => runcode.scoreboards)
-  runcode: Runcode
+  @ManyToOne(() => RuncodeEntity, (runcode) => runcode.scoreboards)
+  runcode: RuncodeEntity
 }

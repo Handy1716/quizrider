@@ -1,12 +1,11 @@
-# Backend
+# Backend REST API
 ## Creator
 ### Register
     POST /creator
     {
         name,
         email,
-        password,
-        quizzes: []
+        password
     }
 ### Log In
     POST /login

@@ -1,8 +1,14 @@
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
-import Quiz from './quiz.entity';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  ManyToMany,
+  PrimaryGeneratedColumn
+} from 'typeorm';
+import QuizEntity from './quiz.entity';
 
 @Entity()
-export default class Tag {
+export default class TagEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -11,6 +17,6 @@ export default class Tag {
   })
   text: string;
 
-  @ManyToMany(() => Quiz, (quiz) => quiz.tags)
-  quizzes: Quiz[];
+  @ManyToMany(() => QuizEntity, (quiz) => quiz.tags)
+  quizzes: QuizEntity[];
 }

@@ -1,4 +1,5 @@
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { QuizDto } from './quiz.dto';
 
 export class CreatorDto {
   @IsString()
@@ -12,4 +13,6 @@ export class CreatorDto {
   @IsString()
   @IsNotEmpty()
   password: string;
+
+  quizzes: QuizDto[];
 }

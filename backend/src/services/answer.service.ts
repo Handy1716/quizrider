@@ -1,28 +1,28 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { AnswerDto } from '../dtos/answer.dto';
-import Question from '../entities/question.entity';
+import QuestionEntity from '../entities/question.entity';
 import { Repository } from 'typeorm';
-import Answer from '../entities/answer.entity';
+import AnswerEntity from '../entities/answer.entity';
 
 @Injectable()
 export class AnswerService {
   constructor(
     @Inject('ANSWER_REPOSITORY')
-    private answerRepository: Repository<Answer>,
+    private answerRepository: Repository<AnswerEntity>,
   ) {}
 
-  async findAll(): Promise<Answer[]> {
+  async findAll(): Promise<AnswerEntity[]> {
     return this.answerRepository.find();
   }
 
-  async findById(id: number): Promise<Answer> {
+  async findById(id: number): Promise<AnswerEntity> {
     return this.answerRepository.findOneBy({
       id
     })
   }
 
-  async create(params: AnswerDto, question: Question): Promise<Answer> {
-    const answer: Answer = new Answer();
+  async create(params: AnswerDto, question: QuestionEntity): Promise<AnswerEntity> {
+    const answer: AnswerEntity = new AnswerEntity();
     answer.question = question;
     answer.text = params.text;
     answer.rightAnswer = params.rightAnwer;
