@@ -1,3 +1,10 @@
+import AnswerEntity from 'src/entities/answer.entity';
+import CreatorEntity from 'src/entities/creator.entity';
+import QuestionEntity from 'src/entities/question.entity';
+import QuizEntity from 'src/entities/quiz.entity';
+import RuncodeEntity from 'src/entities/runcode.entity';
+import ScoreboardEntity from 'src/entities/scoreboard.entity';
+import TagEntity from 'src/entities/tag.entity';
 import { DataSource } from 'typeorm';
 
 export const databaseProviders = [
@@ -12,9 +19,9 @@ export const databaseProviders = [
         password: 'quiz',
         database: 'quiz',
         entities: [
-            '../entities/*.entity.ts'
+            CreatorEntity, QuizEntity, QuestionEntity, AnswerEntity, RuncodeEntity, ScoreboardEntity, TagEntity,  
         ],
-        synchronize: true,
+        synchronize: true
       });
       return dataSource.initialize();
     },

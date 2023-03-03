@@ -9,7 +9,7 @@ import {
 import AnswerEntity from './answer.entity';
 import QuizEntity from './quiz.entity';
 
-@Entity()
+@Entity({ name: 'question' })
 export default class QuestionEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

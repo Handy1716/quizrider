@@ -9,13 +9,12 @@ import {
 import QuizEntity from './quiz.entity';
 import ScoreboardEntity from './scoreboard.entity';
 
-@Entity()
+@Entity({ name: 'runcode' })
 export default class RuncodeEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({
-    length: 16,
     unique: true
   })
   runCode: number;

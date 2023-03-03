@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import QuizEntity from './quiz.entity';
 
-@Entity()
+@Entity({ name: 'tag' })
 export default class TagEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

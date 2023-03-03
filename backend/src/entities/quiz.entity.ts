@@ -13,7 +13,7 @@ import QuestionEntity from './question.entity';
 import RunCode from './runcode.entity';
 import TagEntity from './tag.entity';
 
-@Entity()
+@Entity({ name: 'quiz' })
 export default class QuizEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -32,7 +32,9 @@ export default class QuizEntity extends BaseEntity {
   @ManyToOne(() => CreatorEntity, (creator) => creator.quizzes)
   creator: CreatorEntity
 
-  @OneToMany(() => QuestionEntity, (question) => question.quiz)
+  @OneToMany(() => QuestionEntity, (question) => question.quiz, {
+    eager: true
+  })
   questions: QuestionEntity[]
 
   @OneToMany(() => RunCode, (runcode) => runcode.quiz)

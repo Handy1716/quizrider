@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import QuestionEntity from './question.entity';
 
-@Entity()
+@Entity({ name: 'entity'} )
 export default class AnswerEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

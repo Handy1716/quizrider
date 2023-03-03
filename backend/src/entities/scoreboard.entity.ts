@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import RuncodeEntity from './runcode.entity';
 
-@Entity()
+@Entity({ name: 'scoreboard' })
 export default class ScoreboardEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

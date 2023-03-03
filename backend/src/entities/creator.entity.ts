@@ -8,7 +8,7 @@ import {
 import QuestionEntity from './question.entity';
 import QuizEntity from './quiz.entity';
 
-@Entity()
+@Entity({ name: 'creator' })
 export default class CreatorEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
