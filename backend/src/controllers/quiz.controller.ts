@@ -24,16 +24,11 @@ export class QuizController {
     const creator = new CreatorEntity(); // TODO belepett user
     creator.id = 1;
     const quiz = await this.quizService.create(quizDto, creator);
-    quizDto?.questions?.forEach(async questionDto => {
-      const question = await this.questionService.create(questionDto, quiz);
-    })
-
-    // ujat  menteni quizbol
-      // letreho az osszes question
-        // leteho az osszes answert
-    
-    // const question = this.questionService.create(..., quiz);
-    // const answer = this.answerService.create(..., question);
-    return await this.quizService.findById(quiz.id);
+    await Promise.all(
+      quizDto?.questions?.map(questionDto => {
+        return this.questionService.create(questionDto, quiz);
+      }) || []
+    );
+    return this.quizService.findById(quiz.id);
   }
 }
