@@ -9,7 +9,9 @@ export default function Header() {
             
                 <Row>
                     <Col><img src="images/logo.png" alt="logo" className="logo"/></Col>
-                    <Col><Button className="btn-header"> Sign Up</Button></Col>
+                    <Col>
+                      {if props.page}<Button className="btn-header"> Sign Up</Button>
+                    </Col>
                 </Row>
             
         )
