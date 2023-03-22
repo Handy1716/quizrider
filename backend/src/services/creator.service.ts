@@ -42,9 +42,9 @@ export class CreatorService {
     return this.creatorRepository.save(creator);
   }
 
-  async login(params: LoginDto): Promise<boolean> {
+  async login(params: LoginDto): Promise<CreatorEntity> {
     const user = await this.findByEmail(params.email);
     const isMatch = await bcrypt.compare(params.password, user?.password || '');
-    return isMatch;
+    return isMatch ? user : null;
   }
 }

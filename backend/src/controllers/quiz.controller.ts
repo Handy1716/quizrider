@@ -1,5 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Request, UseGuards } from '@nestjs/common/decorators';
 import CreatorEntity from 'src/entities/creator.entity';
+import { JwtAuthGuard } from 'src/providers/auth.providers';
 import { AnswerService } from 'src/services/answer.service';
 import { QuestionService } from 'src/services/question.service';
 import { QuizDto } from '../dtos/quiz.dto';
@@ -19,8 +21,10 @@ export class QuizController {
     return this.quizService.findById(id)
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
-  async create(@Body() quizDto: QuizDto): Promise<QuizEntity> {
+  async create(@Body() quizDto: QuizDto, @Request() req: any): Promise<QuizEntity> {
+    console.log(req.user)
     const creator = new CreatorEntity(); // TODO belepett user
     creator.id = 1;
     const quiz = await this.quizService.create(quizDto, creator);

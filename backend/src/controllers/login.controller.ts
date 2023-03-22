@@ -14,12 +14,13 @@ export class LoginController {
 
   @Post("/login")
   async login(@Body() loginDto: LoginDto, @Res() res: Response) {
-    const isAuthenticated = await this.creatorService.login(loginDto);
-    if (!isAuthenticated) {
+    const user = await this.creatorService.login(loginDto);
+    if (!user) {
       throw new UnauthorizedException();
     }
     const token = this.jwtService.sign({
-      email: loginDto.email
+      id: user.id,
+      email: user.email
     }, {
       secret: appConstants.jwtSecret
     });
