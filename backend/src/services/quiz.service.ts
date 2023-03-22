@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import QuizEntity from '../entities/quiz.entity';
 import e from 'express';
 import CreatorEntity from 'src/entities/creator.entity';
+import QuestionEntity from 'src/entities/question.entity';
 
 @Injectable()
 export class QuizService {
@@ -28,7 +29,13 @@ export class QuizService {
     quiz.public = params.public;
     quiz.oneRound = params.oneRound;
     quiz.creator = creator;
-    quiz.questions = [];
+    quiz.questions = params?.questions?.map(questionDto => {
+      const question: QuestionEntity = QuestionEntity.create();
+      question.quiz = quiz;
+      question.text = questionDto.text;
+      question.answers = [];
+      return question;
+    }) || [];
     quiz.runcodes = [];
     quiz.tags = [];
     return this.quizRepository.save(quiz);

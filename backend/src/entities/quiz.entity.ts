@@ -33,7 +33,8 @@ export default class QuizEntity extends BaseEntity {
   creator: CreatorEntity
 
   @OneToMany(() => QuestionEntity, (question) => question.quiz, {
-    eager: true
+    eager: true,
+    cascade: true
   })
   questions: QuestionEntity[]
 
