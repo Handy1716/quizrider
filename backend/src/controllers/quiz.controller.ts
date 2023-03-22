@@ -24,9 +24,8 @@ export class QuizController {
   @UseGuards(JwtAuthGuard)
   @Post()
   async create(@Body() quizDto: QuizDto, @Request() req: any): Promise<QuizEntity> {
-    console.log(req.user)
-    const creator = new CreatorEntity(); // TODO belepett user
-    creator.id = 1;
+    const creator = new CreatorEntity();
+    creator.id = req.user.id;
     const quiz = await this.quizService.create(quizDto, creator);
     await Promise.all(
       quizDto?.questions?.map(questionDto => {
