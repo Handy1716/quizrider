@@ -2,11 +2,14 @@ import { Body, Controller, HttpException, HttpStatus, Get, Param, Post, Res, Una
 import { Response } from 'express';
 import { LoginDto } from 'src/dtos/login.dto';
 import { CreatorService } from 'src/services/creator.service';
+import { JwtService } from '@nestjs/jwt';
+import { appConstants } from 'src/modules/app.module';
 
 @Controller()
 export class LoginController {
   constructor(
-    private readonly creatorService: CreatorService
+    private readonly creatorService: CreatorService,
+    private readonly jwtService: JwtService
   ) {}
 
   @Post("/login")
@@ -15,24 +18,14 @@ export class LoginController {
     if (!isAuthenticated) {
       throw new UnauthorizedException();
     }
-    ;
-    return res.status(200).json({});
-    // return res.status(200).json({});
-    // if (params.username == "admin" && params.password == "admin") {
-    // }
-    // return res.status(401).json({});
+    const token = this.jwtService.sign({
+      email: loginDto.email
+    }, {
+      secret: appConstants.jwtSecret
+    });
+    return res.status(200).json({
+      token
+    });
   }
-  // async login(@Body() loginDto: LoginDto): Promise<boolean> {
-  //   return this.creatorService.login(loginDto);
-  // }
-
-  // @Post("/login")
-  // login(@Body() params, @Res() res: Response) {
-  //   console.log("login", params);
-  //   if (params.username == "admin" && params.password == "admin") {
-  //       return res.status(200).json({});
-  //   }
-  //   return res.status(401).json({});
-  // }
 
 }

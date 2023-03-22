@@ -1,4 +1,6 @@
 import { Body, Controller, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
+import { UseGuards } from '@nestjs/common/decorators';
+import { JwtAuthGuard } from 'src/providers/auth.providers';
 import { CreatorDto } from '../dtos/creator.dto';
 import CreatorEntity from '../entities/creator.entity';
 import { CreatorService } from '../services/creator.service';
@@ -9,9 +11,11 @@ export class CreatorController {
     private readonly creatorService: CreatorService
   ) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get("/:id")
-  findById(@Param('id') id: number): Promise<CreatorEntity> {
-    return this.creatorService.findById(id)
+  async findById(@Param('id') id: number): Promise<CreatorEntity> {
+    const user = await this.creatorService.findById(id);
+    return user;
   }
 
   @Post()

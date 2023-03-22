@@ -13,13 +13,16 @@ export class CreatorService {
     private creatorRepository: Repository<CreatorEntity>,
   ) {}
 
-  async findAll(): Promise<CreatorEntity[]> {
-    return this.creatorRepository.find();
-  }
+  // async findAll(): Promise<CreatorEntity[]> {
+  //   return this.creatorRepository.find();
+  // }
 
   async findById(id: number): Promise<CreatorEntity> {
-    return this.creatorRepository.findOneBy({
-      id
+    return this.creatorRepository.findOne({
+      select: ["id", "name", "email"],
+      where: {
+        id
+      }
     })
   }
 

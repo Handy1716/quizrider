@@ -1,6 +1,12 @@
+
+export const appConstants = {
+  jwtSecret: 'secret',
+};
+
 import { Module } from '@nestjs/common';
 import { AppController } from '../controllers/app.controller';
 import { AppService } from '../services/app.service';
+import { AuthModule } from './auth.module';
 import { AnswerModule } from './answer.module';
 import { CreatorModule } from './creator.module';
 import { LoginModule } from './login.module';
@@ -9,10 +15,21 @@ import { QuizModule } from './quiz.module';
 import { RuncodeModule } from './runcode.module';
 import { ScoreboardModule } from './scoreboard.module';
 import { TagModule } from './tag.module';
+import { JwtAuthStrategy } from 'src/providers/auth.providers';
 
 @Module({
-  imports: [CreatorModule, LoginModule, QuizModule, QuestionModule, AnswerModule, TagModule, ScoreboardModule, RuncodeModule],
+  imports: [
+    AuthModule,
+    CreatorModule,
+    LoginModule,
+    QuizModule,
+    QuestionModule,
+    AnswerModule,
+    TagModule,
+    ScoreboardModule,
+    RuncodeModule
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtAuthStrategy],
 })
 export class AppModule {}
