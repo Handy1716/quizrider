@@ -1,11 +1,7 @@
 import { Button, Col, Row } from "react-bootstrap";
-import Header2 from "./header2";
-
-
 export default function Register() {
     return (
         <>
-        <Header2 />
             <form action="/creator" /* ezen kell javitani */ method="post">
                 <Row>
                     <Col><h3 className="logRegText">Email:</h3></Col>
