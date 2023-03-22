@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpException, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
 import { CreatorDto } from '../dtos/creator.dto';
 import CreatorEntity from '../entities/creator.entity';
 import { CreatorService } from '../services/creator.service';
@@ -18,8 +18,9 @@ export class CreatorController {
   async create(@Body() creatorDto: CreatorDto): Promise<CreatorEntity> {
     const user = await this.creatorService.findByEmail(creatorDto.email);
     if (user) {
-      throw new HttpException('Email exists', 400);
+      throw new HttpException('Email exists', HttpStatus.BAD_REQUEST);
     }
     return this.creatorService.create(creatorDto)
   }
+
 }

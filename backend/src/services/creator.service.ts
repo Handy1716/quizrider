@@ -3,6 +3,7 @@ import { CreatorDto } from '../dtos/creator.dto';
 import { Repository } from 'typeorm';
 import CreatorEntity from '../entities/creator.entity';
 import * as bcrypt from 'bcrypt';
+import { LoginDto } from 'src/dtos/login.dto';
 
 @Injectable()
 export class CreatorService {
@@ -35,5 +36,11 @@ export class CreatorService {
     creator.password =  await bcrypt.hash(params.password, salt);
     creator.quizzes = [];
     return this.creatorRepository.save(creator);
+  }
+
+  async login(params: LoginDto): Promise<boolean> {
+    const user = await this.findByEmail(params.email);
+    const isMatch = await bcrypt.compare(params.password, user?.password || '');
+    return isMatch;
   }
 }

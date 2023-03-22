@@ -11,7 +11,7 @@ import { ScoreboardModule } from './scoreboard.module';
 import { TagModule } from './tag.module';
 
 @Module({
-  imports: [LoginModule, CreatorModule, QuizModule, QuestionModule, AnswerModule, TagModule, ScoreboardModule, RuncodeModule],
+  imports: [CreatorModule, LoginModule, QuizModule, QuestionModule, AnswerModule, TagModule, ScoreboardModule, RuncodeModule],
   controllers: [AppController],
   providers: [AppService],
 })
