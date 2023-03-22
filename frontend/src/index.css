@@ -11,6 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-#asd {
+.container{
+  background-color: grey;
+  
+}
+.btn-header {
+  float: right;
+}
+.logo{
+  width: 100px;
+}
+
+.logRegText{
+  margin-left: 50%;
+}
+.centering{
   background-color: red;
+  text-align: center;
+  float:right;
 }
