@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@nestjs/common';
 import { CreatorDto } from '../dtos/creator.dto';
 import { Repository } from 'typeorm';
 import CreatorEntity from '../entities/creator.entity';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class CreatorService {
@@ -20,11 +21,18 @@ export class CreatorService {
     })
   }
 
+  async findByEmail(email: string): Promise<CreatorEntity> {
+    return this.creatorRepository.findOneBy({
+      email
+    })
+  }
+
   async create(params: CreatorDto): Promise<CreatorEntity> {
     const creator: CreatorEntity = CreatorEntity.create();
     creator.name = params.name;
     creator.email = params.email;
-    creator.password = params.password;
+    const salt = await bcrypt.genSalt();
+    creator.password =  await bcrypt.hash(params.password, salt);
     creator.quizzes = [];
     return this.creatorRepository.save(creator);
   }
