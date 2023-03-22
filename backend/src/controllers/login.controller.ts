@@ -1,4 +1,4 @@
-import { Body, Controller, HttpException, HttpStatus, Get, Param, Post, Res } from '@nestjs/common';
+import { Body, Controller, HttpException, HttpStatus, Get, Param, Post, Res, UnauthorizedException } from '@nestjs/common';
 import { Response } from 'express';
 import { LoginDto } from 'src/dtos/login.dto';
 import { CreatorService } from 'src/services/creator.service';
@@ -13,7 +13,7 @@ export class LoginController {
   async login(@Body() loginDto: LoginDto, @Res() res: Response) {
     const isAuthenticated = await this.creatorService.login(loginDto);
     if (!isAuthenticated) {
-      throw new HttpException("Wrong email or password", HttpStatus.FORBIDDEN);
+      throw new UnauthorizedException();
     }
     ;
     return res.status(200).json({});
