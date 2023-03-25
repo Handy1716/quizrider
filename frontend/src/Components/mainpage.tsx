@@ -5,6 +5,7 @@ import Register from "./register";
 
 export default function MainPage() {
     const [asd, setAsd] = useState<boolean>(false);
+    const [logged, setLogged]=useState<boolean>(false);
     function handleClick() {
         setAsd(!asd);
     }
