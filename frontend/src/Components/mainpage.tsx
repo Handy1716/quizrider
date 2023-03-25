@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Gyakorlas from "./gyakorlas";
 import Header from "./header";
 import Login from "./login";
 import Register from "./register";
@@ -9,19 +8,19 @@ export default function MainPage() {
     function handleClick() {
         setAsd(!asd);
     }
-    if(asd === true) {
-    return ( 
+    return (
         <>
-        <Gyakorlas value="malacka" onGyakorlasClick={handleClick}/>
+            {asd ? (
+        <div>
+        <Header value="Register" onHeaderClick={handleClick} />
         <Login />
+        </div>
+      ) : (
+        <div>
+        <Header value="Log In" onHeaderClick={handleClick} />
+        <Register />
+        </div>
+      )}
         </>
     )
-    } else {
-    return ( 
-            <div>
-            <Gyakorlas value="malacka" onGyakorlasClick={handleClick}/>
-            <Register />
-            </div>
-        )
-    }
 }

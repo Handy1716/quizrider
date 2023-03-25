@@ -1,19 +1,10 @@
-import { useState } from "react"
-import { Button, Col, Row } from "react-bootstrap"
-import Login from "./login"
-import Register from "./register"
+import { Button } from "react-bootstrap";
 
-export default function Header() {
-    const [btLog, setBtLog] = useState<boolean>(true);
 
-    function SignUpClick() {
-        setBtLog(false);
-    }
+export default function Header({value, onHeaderClick}:{value:string, onHeaderClick:()=>void}) {
     return(
-                <Row>
-                    <Col><img src="images/logo.png" alt="logo" className="logo"/></Col>
-                    <Col><Button className="btn-header"> Sign Up</Button></Col>
-                </Row>
-            
-        )
+    <>
+    <Button className="btn" onClick={onHeaderClick}>{value}</Button>
+    </>
+    )
 }
