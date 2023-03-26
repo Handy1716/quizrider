@@ -19,14 +19,18 @@ code {
   float: right;
 }
 .logo{
-  width: 100px;
+  width: 100px;  
 }
-
+.logo:hover{
+  cursor: pointer;
+}
 .logRegText{
   margin-left: 50%;
 }
 .centering{
-  background-color: red;
   text-align: center;
-  float:right;
+}
+.mainBoxElement{
+  text-align: center;
+  padding-top: 15px;
 }

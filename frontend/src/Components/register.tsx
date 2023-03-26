@@ -13,9 +13,9 @@ export default function Register() {
                 </Row>
                 <Row>
                     <Col><h3 className="logRegText">Password again:</h3></Col>
-                    <Col><input name="password2" id="password2"></input></Col>            
+                    <Col><input name="password2" id="password2" /></Col>            
                 </Row>
-                <Row><div><Button type="submit">Register</Button></div></Row>
+                <Row><Col className="centering"><Button type="submit">Register</Button></Col></Row>
             </form>
         </>
     )
