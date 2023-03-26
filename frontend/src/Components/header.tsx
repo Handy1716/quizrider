@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
 
-export default function Header({page, loginClick, registerClick} : {page : string, loggedIn: boolean, loginClick:() => void, registerClick:() => void}) {
+export default function Header({page, loginClick, registerClick, mainClick} : {page : string, loggedIn: boolean, loginClick:() => void, registerClick:() => void
+mainClick: () => void}) {
 
     // login gomb akkor kell, ha a register oldalon vagyok
     const loginVisible = (page === "register");
@@ -9,9 +10,9 @@ export default function Header({page, loginClick, registerClick} : {page : strin
 
     return (
         <>
-        <img src="" alt="" />
-        <Button className={`btn ${loginVisible ? 'd-inline-block' : 'd-none'}`} onClick={loginClick}>Login</Button>
-        <Button className={`btn ${signupVisible ? 'd-inline-block' : 'd-none'}`} onClick={registerClick}>Signup</Button>
+        <img src="images/logo.png" alt="logo" className="logo" onClick={mainClick}/>
+        <Button className={`btn ${loginVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={loginClick}>Login</Button>
+        <Button className={`btn ${signupVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={registerClick}>Signup</Button>
         </>
     )
 }

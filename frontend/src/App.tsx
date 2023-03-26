@@ -5,6 +5,7 @@ import Register from './Components/register';
 import Header from './Components/header';
 import { Container, Button } from 'react-bootstrap';
 import Main from './Components/main';
+import Navbar from './Components/afterLogin';
 
 
 function App() {
@@ -17,24 +18,32 @@ function App() {
   function loginClick() {
     setState({
       page: "login",
-      loggedIn: false,
+      loggedIn: state.loggedIn,
     });
   }
   function registerClick() {
     setState({
       page: "register",
-      loggedIn: false,
+      loggedIn: state.loggedIn,
     });
+  }
+  function mainClick() {
+    setState({
+      page: "main",
+      loggedIn: state.loggedIn,
+    })
   }
   return (
     <>
-      <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick}/>
+      <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick}/>
       <Container>
-      <Main />
+      {state.loggedIn===false && state.page==="main" &&(<Main loginClick={loginClick} registerClick={registerClick}/>)}
       {state.loggedIn===false && state.page==="login" &&(<Login />)}
       {state.loggedIn===false && state.page==="register" &&(<Register />)}
       {state.page}
+      <Navbar />
       </Container>
+
     </>
   );
 
