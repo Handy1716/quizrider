@@ -20,19 +20,16 @@ export default function CreateQuiz(){
                         </Row>
                         </form>
                         <Row>
-                            <Col><h4 className="logRegText">One Round:</h4>  </Col><Col><input type="radio" name="oneRound" id="yes" value="Yes" /><label htmlFor="Yes"><h4>yes</h4></label></Col>
+                            <Col><h4 className="logRegText">One Round:</h4>  </Col><Col><input type="radio" name="oneRound" id="yes" value="Yes" /><label htmlFor="Yes"><h4>yes</h4></label><input type="radio" name="oneRound" id="no" value="No" /><label htmlFor="No"><h4>no</h4></label></Col>
                         </Row>
                         <Row>
-                            <Col/><Col><input type="radio" name="oneRound" id="no" value="No" /><label htmlFor="No"><h4>no</h4></label></Col>
+                            <Col><input type="radio" name="Public" id="public" value="Public" /><label htmlFor="Public"><h4>public</h4></label> </Col><Col><input type="radio" name="Private" id="private" value="Private" /><label htmlFor="Private"><h4>Private</h4></label></Col>
                         </Row>
                         <Row>
-                            <Col><h4 className="logRegText">One Round:</h4>  </Col><Col><input type="radio" name="oneRound" id="yes" value="Yes" /><label htmlFor="Yes"><h4>yes</h4></label></Col>
-                        </Row>
-                        <Row>
-                            <Col/><Col><input type="radio" name="oneRound" id="no" value="No" /><label htmlFor="No"><h4>no</h4></label></Col>
                         </Row>
                     </form>
                 </Col>
+                
                 <Col/>
             </Row>
         </div>
