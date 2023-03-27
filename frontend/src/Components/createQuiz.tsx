@@ -1,5 +1,5 @@
-import { Button, Col, Row } from "react-bootstrap";
-
+import { Button, Col, Form, Row } from "react-bootstrap";
+//<div class="form-check form-switch"><input type="checkbox" id="custom-switch" class="form-check-input"><label title="" for="custom-switch" class="form-check-label">Check this switch</label></div>
 
 export default function CreateQuiz(){
     return(
@@ -20,17 +20,31 @@ export default function CreateQuiz(){
                         </Row>
                         </form>
                         <Row>
-                            <Col><h4 className="logRegText">One Round:</h4>  </Col><Col><input type="radio" name="oneRound" id="yes" value="Yes" /><label htmlFor="Yes"><h4>yes</h4></label><input type="radio" name="oneRound" id="no" value="No" /><label htmlFor="No"><h4>no</h4></label></Col>
+                            <Col><h4 className="logRegText">One round:</h4></Col>
+                            <Col>
+                            <Form.Check 
+                            type="switch"
+                            id="custom-switch"
+                            label=""
+                            />
+                            </Col>
                         </Row>
                         <Row>
-                            <Col><input type="radio" name="Public" id="public" value="Public" /><label htmlFor="Public"><h4>public</h4></label> </Col><Col><input type="radio" name="Private" id="private" value="Private" /><label htmlFor="Private"><h4>Private</h4></label></Col>
+                            <Col><h4 className="logRegText">Private:</h4></Col>
+                            <Col>
+                            <Form.Check 
+                            type="switch"
+                            id="custom-switch"
+                            label=""
+                            />
+                            </Col>
                         </Row>
                         <Row>
                         </Row>
                     </form>
                 </Col>
                 
-                <Col/>
+                <Col/>  
             </Row>
         </div>
     )

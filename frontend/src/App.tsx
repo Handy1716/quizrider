@@ -5,8 +5,8 @@ import Register from './Components/register';
 import Header from './Components/header';
 import { Container, Button } from 'react-bootstrap';
 import Main from './Components/main';
-import Navbar from './Components/navbar';
 import CreateQuiz from './Components/createQuiz';
+import Tabsbar from './Components/tabsbar';
 
 
 function App() {
@@ -50,9 +50,8 @@ function App() {
       <hr />
       <p className='centering'> bejelentkezés utáni:</p>
       <hr />
-      <Navbar createQuizClick={createQuizClick}/>
-      {state.loggedIn===true && state.page==="createQuiz" &&(<CreateQuiz />)} 
-      <CreateQuiz />
+      <Tabsbar createQuizClick={createQuizClick}/>
+      {state.loggedIn===true && state.page==="createQuiz" &&(<CreateQuiz />)}
       </Container>
 
     </>
