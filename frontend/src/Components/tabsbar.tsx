@@ -13,14 +13,23 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
         <Tab eventKey="PublicQuiz" title="Public quizzes">
         <Row>
         <Col />
-        <Col xs={6}><Row><Col>as</Col><Col>as</Col></Row><QuizList /></Col>
+        <Col xs={6}>
+          <Row>
+            <Col>Quiz name:</Col>
+            <Col>Creator name:</Col>
+            <Col>Playrate:</Col>
+            <Col>Scoreboard:</Col>
+          </Row>
+          <QuizList />
+        </Col>
         <Col />
       </Row>
         </Tab>
         <Tab eventKey="MyQuiz" title="My quizzes">
         <Row>
         <Col />
-        <Col xs={6}><Row><Col>as</Col><Col>as</Col></Row><QuizList /></Col>
+        <Col xs={6}>
+          <Row><Col>as</Col><Col>as</Col><Col></Col></Row><QuizList /></Col>
         <Col />
       </Row>
         </Tab>
