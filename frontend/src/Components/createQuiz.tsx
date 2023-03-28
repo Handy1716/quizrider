@@ -43,7 +43,7 @@ export default function CreateQuiz(){
                         </Row>
                     </form>
                 </Col>
-                
+                aas
                 <Col/>  
             </Row>
         </div>

@@ -1,7 +1,7 @@
-import { Nav, Tab, Tabs } from "react-bootstrap";
+import { Col, Nav, Row, Tab, Tabs } from "react-bootstrap";
 import CreateQuiz from "./createQuiz";
+import QuizList from "./quizList";
 
-//onClick={createQuizClick}>Create quiz
 export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
     return(
         <Tabs
@@ -11,10 +11,18 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
         justify
       >
         <Tab eventKey="PublicQuiz" title="Public quizzes">
-            asd
+        <Row>
+        <Col />
+        <Col xs={6}><Row><Col>as</Col><Col>as</Col></Row><QuizList /></Col>
+        <Col />
+      </Row>
         </Tab>
         <Tab eventKey="MyQuiz" title="My quizzes">
-
+        <Row>
+        <Col />
+        <Col xs={6}><Row><Col>as</Col><Col>as</Col></Row><QuizList /></Col>
+        <Col />
+      </Row>
         </Tab>
         <Tab eventKey="CreateQuiz" title="Create your quiz">
             <CreateQuiz />
