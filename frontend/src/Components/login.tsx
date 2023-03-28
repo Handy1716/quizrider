@@ -1,20 +1,38 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
-import Header from "./header";
+import { useState } from "react";
+import { Alert, Button, Form } from "react-bootstrap";
+import { apiLogin } from "../Api/api";
 
 export default function Login() {
+    const [showError, setShowError] = useState(false);
+
+    function handleSubmit(event : React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        apiLogin(data, (response : any) => {
+            console.log(response);
+        }, (error : any) => {
+            setShowError(true);
+            setTimeout(() => setShowError(false), 3000);
+        });
+    }
+
     return (
-            <>
-            <form action="/login" /* ezen kell javitani */ method="post">
-                <Row>
-                    <Col><h3 className="logRegText">Name:</h3></Col>
-                    <Col><input name="email" id="email"></input></Col>
-                </Row>
-                <Row>
-                    <Col><h3 className="logRegText">Password:</h3></Col>
-                    <Col><input name="password" id="password"></input></Col>            
-                </Row>
-                <Row ><Col className="centering"><Button type="submit">Login</Button></Col></Row>
-            </form>
-            </>
-    )
+        <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="loginFormEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" name="email" required placeholder="Enter email" />
+            </Form.Group>
+    
+            <Form.Group className="mb-3" controlId="loginFormPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" name="password" required placeholder="Password" />
+            </Form.Group>
+            <Button variant="primary" type="submit" className="mb-3">
+                Login
+            </Button>
+            <Alert show={showError} variant="danger">
+                Login error
+            </Alert>
+        </Form>
+   )
 }

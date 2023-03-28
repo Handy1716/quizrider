@@ -2,7 +2,6 @@ import { Injectable, Inject } from '@nestjs/common';
 import { QuizDto } from '../dtos/quiz.dto';
 import { Repository } from 'typeorm';
 import QuizEntity from '../entities/quiz.entity';
-import e from 'express';
 import CreatorEntity from 'src/entities/creator.entity';
 import QuestionEntity from 'src/entities/question.entity';
 

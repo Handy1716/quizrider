@@ -13,8 +13,8 @@
         email,
         password
     }
-### Get
-    GET /creator/:id
+### Profile
+    GET /creator/me
 
 ## Quiz
 ### List
