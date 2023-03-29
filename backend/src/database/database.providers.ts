@@ -1,3 +1,4 @@
+import { ConfigService } from '@nestjs/config';
 import AnswerEntity from 'src/entities/answer.entity';
 import CreatorEntity from 'src/entities/creator.entity';
 import QuestionEntity from 'src/entities/question.entity';
@@ -10,10 +11,10 @@ import { DataSource } from 'typeorm';
 export const databaseProviders = [
   {
     provide: 'DATA_SOURCE',
-    useFactory: async () => {
+    useFactory: async (configService : ConfigService) => {
       const dataSource = new DataSource({
-        type: 'mysql',
-        host: 'localhost',
+        type: "mysql",
+        host: configService.getOrThrow("DB_HOST"),
         port: 3306,
         username: 'quiz',
         password: 'quiz',
