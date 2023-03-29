@@ -1,11 +1,3 @@
-
-const NODE_ENV = `env/.env.${process.env.NODE_ENV}`;
-console.log(NODE_ENV);
-
-export const appConstants = {
-  jwtSecret: 'secret',
-};
-
 import { Module } from '@nestjs/common';
 import { AppController } from '../controllers/app.controller';
 import { AppService } from '../services/app.service';
@@ -24,7 +16,8 @@ import { ConfigModule } from '@nestjs/config/dist';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '',
+      envFilePath: ['env/.env.dev', 'env/.env'],
+      isGlobal: true,
     }),
     AuthModule,
     CreatorModule,

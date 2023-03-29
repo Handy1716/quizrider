@@ -4,13 +4,15 @@ import { CreatorService } from 'src/services/creator.service';
 import { LoginController } from '../controllers/login.controller';
 import { DatabaseModule } from '../database/database.module';
 import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [DatabaseModule],
   providers: [
     ...creatorProviders,
     CreatorService,
-    JwtService
+    JwtService,
+    ConfigService,
   ],
   controllers: [LoginController]
 })

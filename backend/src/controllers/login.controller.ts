@@ -3,13 +3,14 @@ import { Response } from 'express';
 import { LoginDto } from 'src/dtos/login.dto';
 import { CreatorService } from 'src/services/creator.service';
 import { JwtService } from '@nestjs/jwt';
-import { appConstants } from 'src/modules/app.module';
+import { ConfigService } from '@nestjs/config';
 
 @Controller()
 export class LoginController {
   constructor(
     private readonly creatorService: CreatorService,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
+    private configService: ConfigService
   ) {}
 
   @Post("/login")
@@ -22,7 +23,7 @@ export class LoginController {
       id: user.id,
       email: user.email
     }, {
-      secret: appConstants.jwtSecret
+      secret: this.configService.getOrThrow('JWT_SECRET')
     });
     return res.status(200).json({
       token
