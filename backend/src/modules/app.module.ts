@@ -1,4 +1,7 @@
 
+const NODE_ENV = `env/.env.${process.env.NODE_ENV}`;
+console.log(NODE_ENV);
+
 export const appConstants = {
   jwtSecret: 'secret',
 };
@@ -16,9 +19,13 @@ import { RuncodeModule } from './runcode.module';
 import { ScoreboardModule } from './scoreboard.module';
 import { TagModule } from './tag.module';
 import { JwtAuthStrategy } from 'src/providers/auth.providers';
+import { ConfigModule } from '@nestjs/config/dist';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: '',
+    }),
     AuthModule,
     CreatorModule,
     LoginModule,
@@ -27,7 +34,7 @@ import { JwtAuthStrategy } from 'src/providers/auth.providers';
     AnswerModule,
     TagModule,
     ScoreboardModule,
-    RuncodeModule
+    RuncodeModule,
   ],
   controllers: [AppController],
   providers: [AppService, JwtAuthStrategy],
