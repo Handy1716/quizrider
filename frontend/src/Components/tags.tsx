@@ -8,19 +8,7 @@ export default function Tags() {
 
 
     return(
-        <div>
-      <div className='input-group'>
-        <InputTags values={state} onTags={(value) => setState(value.values)} />
-        <Button
-          type='button'
-          data-testid='button-clearAll'
-          onClick={() => {
-            setState([])
-          }}
-        >
-          Clear
-        </Button>
-      </div>
-    </div>
+        <InputTags values={state} elementClassName="valami" className="form-control" onTags={(value) => setState(value.values)} />
+    
     )
 }
