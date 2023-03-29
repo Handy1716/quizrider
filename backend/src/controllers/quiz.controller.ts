@@ -16,6 +16,18 @@ export class QuizController {
     private readonly answerService: AnswerService,
   ) {}
 
+  @UseGuards(JwtAuthGuard)
+  @Get("/me")
+  findMe(@Request() req: any): Promise<QuizEntity[]> {
+    return this.quizService.findMe(req.user.id);
+  }
+
+  @Get("/public")
+  findPublic(): Promise<QuizEntity[]> {
+    return this.quizService.findPublic(true);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Get("/:id")
   findById(@Param('id') id: number): Promise<QuizEntity> {
     return this.quizService.findById(id)

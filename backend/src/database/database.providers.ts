@@ -1,4 +1,4 @@
-import { ConfigService } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import AnswerEntity from 'src/entities/answer.entity';
 import CreatorEntity from 'src/entities/creator.entity';
 import QuestionEntity from 'src/entities/question.entity';
@@ -15,10 +15,10 @@ export const databaseProviders = [
       const dataSource = new DataSource({
         type: "mysql",
         host: configService.getOrThrow("DB_HOST"),
-        port: 3306,
-        username: 'quiz',
-        password: 'quiz',
-        database: 'quiz',
+        port: configService.getOrThrow("DB_PORT"),
+        username: configService.getOrThrow("DB_USER"),
+        password: configService.getOrThrow("DB_PASS"),
+        database: configService.getOrThrow("DB_NAME"),
         entities: [
             CreatorEntity, QuizEntity, QuestionEntity, AnswerEntity, RuncodeEntity, ScoreboardEntity, TagEntity,  
         ],
@@ -26,5 +26,7 @@ export const databaseProviders = [
       });
       return dataSource.initialize();
     },
+    imports: [ConfigModule],
+    inject: [ConfigService],
   },
 ];

@@ -7,6 +7,7 @@ import {
   ManyToMany,
   JoinTable,
   PrimaryGeneratedColumn,
+  RelationId,
 } from 'typeorm';
 import CreatorEntity from './creator.entity';
 import QuestionEntity from './question.entity';
@@ -31,6 +32,9 @@ export default class QuizEntity extends BaseEntity {
 
   @ManyToOne(() => CreatorEntity, (creator) => creator.quizzes)
   creator: CreatorEntity
+
+  @RelationId((quiz: QuizEntity) => quiz.creator)
+  creatorId: number
 
   @OneToMany(() => QuestionEntity, (question) => question.quiz, {
     eager: true,

@@ -12,8 +12,20 @@ export class QuizService {
     private quizRepository: Repository<QuizEntity>,
   ) {}
 
-  async findAll(): Promise<QuizEntity[]> {
-    return this.quizRepository.find();
+  async findMe(creatorId : number): Promise<QuizEntity[]> {
+    return this.quizRepository.find({
+      where: {
+        creatorId,
+      }
+    });
+  }
+
+  async findPublic(isPublic : boolean): Promise<QuizEntity[]> {
+    return this.quizRepository.find({
+      where: {
+        public: isPublic,
+      }
+    });
   }
 
   async findById(id: number): Promise<QuizEntity> {

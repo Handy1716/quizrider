@@ -17,8 +17,8 @@
     GET /creator/me
 
 ## Quiz
-### List
-    GET /quiz
+### List own
+    GET /quiz/me
 ### List public
     GET /quiz/public
 ### Get
