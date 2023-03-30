@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import { QuizElement } from "./QuizElement";
+import { QuizElement } from "../Classes/QuizElement";
 
 
 export default function QuizList() {
