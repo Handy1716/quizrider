@@ -1,10 +1,15 @@
-import { Col, Container, Row  } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import { QuizElement } from "./QuizElement";
 
 
 export default function QuizList() {
+    let a = new QuizElement("MyQuiz", "Gergő", 5 ,"asd" )
     return(
-        <div className="quizList">
-            .
-        </div>
+        <Row className="mt-8">
+            <Col>{a.name}</Col>
+            <Col>{a.creatorName}</Col>
+            <Col>{a.popularity}</Col>
+            <Col>{a.scoreboard}</Col>
+        </Row>
     )
 }

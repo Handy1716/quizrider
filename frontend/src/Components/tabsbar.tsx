@@ -29,7 +29,14 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
         <Row>
         <Col />
         <Col xs={6}>
-          <Row><Col>as</Col><Col>as</Col><Col></Col></Row><QuizList /></Col>
+        <Row>
+            <Col>Quiz name:</Col>
+            <Col>Creator name:</Col>
+            <Col>Playrate:</Col>
+            <Col>Scoreboard:</Col>
+          </Row>
+          <QuizList />
+          </Col>
         <Col />
       </Row>
         </Tab>
