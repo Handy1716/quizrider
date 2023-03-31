@@ -42,8 +42,8 @@ function App() {
   }
   return (
     <>
+    <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick}/>
       <Container>
-      <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick}/>
       {state.loggedIn===false && state.page==="main" &&(<Main loginClick={loginClick} registerClick={registerClick}/>)}
       {state.loggedIn===false && state.page==="login" &&(<Login />)}
       {state.loggedIn===false && state.page==="register" &&(<Register />)}
@@ -53,7 +53,6 @@ function App() {
       <Tabsbar createQuizClick={createQuizClick}/>
       {state.loggedIn===true && state.page==="createQuiz" &&(<CreateQuiz />)}
       </Container>
-
     </>
   );
 

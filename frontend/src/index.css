@@ -19,7 +19,8 @@ code {
   float: right;
 }
 .logo{
-  width: 100px;  
+  width: 100px;
+  float: center;  
 }
 .logo:hover{
   cursor: pointer;
@@ -39,4 +40,7 @@ code {
 }
 :focus-visible{
   outline: none;
+}
+.bordershadow{
+  box-shadow: 0px 1px #949494
 }
