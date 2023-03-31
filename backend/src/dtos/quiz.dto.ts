@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsBoolean, IsDefined, IsNotEmpty, IsNotEmptyObject, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { arrayMinSize, ArrayNotEmpty, arrayNotEmpty, IsArray, IsBoolean, IsDefined, IsNotEmpty, IsNotEmptyObject, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { CreatorDto } from './creator.dto';
 import { QuestionDto } from './question.dto';
 import { RuncodeDto } from './runcode.dto';
@@ -20,11 +20,16 @@ export class QuizDto {
 
   creator: CreatorDto;
 
-  @ValidateNested()
+  @IsArray()
+  @ArrayNotEmpty()
+  @ValidateNested({ each: true })
   @Type(() => QuestionDto)
   questions: QuestionDto[];
 
   runcodes: RuncodeDto[];
 
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => TagDto)
   tags: TagDto[];
 }

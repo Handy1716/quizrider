@@ -33,9 +33,6 @@ export default class QuizEntity extends BaseEntity {
   @ManyToOne(() => CreatorEntity, (creator) => creator.quizzes)
   creator: CreatorEntity
 
-  @RelationId((quiz: QuizEntity) => quiz.creator)
-  creatorId: number
-
   @OneToMany(() => QuestionEntity, (question) => question.quiz, {
     eager: true,
     cascade: true
@@ -44,8 +41,11 @@ export default class QuizEntity extends BaseEntity {
 
   @OneToMany(() => RunCode, (runcode) => runcode.quiz)
   runcodes: RunCode[]
-  
-  @ManyToMany(() => TagEntity, (tag) => tag.quizzes)
+
+  @ManyToMany(() => TagEntity, (tag) => tag.quizzes, {
+    eager: true,
+    cascade: true
+  })
   @JoinTable()
   tags: TagEntity[]
 }

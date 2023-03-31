@@ -22,6 +22,9 @@ export default class QuestionEntity extends BaseEntity {
   @ManyToOne(() => QuizEntity, (quiz) => quiz.questions)
   quiz: QuizEntity
 
-  @OneToMany(() => AnswerEntity, (answer) => answer.question)
+  @OneToMany(() => AnswerEntity, (answer) => answer.question, {
+    eager: true,
+    cascade: true
+  })
   answers: AnswerEntity[]
 }

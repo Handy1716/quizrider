@@ -1,0 +1,137 @@
+[
+  {
+    "_id": "756b890a-542f-4e2d-a817-4abe3c77ebc2",
+    "colId": "history",
+    "containerId": "",
+    "name": "default",
+    "url": "http://localhost:3001",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-31T08:46:35.182Z",
+    "modified": "2023-03-31T08:46:35.182Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1da9458a-2f8a-4226-89a9-e83c388471ec",
+    "colId": "history",
+    "containerId": "",
+    "name": "creator",
+    "url": "http://localhost:3001/creator",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-31T08:46:35.182Z",
+    "modified": "2023-03-31T08:54:29.760Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Test\",\n  \"email\": \"test@quizrider.online\",\n  \"password\": \"12345\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7a197d6d-025d-4de5-b528-84b3c1bc3cc4",
+    "colId": "history",
+    "containerId": "",
+    "name": "login",
+    "url": "http://localhost:3001/login",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-31T08:46:35.182Z",
+    "modified": "2023-03-31T08:55:52.239Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"test@quizrider.online\",\n  \"password\": \"12345\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c5ec8f24-ebfe-4589-832b-a30832755b37",
+    "colId": "history",
+    "containerId": "",
+    "name": "creator/me",
+    "url": "http://localhost:3001/creator/me",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-31T08:46:35.182Z",
+    "modified": "2023-03-31T08:57:38.463Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoidGVzdEBxdWl6cmlkZXIub25saW5lIiwiaWF0IjoxNjgwMjUyOTUyfQ.0TJzglQg0qQd6ckSfaKMHJX0v4BKDqyE3WCDnTisjZc"
+    },
+    "tests": []
+  },
+  {
+    "_id": "89a51fb3-302c-4c76-939c-567d638e6ac5",
+    "colId": "history",
+    "containerId": "",
+    "name": "quiz/me",
+    "url": "http://localhost:3001/quiz/me",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-31T08:46:35.182Z",
+    "modified": "2023-03-31T14:29:50.436Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoidGVzdEBxdWl6cmlkZXIub25saW5lIiwiaWF0IjoxNjgwMjUyOTUyfQ.0TJzglQg0qQd6ckSfaKMHJX0v4BKDqyE3WCDnTisjZc"
+    },
+    "tests": []
+  },
+  {
+    "_id": "a9a66d99-eb9c-4bcf-b0ec-8986d9cd7987",
+    "colId": "history",
+    "containerId": "",
+    "name": "quiz/public",
+    "url": "http://localhost:3001/quiz/public",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-31T08:46:35.182Z",
+    "modified": "2023-03-31T14:55:48.726Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f1509b59-58da-4afe-a918-91392b85f625",
+    "colId": "history",
+    "containerId": "",
+    "name": "quiz",
+    "url": "http://localhost:3001/quiz",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-31T14:59:15.241Z",
+    "modified": "2023-03-31T16:20:14.121Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Test quiz\",\n  \"public\": true,\n  \"oneRound\": false,\n  \"questions\": [\n    {\n      \"text\": \"Test question 1\",\n      \"answers\": [{\n        \"text\": \"Test answer 1\",\n        \"rightAnswer\": true\n      },{\n        \"text\": \"Test answer 2\",\n        \"rightAnswer\": false\n      }]\n    }, {\n      \"text\": \"Test question 2\",\n      \"answers\": [{\n        \"text\": \"Test answer 1\",\n        \"rightAnswer\": true\n      },{\n        \"text\": \"Test answer 2\",\n        \"rightAnswer\": false\n      }]\n    }\n  ],\n  \"tags\": [{\n    \"text\": \"tag1\"\n  }, {\n    \"text\": \"tag2\"\n  }]\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoidGVzdEBxdWl6cmlkZXIub25saW5lIiwiaWF0IjoxNjgwMjUyOTUyfQ.0TJzglQg0qQd6ckSfaKMHJX0v4BKDqyE3WCDnTisjZc"
+    },
+    "tests": []
+  }
+]

@@ -29,6 +29,9 @@ export default class CreatorEntity extends BaseEntity {
   })
   password: string;
 
-  @OneToMany(() => QuizEntity, (quiz) => quiz.creator)
+  @OneToMany(() => QuizEntity, (quiz) => quiz.creator, {
+    eager: true,
+    cascade: true
+  })
   quizzes: QuizEntity[]
 }

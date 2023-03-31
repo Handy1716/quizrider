@@ -4,6 +4,9 @@ import { Repository } from 'typeorm';
 import QuizEntity from '../entities/quiz.entity';
 import CreatorEntity from 'src/entities/creator.entity';
 import QuestionEntity from 'src/entities/question.entity';
+import { AnswerDto } from 'src/dtos/answer.dto';
+import AnswerEntity from 'src/entities/answer.entity';
+import TagEntity from 'src/entities/tag.entity';
 
 @Injectable()
 export class QuizService {
@@ -15,15 +18,16 @@ export class QuizService {
   async findMe(creatorId : number): Promise<QuizEntity[]> {
     return this.quizRepository.find({
       where: {
-        creatorId,
-      }
-    });
+        creator: {
+          id: creatorId
+        }
+    }});
   }
 
-  async findPublic(isPublic : boolean): Promise<QuizEntity[]> {
+  async findPublic(): Promise<QuizEntity[]> {
     return this.quizRepository.find({
       where: {
-        public: isPublic,
+        public: true,
       }
     });
   }
@@ -44,11 +48,21 @@ export class QuizService {
       const question: QuestionEntity = QuestionEntity.create();
       question.quiz = quiz;
       question.text = questionDto.text;
-      question.answers = [];
+      question.answers = questionDto?.answers?.map(answerDto => {
+        const answer: AnswerEntity = AnswerEntity.create();
+        answer.question = question;
+        answer.text = answerDto.text;
+        answer.rightAnswer = answerDto.rightAnswer;
+        return answer;
+      }) || [];
       return question;
     }) || [];
     quiz.runcodes = [];
-    quiz.tags = [];
+    quiz.tags = params?.tags?.map(tagDto => {
+      const tag: TagEntity = TagEntity.create();
+      tag.text = tagDto.text;
+      return tag;
+    }) || [];
     return this.quizRepository.save(quiz);
   }
 }
