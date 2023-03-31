@@ -24,7 +24,7 @@ export class QuizController {
 
   @Get("/public")
   findPublic(): Promise<QuizEntity[]> {
-    return this.quizService.findPublic(true);
+    return this.quizService.findPublic();
   }
 
   @UseGuards(JwtAuthGuard)
@@ -46,4 +46,5 @@ export class QuizController {
     // );
     return this.quizService.findById(quiz.id);
   }
+
 }
