@@ -20,6 +20,12 @@ export class TagService {
     })
   }
 
+  async findByTag(tag: string): Promise<TagEntity> {
+    return this.tagRepository.findOneBy({
+      text: tag
+    })
+  }
+
   async create(params: TagDto): Promise<TagEntity> {
     const tag: TagEntity = TagEntity.create();
     tag.text = params.text;

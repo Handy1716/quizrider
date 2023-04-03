@@ -61,13 +61,15 @@ export class QuizService {
       return question;
     }) || [];
     quiz.runcodes = [];
-    quiz.tags = params?.tags?.map(tagDto => {
+    quiz.tags = await Promise.all(params?.tags?.map(async tagDto => {
       const tag: TagEntity = TagEntity.create();
       tag.text = tagDto.text;
-      //const x = this.tagRepository.create(tag);
-      //console.log('tag', x);
-      return tag;
-    }) || [];
+      let tagEntity = await this.tagRepository.findOneBy({ text: tag.text });
+      if (!tagEntity) {
+        tagEntity = await this.tagRepository.save(tag);
+      }
+      return tagEntity;
+    })) || [];
     return this.quizRepository.save(quiz);
   }
 }

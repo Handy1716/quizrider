@@ -22,7 +22,7 @@ export const databaseProviders = [
         entities: [
             CreatorEntity, QuizEntity, QuestionEntity, AnswerEntity, RuncodeEntity, ScoreboardEntity, TagEntity,  
         ],
-        synchronize: true
+        synchronize: true,
       });
       return dataSource.initialize();
     },

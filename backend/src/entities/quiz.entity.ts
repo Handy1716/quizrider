@@ -43,8 +43,7 @@ export default class QuizEntity extends BaseEntity {
   runcodes: RunCode[]
 
   @ManyToMany(() => TagEntity, (tag) => tag.quizzes, {
-    eager: true,
-    cascade: ['update']
+    eager: true
   })
   @JoinTable()
   tags: TagEntity[]
