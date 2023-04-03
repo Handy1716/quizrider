@@ -53,17 +53,6 @@
     GET /runcode/:quizId
 ## RunCode play
     GET /play/:runcode
-## Tags (new)
-    POST /tags
-    {
-        text
-    }
-## Tags (modify)
-    PUT /tags
-    {
-        text
-    }
-## Tags (delete)
-    DELETE /tags/:id
 ## Tags list
-    GET /tags/quizId
+    GET /tags/top
+

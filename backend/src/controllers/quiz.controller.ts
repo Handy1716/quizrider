@@ -9,6 +9,7 @@ import { QuizDto } from '../dtos/quiz.dto';
 import QuizEntity from '../entities/quiz.entity';
 import { QuizService } from '../services/quiz.service';
 import { Response } from 'express';
+import { HttpException, UnauthorizedException } from '@nestjs/common/exceptions';
 
 @Controller("/quiz")
 export class QuizController {
@@ -46,7 +47,11 @@ export class QuizController {
 
   @UseGuards(JwtAuthGuard)
   @Delete("/:id")
-  async delete(@Param('id') id: number, @Res() res: Response) {
+  async delete(@Param('id') id: number, @Request() req: any, @Res() res: Response) {
+    const quiz = await this.quizService.findById(id);
+    if (quiz?.creator?.id !== req.user.id) {
+      throw new UnauthorizedException();
+    }
     this.quizService.delete(id);
     return res.status(HttpStatus.OK).json();
   }

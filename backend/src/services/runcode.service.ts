@@ -11,26 +11,22 @@ export class RuncodeService {
     private runcodeRepository: Repository<RuncodeEntity>,
   ) {}
 
-  async findAll(): Promise<RuncodeEntity[]> {
-    return this.runcodeRepository.find();
-  }
-
-  async findById(id: number): Promise<RuncodeEntity> {
+  async findByCode(runCode: string): Promise<RuncodeEntity> {
     return this.runcodeRepository.findOneBy({
-      id
+      runCode,
     })
   }
 
-  private generateRuncode(): number {
-    return 1;
+  private generateRuncode(): string {
+    return Math.random().toString().slice(-9);
   }
 
-  async create(params: RuncodeDto, quiz: QuizEntity): Promise<RuncodeEntity> {
+  async create(quiz: QuizEntity): Promise<RuncodeEntity> {
     const runcode: RuncodeEntity = RuncodeEntity.create();
     runcode.runCode = this.generateRuncode();
     runcode.quiz = quiz;
     runcode.scoreboards = [];
     return this.runcodeRepository.save(runcode);
   }
-  
+
 }

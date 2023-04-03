@@ -30,7 +30,10 @@ export default class QuizEntity extends BaseEntity {
   @Column()
   oneRound: boolean;
 
-  @ManyToOne(() => CreatorEntity, (creator) => creator.quizzes)
+  @ManyToOne(() => CreatorEntity, (creator) => creator.quizzes, {
+    eager: true,
+    cascade: true
+  })
   creator: CreatorEntity
 
   @OneToMany(() => QuestionEntity, (question) => question.quiz, {

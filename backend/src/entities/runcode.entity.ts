@@ -17,10 +17,11 @@ export default class RuncodeEntity extends BaseEntity {
   @Column({
     unique: true
   })
-  runCode: number;
+  runCode: string;
   
   @ManyToOne(() => QuizEntity, (quiz) => quiz.runcodes, {
-    onDelete: 'CASCADE'
+    onDelete: 'CASCADE',
+    eager: true,
   })
   quiz: QuizEntity;
 

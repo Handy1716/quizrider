@@ -1,4 +1,4 @@
-import { Exclude } from 'class-transformer';
+import { classToPlain, Exclude, instanceToPlain } from 'class-transformer';
 import {
   BaseEntity,
   Column,
@@ -27,11 +27,14 @@ export default class CreatorEntity extends BaseEntity {
   @Column({
     length: 100
   })
+  @Exclude({ toPlainOnly: true })
   password: string;
 
-  @OneToMany(() => QuizEntity, (quiz) => quiz.creator, {
-    eager: true,
-    cascade: true
-  })
-  quizzes: QuizEntity[]
+  @OneToMany(() => QuizEntity, (quiz) => quiz.creator)
+  quizzes: QuizEntity[];
+
+  toJSON() {
+    return instanceToPlain(this);
+  }
+
 }

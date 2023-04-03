@@ -23,6 +23,7 @@ export const databaseProviders = [
             CreatorEntity, QuizEntity, QuestionEntity, AnswerEntity, RuncodeEntity, ScoreboardEntity, TagEntity,  
         ],
         synchronize: true,
+        // debug: true,
       });
       return dataSource.initialize();
     },
