@@ -32,5 +32,5 @@ export default class ScoreboardEntity extends BaseEntity {
   @ManyToOne(() => RuncodeEntity, (runcode) => runcode.scoreboards, {
     onDelete: 'CASCADE'
   })
-  runcode: RuncodeEntity
+  runCode: RuncodeEntity
 }

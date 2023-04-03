@@ -1,5 +1,7 @@
 # Backend REST API
+
 ## Creator
+
 ### Register
     POST /creator
     {
@@ -17,13 +19,14 @@
     GET /creator/me
 
 ## Quiz
+
 ### List own
     GET /quiz/me
 ### List public
     GET /quiz/public
 ### Get
     GET /quiz/:id
-### Quiz (new)
+### Quiz save
     POST /quiz
     {
         id?,
@@ -47,12 +50,33 @@
             }
         ]
     }
-## Quiz (delete)
+### Quiz (delete)
     DELETE /quiz/:id
-## RunCode generate
+
+## Runcode
+
+### RunCode generate
     GET /runcode/:quizId
-## RunCode play
+### RunCode play
     GET /play/:runcode
-## Tags list
+
+## Tags
+
+### Tags list
     GET /tag/top
 
+## Scoreboard
+
+### Scoreboard
+    POST /scoreboard
+    {
+        runCode,
+        deviceId,
+        name,
+        answers: [
+            {
+                questionId,
+                answerId
+            }
+        ]
+    }

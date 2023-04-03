@@ -25,6 +25,6 @@ export default class RuncodeEntity extends BaseEntity {
   })
   quiz: QuizEntity;
 
-  @OneToMany(() => ScoreboardEntity, (scoreboard) => scoreboard.runcode)
+  @OneToMany(() => ScoreboardEntity, (scoreboard) => scoreboard.runCode)
   scoreboards: ScoreboardEntity[]
 }
