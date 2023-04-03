@@ -10,15 +10,41 @@ export default function CreateQuiz(){
                 <Form.Label>Quiz name:</Form.Label>
                 <Form.Control type="text" name="name" required placeholder="My best quiz"/>
             </Form.Group>
-            
             <Form.Group>
-                <Form.Label></Form.Label>
-                <Form.Control />
+            <Form.Label>Only one round:</Form.Label>
+            <Form.Check 
+                type="switch"
+                id="custom-switch"
+            />
             </Form.Group>
             <Form.Group>
-                <Form.Label></Form.Label>
-                <Form.Control></Form.Control>
+            <Form.Label>Private:</Form.Label>
+            <Form.Check 
+                type="switch"
+                id="custom-switch"
+                />
             </Form.Group>
+            <Form.Group>
+                <Form.Label>Question:</Form.Label>
+                <Form.Control type="text" name="question"/>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Answer 1:</Form.Label>
+                <Form.Control type="text" name="a1"/>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Answer 2:</Form.Label>
+                <Form.Control type="text" name="a2"/>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Answer 3:</Form.Label>
+                <Form.Control type="text" name="a3"/>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Answer 4:</Form.Label>
+                <Form.Control type="text" name="a4"/>
+            </Form.Group>
+            <Button type="submit">Create Quiz</Button>
         </Form></>
     )
 }
