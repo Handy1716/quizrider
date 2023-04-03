@@ -83,12 +83,12 @@
     "_id": "89a51fb3-302c-4c76-939c-567d638e6ac5",
     "colId": "history",
     "containerId": "",
-    "name": "quiz/me",
-    "url": "http://localhost:3001/quiz/me",
-    "method": "GET",
+    "name": "quiz/delete",
+    "url": "http://localhost:3001/quiz/139",
+    "method": "DELETE",
     "sortNum": 0,
     "created": "2023-03-31T08:46:35.182Z",
-    "modified": "2023-03-31T14:29:50.436Z",
+    "modified": "2023-04-03T07:10:33.593Z",
     "headers": [],
     "params": [],
     "auth": {
@@ -112,6 +112,24 @@
     "tests": []
   },
   {
+    "_id": "fb3dba8e-0611-4ffd-8712-502da13da3c2",
+    "colId": "history",
+    "containerId": "",
+    "name": "quiz/me",
+    "url": "http://localhost:3001/quiz/me",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-31T08:46:35.182Z",
+    "modified": "2023-03-31T14:29:50.436Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoidGVzdEBxdWl6cmlkZXIub25saW5lIiwiaWF0IjoxNjgwMjUyOTUyfQ.0TJzglQg0qQd6ckSfaKMHJX0v4BKDqyE3WCDnTisjZc"
+    },
+    "tests": []
+  },
+  {
     "_id": "f1509b59-58da-4afe-a918-91392b85f625",
     "colId": "history",
     "containerId": "",
@@ -120,12 +138,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-31T14:59:15.241Z",
-    "modified": "2023-04-03T06:46:17.825Z",
+    "modified": "2023-04-03T06:46:49.391Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Test quiz\",\n  \"public\": true,\n  \"oneRound\": false,\n  \"questions\": [\n    {\n      \"text\": \"Test question 11\",\n      \"answers\": [{\n        \"text\": \"Test answer 11\",\n        \"rightAnswer\": true\n      },{\n        \"text\": \"Test answer 2\",\n        \"rightAnswer\": false\n      }]\n    }, {\n      \"text\": \"Test question 2\",\n      \"answers\": [{\n        \"text\": \"Test answer 1\",\n        \"rightAnswer\": true\n      },{\n        \"text\": \"Test answer 2\",\n        \"rightAnswer\": false\n      }]\n    }\n  ],\n  \"tags\": [{\n    \"text\": \"tag1\"\n  }, {\n    \"text\": \"tag2\"\n  }]\n}",
+      "raw": "{\n  \"name\": \"Test quiz\",\n  \"public\": true,\n  \"oneRound\": false,\n  \"questions\": [\n    {\n      \"text\": \"Test question 1\",\n      \"answers\": [{\n        \"text\": \"Test answer 1\",\n        \"rightAnswer\": true\n      },{\n        \"text\": \"Test answer 2\",\n        \"rightAnswer\": false\n      }]\n    }, {\n      \"text\": \"Test question 2\",\n      \"answers\": [{\n        \"text\": \"Test answer 21\",\n        \"rightAnswer\": true\n      },{\n        \"text\": \"Test answer 22\",\n        \"rightAnswer\": false\n      }]\n    }\n  ],\n  \"tags\": [{\n    \"text\": \"tag1\"\n  }, {\n    \"text\": \"tag2\"\n  }]\n}",
       "form": []
     },
     "auth": {

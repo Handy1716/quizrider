@@ -40,6 +40,10 @@ export class QuizService {
     })
   }
 
+  async delete(id: number) {
+    this.quizRepository.delete(id);
+  }
+
   async create(params: QuizDto, creator: CreatorEntity): Promise<QuizEntity> {
     const quiz: QuizEntity = QuizEntity.create();
     quiz.id = params?.id;

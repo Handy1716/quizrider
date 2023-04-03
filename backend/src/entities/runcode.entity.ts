@@ -19,7 +19,9 @@ export default class RuncodeEntity extends BaseEntity {
   })
   runCode: number;
   
-  @ManyToOne(() => QuizEntity, (quiz) => quiz.runcodes)
+  @ManyToOne(() => QuizEntity, (quiz) => quiz.runcodes, {
+    onDelete: 'CASCADE'
+  })
   quiz: QuizEntity;
 
   @OneToMany(() => ScoreboardEntity, (scoreboard) => scoreboard.runcode)

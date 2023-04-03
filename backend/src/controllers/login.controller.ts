@@ -1,9 +1,10 @@
-import { Body, Controller, HttpException, HttpStatus, Get, Param, Post, Res, UnauthorizedException } from '@nestjs/common';
+import { Body, Controller, Post, UnauthorizedException, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { LoginDto } from 'src/dtos/login.dto';
 import { CreatorService } from 'src/services/creator.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
+import { HttpStatus } from '@nestjs/common/enums';
 
 @Controller()
 export class LoginController {
@@ -25,7 +26,7 @@ export class LoginController {
     }, {
       secret: this.configService.getOrThrow('JWT_SECRET')
     });
-    return res.status(200).json({
+    return res.status(HttpStatus.OK).json({
       token
     });
   }

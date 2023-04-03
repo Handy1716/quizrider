@@ -26,6 +26,7 @@
 ### Quiz (new)
     POST /quiz
     {
+        id?,
         name,
         public,
         oneRound,
@@ -43,24 +44,6 @@
         tags: [
             {
                 text
-            }
-        ]
-    }
-## Quiz (modify)
-    PUT /quiz
-    {
-        name,
-        public,
-        oneRound,
-        questions: [
-            {
-                text,
-                answers: [
-                    {
-                        text,
-                        rightAnswer
-                    }
-                ]
             }
         ]
     }

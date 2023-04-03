@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { Request, UseGuards } from '@nestjs/common/decorators';
+import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
+import { Delete, Request, UseGuards } from '@nestjs/common/decorators';
+import { HttpStatus } from '@nestjs/common/enums';
 import CreatorEntity from 'src/entities/creator.entity';
 import { JwtAuthGuard } from 'src/providers/auth.providers';
 import { AnswerService } from 'src/services/answer.service';
@@ -7,6 +8,7 @@ import { QuestionService } from 'src/services/question.service';
 import { QuizDto } from '../dtos/quiz.dto';
 import QuizEntity from '../entities/quiz.entity';
 import { QuizService } from '../services/quiz.service';
+import { Response } from 'express';
 
 @Controller("/quiz")
 export class QuizController {
@@ -40,6 +42,13 @@ export class QuizController {
     creator.id = req.user.id;
     const quiz = await this.quizService.create(quizDto, creator);
     return this.quizService.findById(quiz.id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete("/:id")
+  async delete(@Param('id') id: number, @Res() res: Response) {
+    this.quizService.delete(id);
+    return res.status(HttpStatus.OK).json();
   }
 
 }

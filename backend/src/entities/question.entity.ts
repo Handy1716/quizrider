@@ -19,7 +19,9 @@ export default class QuestionEntity extends BaseEntity {
   })
   text: string;
 
-  @ManyToOne(() => QuizEntity, (quiz) => quiz.questions)
+  @ManyToOne(() => QuizEntity, (quiz) => quiz.questions, {
+    onDelete: 'CASCADE'
+  })
   quiz: QuizEntity
 
   @OneToMany(() => AnswerEntity, (answer) => answer.question, {

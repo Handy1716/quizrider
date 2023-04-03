@@ -22,6 +22,8 @@ export default class AnswerEntity extends BaseEntity {
   @Column()
   rightAnswer: boolean;
 
-  @ManyToOne(() => QuestionEntity, (question) => question.answers)
+  @ManyToOne(() => QuestionEntity, (question) => question.answers, {
+    onDelete: 'CASCADE'
+  })
   question: QuestionEntity
 }
