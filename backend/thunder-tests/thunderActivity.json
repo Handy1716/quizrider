@@ -176,6 +176,30 @@
     "tests": []
   },
   {
+    "_id": "c3035e77-c3bd-413e-9eb7-70951093c045",
+    "colId": "history",
+    "containerId": "",
+    "name": "scoreboard",
+    "url": "http://localhost:3001/scoreboard",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-31T08:46:35.182Z",
+    "modified": "2023-04-03T18:20:07.969Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"runCode\": \"119577337\",\n  \"deviceId\": \"12345\",\n  \"name\": \"Test\",\n  \"answers\": [\n    {\n      \"questionId\": 162,\n      \"answerId\": 106\n    },\n    {\n      \"questionId\": 163,\n      \"answerId\": 108\n    }\n  ]\n}\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
     "_id": "f1509b59-58da-4afe-a918-91392b85f625",
     "colId": "history",
     "containerId": "",
