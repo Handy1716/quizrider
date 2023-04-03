@@ -39,11 +39,6 @@ export class QuizController {
     const creator = new CreatorEntity();
     creator.id = req.user.id;
     const quiz = await this.quizService.create(quizDto, creator);
-    // await Promise.all(
-    //   quizDto?.questions?.map(questionDto => {
-    //     return this.questionService.create(questionDto, quiz);
-    //   }) || []
-    // );
     return this.quizService.findById(quiz.id);
   }
 

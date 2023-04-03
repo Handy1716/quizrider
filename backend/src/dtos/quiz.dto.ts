@@ -1,11 +1,15 @@
 import { Type } from 'class-transformer';
-import { arrayMinSize, ArrayNotEmpty, arrayNotEmpty, IsArray, IsBoolean, IsDefined, IsNotEmpty, IsNotEmptyObject, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { ArrayNotEmpty, IsArray, IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { CreatorDto } from './creator.dto';
 import { QuestionDto } from './question.dto';
 import { RuncodeDto } from './runcode.dto';
 import { TagDto } from './tag.dto';
 
 export class QuizDto {
+  @IsNumber()
+  @IsOptional()
+  id: number;
+
   @IsString()
   @IsNotEmpty()
   name: string;

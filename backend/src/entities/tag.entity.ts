@@ -14,6 +14,7 @@ export default class TagEntity extends BaseEntity {
 
   @Column({
     length: 100,
+    unique: true
   })
   text: string;
 

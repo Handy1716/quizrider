@@ -39,6 +39,11 @@
                     }
                 ]
             }
+        ],
+        tags: [
+            {
+                text
+            }
         ]
     }
 ## Quiz (modify)

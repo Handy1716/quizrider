@@ -13,6 +13,8 @@ export class QuizService {
   constructor(
     @Inject('QUIZ_REPOSITORY')
     private quizRepository: Repository<QuizEntity>,
+    @Inject('TAG_REPOSITORY')
+    private tagRepository: Repository<TagEntity>
   ) {}
 
   async findMe(creatorId : number): Promise<QuizEntity[]> {
@@ -40,6 +42,7 @@ export class QuizService {
 
   async create(params: QuizDto, creator: CreatorEntity): Promise<QuizEntity> {
     const quiz: QuizEntity = QuizEntity.create();
+    quiz.id = params?.id;
     quiz.name = params.name;
     quiz.public = params.public;
     quiz.oneRound = params.oneRound;
@@ -61,6 +64,8 @@ export class QuizService {
     quiz.tags = params?.tags?.map(tagDto => {
       const tag: TagEntity = TagEntity.create();
       tag.text = tagDto.text;
+      //const x = this.tagRepository.create(tag);
+      //console.log('tag', x);
       return tag;
     }) || [];
     return this.quizRepository.save(quiz);

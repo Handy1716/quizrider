@@ -44,7 +44,7 @@ export default class QuizEntity extends BaseEntity {
 
   @ManyToMany(() => TagEntity, (tag) => tag.quizzes, {
     eager: true,
-    cascade: true
+    cascade: ['update']
   })
   @JoinTable()
   tags: TagEntity[]
