@@ -5,6 +5,7 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn
 } from 'typeorm';
+import { VirtualColumn } from 'typeorm/decorator/columns/VirtualColumn';
 import QuizEntity from './quiz.entity';
 
 @Entity({ name: 'tag' })
@@ -20,4 +21,8 @@ export default class TagEntity extends BaseEntity {
 
   @ManyToMany(() => QuizEntity, (quiz) => quiz.tags)
   quizzes: QuizEntity[];
+
+  @VirtualColumn({ query: (alias) => `SELECT COUNT(*) FROM quiz_tags_tag WHERE tagId = ${alias}.id` })
+  counts: number;
+
 }

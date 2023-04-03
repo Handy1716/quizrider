@@ -9,9 +9,10 @@ export class TagController {
     private readonly tagService: TagService
   ) {}
 
-  @Get("/:id")
-  findById(@Param('id') id: number): Promise<TagEntity> {
-    return this.tagService.findById(id)
+  @Get("/top")
+  async findByTop(): Promise<TagEntity[]> {
+    const tags = await this.tagService.findAll();
+    return tags.sort((a, b) => b.counts - a.counts).slice(0, 20);
   }
 
   @Post()

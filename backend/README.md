@@ -54,5 +54,5 @@
 ## RunCode play
     GET /play/:runcode
 ## Tags list
-    GET /tags/top
+    GET /tag/top
 

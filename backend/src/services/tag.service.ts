@@ -2,11 +2,13 @@ import { Injectable, Inject } from '@nestjs/common';
 import { TagDto } from '../dtos/tag.dto';
 import { Repository } from 'typeorm';
 import TagEntity from '../entities/tag.entity';
+import QuizEntity from 'src/entities/quiz.entity';
 
 @Injectable()
 export class TagService {
   constructor(
     @Inject('TAG_REPOSITORY')
+    @Inject('QUIZ_REPOSITORY')
     private tagRepository: Repository<TagEntity>,
   ) {}
 
