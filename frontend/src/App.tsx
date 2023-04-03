@@ -43,6 +43,7 @@ function App() {
   return (
     <>
     <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick}/>
+    <br />
       <Container>
       {state.loggedIn===false && state.page==="main" &&(<Main loginClick={loginClick} registerClick={registerClick}/>)}
       {state.loggedIn===false && state.page==="login" &&(<Login />)}
