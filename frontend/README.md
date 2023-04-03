@@ -6,3 +6,7 @@
     dark blue: 023047
     light orange: ffb703
     orange: fb8500
+
+- api.js-be a backendbol az endpointokat megcsinalni
+- create quiz form
+- maga a jatek form

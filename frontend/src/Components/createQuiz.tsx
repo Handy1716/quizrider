@@ -4,8 +4,8 @@ import Tags from "./tags";
 
 export default function CreateQuiz(){
     return(<>
-    <Tags />
         <Form>
+            <Tags />
             <Form.Group>
                 <Form.Label>Quiz name:</Form.Label>
                 <Form.Control type="text" name="name" required placeholder="My best quiz"/>
