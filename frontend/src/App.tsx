@@ -59,6 +59,7 @@ function App() {
       
       <p className='centering'> bejelentkezés utáni:</p>
       <hr />
+    
 
       <Container>
       <Tabsbar createQuizClick={createQuizClick}/>

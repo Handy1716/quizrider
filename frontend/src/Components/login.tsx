@@ -17,6 +17,7 @@ export default function Login() {
     }
 
     return (
+        <div className="main">
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="loginFormEmail">
                 <Form.Label>Email address</Form.Label>
@@ -33,6 +34,6 @@ export default function Login() {
             <Alert show={showError} variant="danger">
                 Login error
             </Alert>
-        </Form>
+        </Form></div>
    )
 }

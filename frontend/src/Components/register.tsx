@@ -1,7 +1,7 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
 export default function Register() {
     return (
-        <>
+        <div className="main">
             <Form>
             <Form.Group className="mb-3" controlId="loginFormUser">
                 <Form.Label>User name:</Form.Label>
@@ -24,6 +24,6 @@ export default function Register() {
                 Login
             </Button>
         </Form>
-        </>
+        </div>
     )
 }
