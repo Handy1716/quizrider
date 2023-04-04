@@ -7,6 +7,7 @@ import { Container, Button } from 'react-bootstrap';
 import Main from './Components/main';
 import CreateQuiz from './Components/createQuiz';
 import Tabsbar from './Components/tabsbar';
+import Game from './Components/game';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
       <hr />
       <Tabsbar createQuizClick={createQuizClick}/>
       {state.loggedIn===true && state.page==="createQuiz" &&(<CreateQuiz />)}
+      <Game />
       </Container>
     </>
   );

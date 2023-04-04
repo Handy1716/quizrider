@@ -11,9 +11,14 @@ body {
   
 }
 .btn-primary {
-  background-color: #FFB703;
-  color: #023047;
-  border-color: #FB8500;
+  background-color: #023047;
+  color:#FFB703;
+  border-color: #FFB703;
+}
+.btn-primary:hover {
+  background-color: #023047;
+  color: #8ecae6;
+  border-color: #8ecae6;
 }
 
 
@@ -45,4 +50,26 @@ body {
 }
 .bordershadow{
   box-shadow: 0px 1px #949494
+}
+.question{
+  border: #FFB703;
+  border-style: inset;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: solid;
+  color: #FFB703;
+  background-color: #023047;
+  margin: auto;
+}
+.answer{
+  border: #8ecae6;
+  border-style: inset;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: solid;
+  color: #8ecae6;
+  background-color: #023047;
+  width: fit-content;
 }
