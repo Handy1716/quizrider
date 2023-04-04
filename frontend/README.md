@@ -12,3 +12,4 @@
 - api.js-be a backendbol az endpointokat megcsinalni
 - create quiz form
 - maga a jatek form
+- scoreboard
