@@ -11,7 +11,7 @@ mainClick: () => void}) {
 
     return (
         <div className="square border-bottom border-1 border-warning box-shaddow bordershadow">
-        <img src="images/logo.png" className={`logo ${mainVisible ? 'centering' : ''}`} onClick={mainClick} alt="logo"/>
+        <img src="images/logo.png" className="logo centering"  onClick={mainClick} alt="logo"/>
         <Button className={`btn ${loginVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={loginClick}>Login</Button>
         <Button className={`btn ${signupVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={registerClick}>Signup</Button>
         <Button className={`btn ${mainVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={loginClick}>Login</Button>

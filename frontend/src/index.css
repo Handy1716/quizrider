@@ -24,7 +24,7 @@ body {
 
 .btn-header {
   float: right;
-  margin-top;
+  margin: 15px 20px;
 }
 .logo{
   width: 100px;
@@ -41,7 +41,8 @@ body {
 }
 .mainBoxElement{
   text-align: center;
-  padding-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .quizList{
   background-color: rgb(192, 192, 192);
@@ -63,6 +64,8 @@ body {
   background-color: #023047;
   margin: auto;
 }
+.background{
+}
 .answer{
   margin: auto;
   margin-top: 30px;
@@ -83,4 +86,11 @@ body {
   border-color: #FFB703;
   border-style: ridge;
 }
-#main{}
+.main{
+  margin: 0 auto;
+  margin-top: 10% ;
+  padding: 30px;
+  width: 40%;
+  border-style: ridge;
+  border-color: #ffb703;
+}

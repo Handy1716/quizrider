@@ -47,18 +47,25 @@ function App() {
   return (
     <>
     <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick}/>
+    <div className='background'>
     <br />
-      <Container>
+      <div className='main'>
       {state.loggedIn===false && state.page==="main" &&(<Main loginClick={loginClick} registerClick={registerClick}/>)}
       {state.loggedIn===false && state.page==="login" &&(<Login />)}
       {state.loggedIn===false && state.page==="register" &&(<Register />)}
+      </div>
+      
       <hr />
+      
       <p className='centering'> bejelentkezés utáni:</p>
       <hr />
+
+      <Container>
       <Tabsbar createQuizClick={createQuizClick}/>
       {state.loggedIn===true && state.page==="createQuiz" &&(<CreateQuiz />)}
       <Game />
       </Container>
+      </div>
     </>
   );
 
