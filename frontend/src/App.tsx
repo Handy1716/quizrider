@@ -12,6 +12,9 @@ import Game from './Components/game';
 
 function App() {
   
+  //<div className="mainBoxElement"><Button onClick={loginClick}>Login</Button></div>
+  //<div className="mainBoxElement"><Button onClick={registerClick}>Register</Button></div>
+  
   
   const [state, setState] = useState<{page: string, loggedIn: boolean}>({
     page: "main",
