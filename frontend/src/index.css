@@ -24,6 +24,7 @@ body {
 
 .btn-header {
   float: right;
+  margin-top;
 }
 .logo{
   width: 100px;
@@ -81,5 +82,5 @@ body {
   color: #FFB703;
   border-color: #FFB703;
   border-style: ridge;
-
 }
+#main{}
