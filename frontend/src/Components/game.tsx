@@ -7,8 +7,8 @@ export default function Game(){
         <Container>
         <Form>
             <div className="question">Kerdes</div>
-            <Row className="answerRow"><Col className="answer">asd</Col><Col className="answer">asd</Col></Row>
-            <Row className="answerRow"><Col className="answer">asd</Col><Col className="answer">asd</Col></Row>
+            <Row className="answerRow"><Col ><div className="answer">asd</div></Col><Col><div className="answer">asd</div></Col></Row>
+            <Row className="answerRow"><Col><div className="answer">asd</div></Col><Col><div className="answer">ask</div></Col></Row>
         </Form>
         </Container>
     )

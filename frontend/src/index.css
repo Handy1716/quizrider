@@ -63,13 +63,23 @@ body {
   margin: auto;
 }
 .answer{
+  margin: auto;
+  margin-top: 30px;
   border: #8ecae6;
   border-style: inset;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 20px;
   text-align: center;
   text-decoration: solid;
   color: #8ecae6;
   background-color: #023047;
   width: fit-content;
+}
+.answer:hover{
+  cursor: pointer;
+  background-color:#023047;
+  color: #FFB703;
+  border-color: #FFB703;
+  border-style: ridge;
+
 }
