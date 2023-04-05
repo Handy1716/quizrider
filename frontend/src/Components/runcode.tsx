@@ -2,6 +2,6 @@
 
 export default function Runcode() {
     return(
-        <div><input /></div>
+        <div><input className="inputbox"/></div>
     )
 }

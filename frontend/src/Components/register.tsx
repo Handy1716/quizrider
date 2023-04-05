@@ -20,9 +20,9 @@ export default function Register() {
                 <Form.Label>Password again:</Form.Label>
                 <Form.Control type="password" name="password" />
             </Form.Group>
-            <Button variant="primary" type="submit" className="mb-3">
+            <div className="centering"><Button variant="primary" type="submit" className="mb-3">
                 Login
-            </Button>
+            </Button></div>
         </Form>
         </div>
     )

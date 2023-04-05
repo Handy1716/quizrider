@@ -4,6 +4,21 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(-45deg, #023047, #219ebc, #ffb703, #fb8500);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .container{
@@ -23,12 +38,15 @@ body {
 
 
 .btn-header {
+  width: 150px;
+  height: 50px;
   float: right;
-  margin: 15px 20px;
+  margin: 35px 30px;
 }
 .logo{
-  width: 100px;
-  float: center;  
+  width: 180px;
+  float: center;
+  filter: drop-shadow(-1px -2px 0 rgb(0, 0, 0))drop-shadow( 0px 1px 0 rgb(0, 0, 0));   
 }
 .logo:hover{
   cursor: pointer;
@@ -51,7 +69,7 @@ body {
   outline: none;
 }
 .bordershadow{
-  box-shadow: 0px 1px #949494
+  background-color: white;
 }
 .question{
   border: #FFB703;
@@ -63,8 +81,6 @@ body {
   color: #FFB703;
   background-color: #023047;
   margin: auto;
-}
-.background{
 }
 .answer{
   margin: auto;
@@ -90,7 +106,7 @@ body {
   margin: 0 auto;
   margin-top: 10% ;
   padding: 30px;
-  width: 40%;
-  border-style: ridge;
-  border-color: #ffb703;
+  width: 30%;
+  border-radius: 20px;
+  background-color: white;
 }

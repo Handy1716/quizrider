@@ -21,16 +21,16 @@ export default function Login() {
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="loginFormEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" name="email" required placeholder="Enter email" />
+                <Form.Control type="email" name="email" required placeholder="Enter email" className="inputbox"/>
             </Form.Group>
     
             <Form.Group className="mb-3" controlId="loginFormPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" name="password" required placeholder="Password" />
+                <Form.Control type="password" name="password" required placeholder="Password" className="inputbox"/>
             </Form.Group>
-            <Button variant="primary" type="submit" className="mb-3">
+            <div className="centering"><Button variant="primary" type="submit" className="mb-3">
                 Login
-            </Button>
+            </Button></div>
             <Alert show={showError} variant="danger">
                 Login error
             </Alert>
