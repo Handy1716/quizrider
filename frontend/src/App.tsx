@@ -8,6 +8,7 @@ import Main from './Components/main';
 import CreateQuiz from './Components/createQuiz';
 import Tabsbar from './Components/tabsbar';
 import Game from './Components/game';
+import Scoreboard from './Components/scoreboard';
 
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
     <div className='background'>
     <br />
       <div className=''>
-      {state.loggedIn===false && state.page==="main" &&(<Main loginClick={loginClick} registerClick={registerClick}/>)}
+      {state.loggedIn===false && state.page==="main" &&(<Main />)}
       {state.loggedIn===false && state.page==="login" &&(<Login />)}
       {state.loggedIn===false && state.page==="register" &&(<Register />)}
       </div>
@@ -62,11 +63,15 @@ function App() {
     
 
       <Container>
+        <br /><br />
       <Tabsbar createQuizClick={createQuizClick}/>
       {state.loggedIn===true && state.page==="createQuiz" &&(<CreateQuiz />)}
-      <Game />
       </Container>
+      <br /><br />
+      <Game/>
+      
       </div>
+      <Scoreboard />
     </>
   );
 

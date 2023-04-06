@@ -17,7 +17,7 @@ export default function Login() {
     }
 
     return (
-        <div className="main">
+        <div className="main width30">
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="loginFormEmail">
                 <Form.Label>Email address</Form.Label>

@@ -4,6 +4,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /*background: linear-gradient(-45deg, #023047, #219ebc, #ffb703, #fb8500);*/
   background: linear-gradient(-45deg, #023047, #219ebc, #ffb703, #fb8500);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
@@ -22,18 +23,32 @@ body {
 }
 
 .container{
-  background-color: grey;
+  box-shadow: -10px -10px 17px #fcfcfca2,
+              10px 10px 15px rgba(253, 253, 253, 0.671);
+              background-color: rgba(255,255,255,1);
+              backdrop-filter: blur(10px);
+              
+  padding: 30px;
+  border-radius: 20px;
   
 }
 .btn-primary {
   background-color: #023047;
   color:#FFB703;
   border-color: #FFB703;
+  box-shadow: -2px -2px 6px #ffb703,
+              2px 2px 6px #ffb703;
+              background-color: rgb(23, 44, 75);
+              backdrop-filter: blur(10px);
 }
 .btn-primary:hover {
   background-color: #023047;
   color: #8ecae6;
   border-color: #8ecae6;
+  box-shadow: -3px -3px 7px #8ecae6,
+              3px 3px 7px #8ecae6;
+              background-color: rgb(23, 44, 75);
+              backdrop-filter: blur(10px);
 }
 
 
@@ -68,45 +83,70 @@ body {
 :focus-visible{
   outline: none;
 }
-.bordershadow{
-  background-color: white;
+.header{
+  
+  box-shadow: -7px -7px 15px #fcfcfca2,
+              7px 7px 12px rgba(253, 253, 253, 0.671);
+              background-color: rgba(255,255,255,0.5);
+              backdrop-filter: blur(10px);
 }
 .question{
-  border: #FFB703;
-  border-style: inset;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  text-decoration: solid;
-  color: #FFB703;
-  background-color: #023047;
-  margin: auto;
+  width: fit-content;
+  min-width: 400px;
 }
 .answer{
+  min-width: 200px;
   margin: auto;
   margin-top: 30px;
-  border: #8ecae6;
-  border-style: inset;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
   text-decoration: solid;
-  color: #8ecae6;
+  color: white;
   background-color: #023047;
   width: fit-content;
+  box-shadow: -7px -7px 15px #fcfcfca2,
+              7px 7px 12px rgba(253, 253, 253, 0.671);
+              backdrop-filter: blur(10px);
 }
 .answer:hover{
   cursor: pointer;
   background-color:#023047;
-  color: #FFB703;
-  border-color: #FFB703;
-  border-style: ridge;
+  color: #8ecae6;
+  border-color: #8ecae6;
+  box-shadow: -2px -2px 6px #8ecae6,
+              2px 2px 6px #8ecae6;
+              backdrop-filter: blur(10px);
+}
+.width30{
+  width: 30%;
 }
 .main{
   margin: 0 auto;
   margin-top: 10% ;
   padding: 30px;
-  width: 30%;
   border-radius: 20px;
-  background-color: white;
+  box-shadow: -10px -10px 17px #fcfcfca2,
+              10px 10px 15px rgba(253, 253, 253, 0.671);
+              background-color: rgba(255,255,255,1);
+              backdrop-filter: blur(10px);
+}
+.content{
+  width: 330px; 
+  border-radius: 10px;
+  padding: 40px 30px;
+  margin-top: 100px;
+  box-shadow: -10px -10px 17px #fcfcfca2,
+              10px 10px 15px rgba(253, 253, 253, 0.671);
+              background-color: rgba(255,255,255,0.5);
+              backdrop-filter: blur(10px);
+}
+.tabs .tabs:focus .tabs:active{
+  border:none;
+  border-color: none;
+  border-bottom: none;
+  color: red;
+  background-color: #fff;
+  border-color: none;
+
 }

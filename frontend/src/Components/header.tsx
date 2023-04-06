@@ -11,7 +11,7 @@ mainClick: () => void}) {
     const mainVisible = (page === "main");
 
     return (
-        <div className="square bordershadow">
+        <div className="square header">
         <img src="images/logo.png" className="logo centering"  onClick={mainClick} alt="logo"/>
         <Button className={`btn ${loginVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={loginClick}>Login</Button>
         <Button className={`btn ${signupVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={registerClick}>Signup</Button>

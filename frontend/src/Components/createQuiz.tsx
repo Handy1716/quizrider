@@ -44,6 +44,7 @@ export default function CreateQuiz(){
                 <Form.Label>Answer 4:</Form.Label>
                 <Form.Control type="text" name="a4"/>
             </Form.Group>
+            <br />
             <Button type="submit">Create Quiz</Button>
         </Form></>
     )

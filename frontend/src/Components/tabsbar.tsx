@@ -10,7 +10,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
         className="mb-3"
         justify
       >
-        <Tab eventKey="PublicQuiz" title="Public quizzes">
+        <Tab eventKey="PublicQuiz" title="Public quizzes" tabClassName="tabs">
         <Row>
         <Col />
         <Col xs={6}>
@@ -25,7 +25,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
         <Col />
       </Row>
         </Tab>
-        <Tab eventKey="MyQuiz" title="My quizzes">
+        <Tab eventKey="MyQuiz" title="My quizzes" tabClassName="tabs">
         <Row>
         <Col />
         <Col xs={6}>
@@ -40,7 +40,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
         <Col />
       </Row>
         </Tab>
-        <Tab eventKey="CreateQuiz" title="Create your quiz">
+        <Tab eventKey="CreateQuiz" title="Create your quiz" tabClassName="tabs">
             <CreateQuiz />
         </Tab>
       </Tabs>
