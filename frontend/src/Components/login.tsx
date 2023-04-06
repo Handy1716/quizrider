@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
-import { apiLogin } from "../Api/api";
+import { apiLogin } from "../api/api";
 
 export default function Login() {
     const [showError, setShowError] = useState(false);
