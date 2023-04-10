@@ -12,7 +12,6 @@ export default function Login({ submitLogin } : { submitLogin: (e : any)=>void }
         }, (response : any) => {
             submitLogin(response);
         }, (error : any) => {
-            console.log(error);
             setShowError(error);
             setTimeout(() => setShowError(""), 3000);
         });
@@ -26,8 +25,7 @@ export default function Login({ submitLogin } : { submitLogin: (e : any)=>void }
             <Form.Group className="mb-3" controlId="loginFormEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" name="email" required placeholder="Enter email" className="inputbox"/>
-            </Form.Group>
-    
+            </Form.Group>    
             <Form.Group className="mb-3" controlId="loginFormPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" name="password" required placeholder="Password" className="inputbox"/>

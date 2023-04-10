@@ -13,8 +13,11 @@ import { apiCreator, apiLogin } from './api/api';
 import { PAGES } from './pages';
 
 
+// TODO: state-bol az error kivenni
+// TODO: a signup-ot ugyanugy mint a loginnal, a komponensbe betenni
+
+
 function App() {
-  
   
   const [state, setState] = useState<{page: PAGES, loggedIn: boolean, creator: any, error: string}>({
     page: PAGES.main,
@@ -57,35 +60,9 @@ function App() {
       error: state.error
     })
   }
-  function submitLogin(e:any){
-    /*
-    apiLogin(
-      {
-        email: e.target.email.value,
-        password: e.target.password.value,
-      },
-      (result:any)=> {
-        setState({
-          page: PAGES.logged,
-          loggedIn: true,
-          creator: result,
-          error: "",
-        })
-
-      },
-      (error:any)=>{
-        setState({
-          page: state.page,
-          loggedIn: state.loggedIn,
-          creator: state.creator,
-          error: error.message,
-        })
-      }
-      
-      )
-      e.preventDefault();
-      return false;
-      */
+  function submitLogin(result: any){
+    console.log(result);
+    // TODO token
   }
   
   function submitSignUp(e:any){
