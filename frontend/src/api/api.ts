@@ -2,14 +2,14 @@ import { getToken } from "./session";
 
 const BACKEND_URL = "http://localhost:3001"
 
-export function apiCreator(data : any, responseCallback : Function, errorCallback : Function = () => {}): any
+export function apiCreator(data : any, responseCallback : Function, errorCallback : Function = (e: any) => {}): any
 {
     fetch(BACKEND_URL + '/creator', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(Object.fromEntries(data)),
+        body: JSON.stringify(data),
     })
     .then(response => {
         if (response.ok) {
