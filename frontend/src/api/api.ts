@@ -28,7 +28,7 @@ export function apiLogin(data : any, responseCallback : Function, errorCallback 
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(Object.fromEntries(data)),
+        body: JSON.stringify(data),
     })
     .then(response => {
         if (response.ok) {

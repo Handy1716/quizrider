@@ -9,14 +9,15 @@ import CreateQuiz from './Components/createQuiz';
 import Tabsbar from './Components/tabsbar';
 import Game from './Components/game';
 import Scoreboard from './Components/scoreboard';
-import { apiCreator } from './api/api';
+import { apiCreator, apiLogin } from './api/api';
+import { PAGES } from './pages';
 
 
 function App() {
   
   
-  const [state, setState] = useState<{page: string, loggedIn: boolean, creator: any, error: string}>({
-    page: "main",
+  const [state, setState] = useState<{page: PAGES, loggedIn: boolean, creator: any, error: string}>({
+    page: PAGES.main,
     loggedIn: false,
     creator: null,
     error: "",
@@ -26,7 +27,7 @@ function App() {
 
   function loginClick() {
     setState({
-      page: "login",
+      page: PAGES.login,
       loggedIn: state.loggedIn,
       creator: state.creator,
       error: state.error,
@@ -34,7 +35,7 @@ function App() {
   }
   function registerClick() {
     setState({
-      page: "register",
+      page: PAGES.register,
       loggedIn: state.loggedIn,
       creator: state.creator,
       error: state.error
@@ -42,7 +43,7 @@ function App() {
   }
   function mainClick() {
     setState({
-      page: "main",
+      page: PAGES.main,
       loggedIn: state.loggedIn,
       creator: state.creator,
       error: state.error
@@ -50,12 +51,43 @@ function App() {
   }
   function createQuizClick(){
     setState({
-      page: "createQuiz",
+      page: PAGES.createQuiz,
       loggedIn: true, //TODO: ez alapjáraton nem true
       creator: state.creator,
       error: state.error
     })
   }
+  function submitLogin(e:any){
+    /*
+    apiLogin(
+      {
+        email: e.target.email.value,
+        password: e.target.password.value,
+      },
+      (result:any)=> {
+        setState({
+          page: PAGES.logged,
+          loggedIn: true,
+          creator: result,
+          error: "",
+        })
+
+      },
+      (error:any)=>{
+        setState({
+          page: state.page,
+          loggedIn: state.loggedIn,
+          creator: state.creator,
+          error: error.message,
+        })
+      }
+      
+      )
+      e.preventDefault();
+      return false;
+      */
+  }
+  
   function submitSignUp(e:any){
     // TODO: password check
     apiCreator(
@@ -66,7 +98,7 @@ function App() {
       },
       (result:any)=> {
         setState({
-          page: state.page,
+          page: PAGES.logged,
           loggedIn: true,
           creator: result,
           error: "",
@@ -85,17 +117,26 @@ function App() {
     e.preventDefault();
     return false;
   }
+  function Logout() {
+    setState({
+      page: PAGES.main,
+      loggedIn: false,
+      creator: null,
+      error: state.error,
+    })
+  }
   return (
     <>
     <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick}/>
     <div className='background'>
     <br />
       <div className=''>
-      {state.loggedIn===false && state.page==="main" &&(<Main />)}
-      {state.loggedIn===false && state.page==="login" &&(<Login />)}
-      {state.loggedIn===false && state.page==="register" &&(<Register submitSignUp={submitSignUp} message={state.error}/>)}
+      {state.loggedIn===false && state.page===PAGES.main &&(<Main />)}
+      {state.loggedIn===false && state.page===PAGES.login &&(<Login submitLogin={submitLogin}/>)}
+      {state.loggedIn===false && state.page===PAGES.register &&(<Register submitSignUp={submitSignUp} message={state.error}/>)}
       </div>
       
+      <Button onClick={Logout}>Logout</Button>
       <hr />
       
       <p className='centering'> bejelentkezés utáni:</p>
@@ -105,7 +146,7 @@ function App() {
       <Container>
         <br /><br />
       <Tabsbar createQuizClick={createQuizClick}/>
-      {state.loggedIn===true && state.page==="createQuiz" &&(<CreateQuiz />)}
+      {state.loggedIn===true && state.page===PAGES.createQuiz &&(<CreateQuiz />)}
       </Container>
       <br /><br />
       <Game/>

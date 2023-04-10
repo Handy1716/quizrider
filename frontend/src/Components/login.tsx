@@ -2,23 +2,27 @@ import { useState } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
 import { apiLogin } from "../api/api";
 
-export default function Login() {
-    const [showError, setShowError] = useState(false);
+export default function Login({ submitLogin } : { submitLogin: (e : any)=>void }) {
+    const [showError, setShowError] = useState("");
 
-    function handleSubmit(event : React.FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        apiLogin(data, (response : any) => {
-            console.log(response);
+    function handleSubmit(event : any) {
+        apiLogin({
+            email: event.target.email.value,
+            password: event.target.password.value,
+        }, (response : any) => {
+            submitLogin(response);
         }, (error : any) => {
-            setShowError(true);
-            setTimeout(() => setShowError(false), 3000);
+            console.log(error);
+            setShowError(error);
+            setTimeout(() => setShowError(""), 3000);
         });
+        event.preventDefault();
+        return false;
     }
 
     return (
         <div className="main width30">
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={ handleSubmit }>
             <Form.Group className="mb-3" controlId="loginFormEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" name="email" required placeholder="Enter email" className="inputbox"/>
@@ -31,8 +35,8 @@ export default function Login() {
             <div className="centering"><Button variant="primary" type="submit" className="mb-3">
                 Login
             </Button></div>
-            <Alert show={showError} variant="danger">
-                Login error
+            <Alert show={showError.length > 0} variant="danger">
+                {showError}
             </Alert>
         </Form></div>
    )

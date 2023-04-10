@@ -1,14 +1,15 @@
 import { Button } from "react-bootstrap";
+import { PAGES } from "../pages";
 //border-bottom border-1 border-warning box-shaddow
 
-export default function Header({page, loginClick, registerClick, mainClick} : {page : string, loggedIn: boolean, loginClick:() => void, registerClick:() => void
+export default function Header({page, loginClick, registerClick, mainClick} : {page : PAGES, loggedIn: boolean, loginClick:() => void, registerClick:() => void
 mainClick: () => void}) {
 
     // login gomb akkor kell, ha a register oldalon vagyok
-    const loginVisible = (page === "register");
+    const loginVisible = (page === PAGES.register);
     // signup gomb akkor kell, ha a login oldalon vagyok
-    const signupVisible = (page === "login");
-    const mainVisible = (page === "main");
+    const signupVisible = (page === PAGES.login);
+    const mainVisible = (page === PAGES.main);
 
     return (
         <div className="square header">
