@@ -1,12 +1,32 @@
 import { useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
-export default function Register({submitSignUp, message}:{submitSignUp: (e:any)=>void, message: string}) {
-    
+import { apiCreator, apiLogin } from "../api/api";
 
+export default function Register({submitSignUp}:{submitSignUp: (e:any)=>void}) {
+    const [showError, setShowError] = useState("");
+     function handleSubmit(event : any) {
+        if(event.target.password.value !== event.target.password2.value){
+            setShowError("Password is not the same");
+            setTimeout(() => setShowError(""), 3000);
+        } else{
+        apiCreator({
+            name: event.target.name.value,
+            email: event.target.email.value,
+            password: event.target.password.value,
+        }, (response : any) => {
+            submitSignUp(response);
+        }, (error : any) => {
+            setShowError(error);
+            setTimeout(() => setShowError(""), 3000);
+        });
+        }
+        event.preventDefault();
+        return false;
+     }
 
     return (
         <div className="main width30">
-            <Form onSubmit={submitSignUp}>
+            <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="loginFormUser">
                 <Form.Label>User name:</Form.Label>
                 <Form.Control type="text" name="name" required placeholder="Jhon Doe" />
@@ -27,9 +47,6 @@ export default function Register({submitSignUp, message}:{submitSignUp: (e:any)=
             <div className="centering"><Button variant="primary" type="submit" className="mb-3">
                 Register
             </Button></div>
-            <Alert show={message.length>0} variant="danger">
-                {message}
-            </Alert>
         </Form>
         </div>
     )
