@@ -11,18 +11,19 @@ import Game from './Components/game';
 import Scoreboard from './Components/scoreboard';
 import { apiCreator, apiLogin } from './api/api';
 import { PAGES } from './pages';
-import { setToken } from './api/session';
+import { clearToken, getToken, setToken } from './api/session';
 
 
 function App() {
-  
+  let userLogged = false;
+  if(getToken()!==null) { 
+   userLogged =true;
+   } 
   const [state, setState] = useState<{page: PAGES, loggedIn: boolean, creator: any}>({
     page: PAGES.main,
-    loggedIn: false,
+    loggedIn: userLogged,
     creator: null,
   });
-
-
 
   function loginClick() {
     setState({
@@ -56,19 +57,13 @@ function App() {
     })
   }
   
-  function submitSignUp(result:any){
-        setState({
-          page: PAGES.main,
-          loggedIn: true,
-          creator: result,
-        })
-  }
   function Logout() {
     setState({
       page: PAGES.main,
       loggedIn: false,
       creator: null,
     })
+    clearToken();
   }
   return (
     <>
@@ -77,7 +72,7 @@ function App() {
     <br />
       {state.loggedIn===false && state.page===PAGES.main &&(<Main />)}
       {state.loggedIn===false && state.page===PAGES.login &&(<Login submitLogin={submitLogin}/>)}
-      {state.loggedIn===false && state.page===PAGES.register &&(<Register submitSignUp={submitSignUp}/>)}
+      {state.loggedIn===false && state.page===PAGES.register &&(<Register submitLogin={submitLogin}/>)}
       {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick}/>)}
       {state.loggedIn===false && state.page===PAGES.game &&(<Game/>)}
       {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard/>)}

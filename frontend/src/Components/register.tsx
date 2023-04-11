@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 import { apiCreator, apiLogin } from "../api/api";
 
-export default function Register({submitSignUp}:{submitSignUp: (e:any)=>void}) {
+export default function Register({submitLogin}:{submitLogin: (e:any)=>void}) {
     const [showError, setShowError] = useState("");
      function handleSubmit(event : any) {
         if(event.target.password.value !== event.target.password2.value){
@@ -14,7 +14,12 @@ export default function Register({submitSignUp}:{submitSignUp: (e:any)=>void}) {
             email: event.target.email.value,
             password: event.target.password.value,
         }, (response : any) => {
-            submitSignUp(response);
+            apiLogin({
+                email: event.target.email.value,
+                password: event.target.password.value,    
+            }, (response : any) => {
+                submitLogin(response);
+            })
         }, (error : any) => {
             setShowError(error);
             setTimeout(() => setShowError(""), 3000);
@@ -47,6 +52,9 @@ export default function Register({submitSignUp}:{submitSignUp: (e:any)=>void}) {
             <div className="centering"><Button variant="primary" type="submit" className="mb-3">
                 Register
             </Button></div>
+            <Alert show={showError.length > 0} variant="danger">
+                {showError}
+            </Alert>
         </Form>
         </div>
     )

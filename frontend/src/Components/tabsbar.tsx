@@ -1,8 +1,18 @@
 import { Col, Container, Nav, Row, Tab, Tabs } from "react-bootstrap";
+import { apiQuizMe, apiQuizPublic } from "../api/api";
 import CreateQuiz from "./createQuiz";
 import QuizList from "./quizList";
 
 export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
+    let quizMeList = null;
+    let quizPublicList = null;
+    apiQuizMe((response: any) => {
+      quizMeList = response;
+    });
+    apiQuizPublic((response: any) => {
+      quizPublicList = response;
+    });
+
     return(
       <>
       <Container>
@@ -23,7 +33,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
             <Col>Playrate:</Col>
             <Col>Scoreboard:</Col>
           </Row>
-          <QuizList />
+          <QuizList list={quizMeList}/>
         </Col>
         <Col />
       </Row>
@@ -38,7 +48,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
             <Col>Playrate:</Col>
             <Col>Scoreboard:</Col>
           </Row>
-          <QuizList />
+          <QuizList list={quizPublicList}/>
           </Col>
         <Col />
       </Row>
