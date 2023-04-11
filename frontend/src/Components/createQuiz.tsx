@@ -1,9 +1,9 @@
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Tags from "./tags";
 //<div class="form-check form-switch"><input type="checkbox" id="custom-switch" class="form-check-input"><label title="" for="custom-switch" class="form-check-label">Check this switch</label></div>
 
 export default function CreateQuiz(){
-    return(<>
+    return(
         <Form>
             <Tags />
             <Form.Group>
@@ -46,6 +46,6 @@ export default function CreateQuiz(){
             </Form.Group>
             <br />
             <Button type="submit">Create Quiz</Button>
-        </Form></>
+        </Form>
     )
 }

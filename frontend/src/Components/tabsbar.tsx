@@ -1,9 +1,12 @@
-import { Col, Nav, Row, Tab, Tabs } from "react-bootstrap";
+import { Col, Container, Nav, Row, Tab, Tabs } from "react-bootstrap";
 import CreateQuiz from "./createQuiz";
 import QuizList from "./quizList";
 
 export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
     return(
+      <>
+      <Container>
+        <br /><br />
         <Tabs
         defaultActiveKey="profile"
         id="justify-tab-example"
@@ -44,5 +47,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
             <CreateQuiz />
         </Tab>
       </Tabs>
+      </Container>
+     </>
     )
 }

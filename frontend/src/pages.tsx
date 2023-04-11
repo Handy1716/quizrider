@@ -1,7 +1,9 @@
 export enum PAGES {
     main,
-    logged,
     login,
     createQuiz,
-    register
+    register,
+    game,
+    scoreboard,
+    
 }
