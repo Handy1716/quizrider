@@ -9,7 +9,6 @@ import CreateQuiz from './Components/createQuiz';
 import Tabsbar from './Components/tabsbar';
 import Game from './Components/game';
 import Scoreboard from './Components/scoreboard';
-import { apiCreator, apiLogin } from './api/api';
 import { PAGES } from './pages';
 import { clearToken, getToken, setToken } from './api/session';
 

@@ -1,17 +1,21 @@
-import { Col, Container, Nav, Row, Tab, Tabs } from "react-bootstrap";
+import React, { useState, useEffect } from 'react';
+import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
 import { apiQuizMe, apiQuizPublic } from "../api/api";
 import CreateQuiz from "./createQuiz";
 import QuizList from "./quizList";
 
-export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
-    let quizMeList = null;
-    let quizPublicList = null;
-    apiQuizMe((response: any) => {
-      quizMeList = response;
-    });
-    apiQuizPublic((response: any) => {
-      quizPublicList = response;
-    });
+export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}) {
+    const [quizMeList, setQuizMeList] = useState([]);
+    const [quizPublicList, setQuizPublicList] = useState([]);
+
+    useEffect(() => {
+      apiQuizMe((response: any) => {
+        setQuizMeList(response);
+      });
+      apiQuizPublic((response: any) => {
+        setQuizPublicList(response);
+      });  
+    }, []);
 
     return(
       <>
@@ -33,7 +37,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
             <Col>Playrate:</Col>
             <Col>Scoreboard:</Col>
           </Row>
-          <QuizList list={quizMeList}/>
+          <QuizList list={quizPublicList}/>
         </Col>
         <Col />
       </Row>
@@ -48,7 +52,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}){
             <Col>Playrate:</Col>
             <Col>Scoreboard:</Col>
           </Row>
-          <QuizList list={quizPublicList}/>
+          <QuizList list={quizMeList}/>
           </Col>
         <Col />
       </Row>
