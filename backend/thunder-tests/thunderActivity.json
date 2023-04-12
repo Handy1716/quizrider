@@ -120,12 +120,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-31T08:46:35.182Z",
-    "modified": "2023-04-11T17:44:44.215Z",
+    "modified": "2023-04-12T08:31:30.055Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDIsImVtYWlsIjoicUBhLmh1IiwiaWF0IjoxNjgxMjMxMjQwfQ.2HaS6dmnDjPbHdM3PK3xPFg45u-u0CS33YdeA6KpoXE"
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgsImVtYWlsIjoiYUBhLmh1IiwiaWF0IjoxNjgxMjg2NTc2fQ.Gv3ZFWaK0P0GYhh8cy2MZjmBqAMaBx8B3ZY7zQ-enHU"
     },
     "tests": []
   },
@@ -138,12 +138,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-31T08:46:35.182Z",
-    "modified": "2023-04-03T08:51:45.182Z",
+    "modified": "2023-04-12T08:31:50.232Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoidGVzdEBxdWl6cmlkZXIub25saW5lIiwiaWF0IjoxNjgwMjUyOTUyfQ.0TJzglQg0qQd6ckSfaKMHJX0v4BKDqyE3WCDnTisjZc"
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgsImVtYWlsIjoiYUBhLmh1IiwiaWF0IjoxNjgxMjg2NTc2fQ.Gv3ZFWaK0P0GYhh8cy2MZjmBqAMaBx8B3ZY7zQ-enHU"
     },
     "tests": []
   },

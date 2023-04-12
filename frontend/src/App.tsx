@@ -11,6 +11,7 @@ import Game from './Components/game';
 import Scoreboard from './Components/scoreboard';
 import { PAGES } from './pages';
 import { clearToken, getToken, setToken } from './api/session';
+import { apiPlay } from './api/api';
 
 
 function App() {
@@ -64,12 +65,21 @@ function App() {
     })
     clearToken();
   }
+
+function startClick(event:any) {
+  apiPlay("609814836", (response:any) => {
+    console.log('quiz:' , response);
+  })
+  event.preventDefault();
+  return false;
+}
+
   return (
     <>
     <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick} logoutClick={Logout}/>
     <div className='background'>
     <br />
-      {state.loggedIn===false && state.page===PAGES.main &&(<Main />)}
+      {state.loggedIn===false && state.page===PAGES.main &&(<Main startClick={startClick}/>)}
       {state.loggedIn===false && state.page===PAGES.login &&(<Login submitLogin={submitLogin}/>)}
       {state.loggedIn===false && state.page===PAGES.register &&(<Register submitLogin={submitLogin}/>)}
       {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick}/>)}
