@@ -24,6 +24,7 @@ function App() {
     loggedIn: userLogged,
     creator: null,
   });
+  const [quiz, setQuiz] = useState({});
 
   function loginClick() {
     setState({
@@ -68,11 +69,28 @@ function App() {
 
 function startClick(event:any) {
   apiPlay("609814836", (response:any) => {
-    console.log('quiz:' , response);
+    setQuiz(response.quiz);
   })
   event.preventDefault();
   return false;
+
 }
+
+// apiScoreboard({
+//   "runCode": "119577337",
+//   "deviceId": getDevice(),
+//   "name": "Pistike",
+//   "answers": [
+//     {
+//       "questionId": 162,
+//       "answerId": 106
+//     },
+//     {
+//       "questionId": 163,
+//       "answerId": 108
+//     }
+//   ]
+// })
 
   return (
     <>
@@ -83,7 +101,7 @@ function startClick(event:any) {
       {state.loggedIn===false && state.page===PAGES.login &&(<Login submitLogin={submitLogin}/>)}
       {state.loggedIn===false && state.page===PAGES.register &&(<Register submitLogin={submitLogin}/>)}
       {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick}/>)}
-      {state.loggedIn===false && state.page===PAGES.game &&(<Game/>)}
+      {state.loggedIn===false && state.page===PAGES.main &&(<Game quiz={quiz}/>)}
       {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard/>)}
       
       </div>
