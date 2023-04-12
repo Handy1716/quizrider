@@ -12,7 +12,7 @@ export default function Game({quiz} : {quiz : any}) {
     }
 
     const buttonColors = quiz.questions[round].answers.map((answer : any) => {
-        return answer.rightAnswer  ? "bg-success" : "bg-danger";
+        return answer.rightAnswer  ? "bg-success noclick" : "bg-danger noclick";
     });
 
     function onAnswerClick(index : number) {
