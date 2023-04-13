@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
-
 export default function Game({quiz} : {quiz : any}) {
     const [round, setRound] = useState<number>(0);
     const [color, setColor] = useState<boolean>(false);

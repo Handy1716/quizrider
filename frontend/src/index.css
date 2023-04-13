@@ -7,7 +7,7 @@ body {
   /*background: linear-gradient(-45deg, #023047, #219ebc, #ffb703, #fb8500);*/
   background: linear-gradient(-45deg, #023047, #219ebc, #ffb703, #fb8500);
 	background-size: 400% 400%;
-	/* animation: gradient 15s ease infinite; */
+	animation: gradient 15s ease infinite;
 	height: 100vh;
 }
 @keyframes gradient {
@@ -152,4 +152,17 @@ body {
 }
 .noclick {
   pointer-events: none;
+}
+.quizrow{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  
+}
+.quizes {
+}
+.color1{
+  background-color:#f7f7f7;
+}
+.color2{
+  background-color: #e7e7e7;
 }

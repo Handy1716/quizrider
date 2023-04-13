@@ -30,12 +30,13 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}) 
         <Tab eventKey="PublicQuiz" title="Public quizzes" tabClassName="tabs">
         <Row>
         <Col />
-        <Col xs={6}>
+        <Col xs={9}>
           <Row>
-            <Col>Quiz name:</Col>
-            <Col>Creator name:</Col>
-            <Col>Playrate:</Col>
-            <Col>Scoreboard:</Col>
+            <Col className='centering'><h4>Quiz name:</h4></Col>
+            <Col className='centering'><h4>Creator name:</h4></Col>
+            <Col className='centering'><h4>Playrate:</h4></Col>
+            <Col className='centering'><h4>Scoreboard:</h4></Col>
+            <hr />
           </Row>
           <QuizList list={quizPublicList}/>
         </Col>
@@ -45,12 +46,13 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}) 
         <Tab eventKey="MyQuiz" title="My quizzes" tabClassName="tabs">
         <Row>
         <Col />
-        <Col xs={6}>
+        <Col xs={9}>
         <Row>
-            <Col>Quiz name:</Col>
-            <Col>Creator name:</Col>
-            <Col>Playrate:</Col>
-            <Col>Scoreboard:</Col>
+            <Col className='centering'><h4>Quiz name:</h4></Col>
+            <Col className='centering'><h4>Creator name:</h4></Col>
+            <Col className='centering'><h4>Playrate:</h4></Col>
+            <Col className='centering'><h4>Scoreboard:</h4></Col>
+            <hr />
           </Row>
           <QuizList list={quizMeList}/>
           </Col>

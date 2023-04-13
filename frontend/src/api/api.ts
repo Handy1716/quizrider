@@ -89,7 +89,7 @@ export function apiQuizSet(data : any, responseCallback : Function, errorCallbac
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + getToken()
         },
-        body: JSON.stringify(Object.fromEntries(data)),
+        body: JSON.stringify(data),
     }, responseCallback, errorCallback);
 }
 
