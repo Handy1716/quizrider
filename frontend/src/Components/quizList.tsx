@@ -2,6 +2,7 @@ import { Button, Col, Row } from "react-bootstrap";
 import { apiRuncode } from "../api/api";
 import Runcode from "./runcode";
 import { useState } from "react";
+import { PersonLinesFill } from "react-bootstrap-icons";
 
 //e.preventDefault();
 //return false
@@ -24,7 +25,7 @@ export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboa
                 <Col className={"quizrow centering "} onClick={() => runCodeCreate(e.id)}>{e.name}</Col>
                 <Col className={"quizrow centering "} onClick={() => runCodeCreate(e.id)}>{e.creator.name}</Col>
                 <Col className={"quizrow centering borderRight"} onClick={() => runCodeCreate(e.id)}>{}</Col>
-                <Col className={"quizrow centering scoreboard"} onClick={() => onScoreboardClick(e.id)}>show</Col>
+                <Col className={"quizrow centering"} ><span className="spandecorate" >Scoreboard</span><PersonLinesFill className="spandecorate mx-2" onClick={() => onScoreboardClick(e.id)}/></Col>
             </Row>
         })}
         </>
