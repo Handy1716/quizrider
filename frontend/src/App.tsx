@@ -25,6 +25,7 @@ function App() {
     creator: null,
   });
   const [quiz, setQuiz] = useState({});
+  const [scoreboard, setScoreboard] = useState({});
 
   function loginClick() {
     setState({
@@ -81,6 +82,7 @@ function onScoreboardClick(id:number){
     loggedIn: state.loggedIn,
     creator: state.creator,
    })
+   setScoreboard(response);
   })
   }
 
@@ -110,7 +112,7 @@ function onScoreboardClick(id:number){
       {state.loggedIn===false && state.page===PAGES.register &&(<Register submitLogin={submitLogin}/>)}
       {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick} onScoreboardClick={onScoreboardClick}/>)}
       {state.loggedIn===false && state.page===PAGES.main &&(<Game quiz={quiz}/>)}
-      {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard/>)}
+      {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard scoreboard={scoreboard}/>)}
       
       </div>
     </>

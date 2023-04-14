@@ -148,7 +148,7 @@ export function apiScoreboard(data : any, responseCallback : Function, errorCall
 
 export function apiScoreboardShow(quizId : number, responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/scoreboard/quiz/ '+ quizId, {
+    _fetch(BACKEND_URL + '/scoreboard/quiz/'+ quizId, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
