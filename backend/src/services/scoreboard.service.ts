@@ -57,7 +57,8 @@ export class ScoreboardService {
         }
       },
       order: {
-        points: "DESC"
+        points: "DESC",
+        finishTime: "ASC"
       }
     })
   }

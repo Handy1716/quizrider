@@ -1,14 +1,16 @@
-import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 import { QuestionDto } from './question.dto';
 
 export class AnswerDto {
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   text: string;
 
   @IsBoolean()
-  @IsNotEmpty()
+  @IsOptional()
   rightAnswer: boolean;
 
+  // TODO: csak 1 jo valasz lehet es az nem lehet ures
+  
   question: QuestionDto;
 }

@@ -11,7 +11,7 @@ import Game from './Components/game';
 import Scoreboard from './Components/scoreboard';
 import { PAGES } from './pages';
 import { clearToken, getToken, setToken } from './api/session';
-import { apiPlay } from './api/api';
+import { apiPlay, apiScoreboardShow } from './api/api';
 
 
 function App() {
@@ -75,8 +75,14 @@ function startClick(event:any) {
   return false;
 }
 function onScoreboardClick(id:number){
-  console.log(id)
-}
+  apiScoreboardShow(id, (response:any) => {
+   setState({
+    page: PAGES.scoreboard,
+    loggedIn: state.loggedIn,
+    creator: state.creator,
+   })
+  })
+  }
 
 // apiScoreboard({
 //   "runCode": "119577337",
@@ -110,8 +116,7 @@ function onScoreboardClick(id:number){
     </>
   );
 
-}
-
+  }
 
 
 

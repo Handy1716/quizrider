@@ -1,5 +1,4 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import Tags from "./tags";
 import { useState } from "react";
 import { apiQuizSet } from "../api/api";
 //<div class="form-check form-switch"><input type="checkbox" id="custom-switch" class="form-check-input"><label title="" for="custom-switch" class="form-check-label">Check this switch</label></div>
@@ -32,7 +31,7 @@ export default function CreateQuiz(){
     function save(e:any){
         const quiz:any = {
             name: e.target.name.value,
-            public: e.target.public.value=="on",
+            public: e.target.public.checked,
             oneRound: false,
             questions: [],
             tags: [],
@@ -68,7 +67,7 @@ export default function CreateQuiz(){
             <Form.Group>
             </Form.Group>
             <Form.Group>
-            <Form.Label>Private:</Form.Label>
+            <Form.Label>Public:</Form.Label>
             <Form.Check 
                 type="switch"
                 name="public"
