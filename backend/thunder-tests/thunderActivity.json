@@ -200,6 +200,24 @@
     "tests": []
   },
   {
+    "_id": "ad750ba6-0ed8-4a80-a8c7-65125a44aeaf",
+    "colId": "history",
+    "containerId": "",
+    "name": "scoreboard/quiz",
+    "url": "http://localhost:3001/scoreboard/quiz/138",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-31T08:46:35.182Z",
+    "modified": "2023-04-14T13:55:55.274Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgsImVtYWlsIjoiYUBhLmh1IiwiaWF0IjoxNjgxMjg2NTc2fQ.Gv3ZFWaK0P0GYhh8cy2MZjmBqAMaBx8B3ZY7zQ-enHU"
+    },
+    "tests": []
+  },
+  {
     "_id": "f1509b59-58da-4afe-a918-91392b85f625",
     "colId": "history",
     "containerId": "",

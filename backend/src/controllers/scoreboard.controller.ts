@@ -4,6 +4,8 @@ import { RuncodeService } from 'src/services/runcode.service';
 import { ScoreboardDto } from '../dtos/scoreboard.dto';
 import ScoreboardEntity from '../entities/scoreboard.entity';
 import { ScoreboardService } from '../services/scoreboard.service';
+import RuncodeEntity from 'src/entities/runcode.entity';
+import QuizEntity from 'src/entities/quiz.entity';
 
 @Controller("/scoreboard")
 export class ScoreboardController {
@@ -25,4 +27,10 @@ export class ScoreboardController {
     }
     return this.scoreboardService.create(scoreboardDto, runCode);
   }
+
+  @Get("/quiz/:id")
+  async findByQuizId(@Param('id') id: number): Promise<ScoreboardEntity[]> {
+    return this.scoreboardService.findByQuiz(id);
+  }
+    
 }

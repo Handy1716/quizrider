@@ -73,7 +73,9 @@ function startClick(event:any) {
   })
   event.preventDefault();
   return false;
-
+}
+function onScoreboardClick(id:number){
+  console.log(id)
 }
 
 // apiScoreboard({
@@ -100,7 +102,7 @@ function startClick(event:any) {
       {state.loggedIn===false && state.page===PAGES.main &&(<Main startClick={startClick}/>)}
       {state.loggedIn===false && state.page===PAGES.login &&(<Login submitLogin={submitLogin}/>)}
       {state.loggedIn===false && state.page===PAGES.register &&(<Register submitLogin={submitLogin}/>)}
-      {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick}/>)}
+      {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick} onScoreboardClick={onScoreboardClick}/>)}
       {state.loggedIn===false && state.page===PAGES.main &&(<Game quiz={quiz}/>)}
       {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard/>)}
       

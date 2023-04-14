@@ -47,4 +47,19 @@ export class ScoreboardService {
     return points;
   }
 
+  async findByQuiz(quizId: number): Promise<ScoreboardEntity[]> {
+    return this.scoreboardRepository.find({
+      where: {
+        runCode: {
+          quiz: {
+            id: quizId
+          }
+        }
+      },
+      order: {
+        points: "DESC"
+      }
+    })
+  }
+
 }

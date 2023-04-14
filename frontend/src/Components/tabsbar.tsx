@@ -4,10 +4,10 @@ import { apiQuizMe, apiQuizPublic } from "../api/api";
 import CreateQuiz from "./createQuiz";
 import QuizList from "./quizList";
 
-export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}) {
+export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuizClick:() => void, onScoreboardClick:(id:number)=> void}) {
     const [quizMeList, setQuizMeList] = useState([]);
     const [quizPublicList, setQuizPublicList] = useState([]);
-
+   
     useEffect(() => {
       apiQuizMe((response: any) => {
         setQuizMeList(response);
@@ -19,8 +19,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}) 
 
     return(
       <>
-      <Container>
-        <br /><br />
+      <Container className='mt-5'>
         <Tabs
         defaultActiveKey="profile"
         id="justify-tab-example"
@@ -38,7 +37,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}) 
             <Col className='centering'><h4>Scoreboard:</h4></Col>
             <hr />
           </Row>
-          <QuizList list={quizPublicList}/>
+          <QuizList list={quizPublicList} onScoreboardClick={onScoreboardClick}/>
         </Col>
         <Col />
       </Row>
@@ -54,7 +53,7 @@ export default function Tabsbar({createQuizClick}:{createQuizClick:() => void}) 
             <Col className='centering'><h4>Scoreboard:</h4></Col>
             <hr />
           </Row>
-          <QuizList list={quizMeList}/>
+          <QuizList list={quizMeList} onScoreboardClick={onScoreboardClick}/>
           </Col>
         <Col />
       </Row>

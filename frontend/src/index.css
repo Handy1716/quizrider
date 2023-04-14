@@ -158,11 +158,30 @@ body {
   padding-bottom: 5px;
   
 }
-.quizes {
+.quizes{
 }
 .color1{
   background-color:#f7f7f7;
 }
 .color2{
   background-color: #e7e7e7;
+}
+.quizes:hover { 
+  box-shadow: -10px -10px 17px #aaaaaa80,
+  10px 10px 15px #aaaaaa80,
+  10px -7px 15px #aaaaaa80,
+  -7px 10px 15px #aaaaaa80;
+  backdrop-filter: blur(10px);
+  border-radius: 2px;
+  color: rgb(125, 125, 125);
+  cursor: pointer;
+}
+.scoreboard{
+  opacity: 0;
+}
+.scoreboard:hover{
+ opacity: 1;
+}
+.borderRight {
+  border-right: rgb(196, 194, 194) 1px solid;
 }
