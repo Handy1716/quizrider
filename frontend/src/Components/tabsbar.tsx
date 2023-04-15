@@ -62,7 +62,7 @@ export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuiz
         <Tab eventKey="CreateQuiz" title="Create your quiz" tabClassName="tabs">
             <CreateQuiz />
         </Tab>
-        <Tab eventKey="Info" title={<InfoCircle/>} tabClassName="tabs">
+        <Tab className='sm-1' eventKey="Info" title={<InfoCircle/>} tabClassName="tabs">
           <Info />
         </Tab>
       </Tabs>
