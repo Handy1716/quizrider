@@ -144,7 +144,7 @@ export default function CreateQuiz(){
               
             })}
             <div className="centering">
-            <Button className="mt-2" onClick={addQuestion}><PlusSquareFill/>Add Question</Button> <br />
+            <Button className="mt-2" onClick={addQuestion}><PlusSquareFill/> Add Question</Button> <br />
             <Button type="submit" className="mt-5">Create Quiz</Button></div>
         </Form>
     )

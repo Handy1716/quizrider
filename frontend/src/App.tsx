@@ -14,6 +14,7 @@ import { clearToken, getToken, setToken } from './api/session';
 import { apiPlay, apiScoreboardShow } from './api/api';
 
 
+
 function App() {
   let userLogged = false;
   if(getToken()!==null) { 
@@ -101,7 +102,7 @@ function onScoreboardClick(id:number){
 //     }
 //   ]
 // })
-
+console.log(process.env.BACKEND_URL);
   return (
     <>
     <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick} logoutClick={Logout}/>

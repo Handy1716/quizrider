@@ -3,6 +3,7 @@ import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
 import { apiQuizMe, apiQuizPublic } from "../api/api";
 import CreateQuiz from "./createQuiz";
 import QuizList from "./quizList";
+import { Info, InfoCircle, InfoSquareFill } from 'react-bootstrap-icons';
 
 export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuizClick:() => void, onScoreboardClick:(id:number)=> void}) {
     const [quizMeList, setQuizMeList] = useState([]);
@@ -21,7 +22,7 @@ export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuiz
       <>
       <Container className='mt-5'>
         <Tabs
-        defaultActiveKey="profile"
+        defaultActiveKey="MyQuiz"
         id="justify-tab-example"
         className="mb-3"
         justify
@@ -60,6 +61,9 @@ export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuiz
         </Tab>
         <Tab eventKey="CreateQuiz" title="Create your quiz" tabClassName="tabs">
             <CreateQuiz />
+        </Tab>
+        <Tab eventKey="Info" title={<InfoCircle/>} tabClassName="tabs">
+          <Info />
         </Tab>
       </Tabs>
       </Container>
