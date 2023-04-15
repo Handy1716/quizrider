@@ -1,10 +1,8 @@
 import { getToken } from "./session";
 
-const BACKEND_URL = "http://localhost:3001"
-
 function _fetch(url: string, params: any, responseCallback : Function, errorCallback : Function = (e: string) => {}): void
 {
-    fetch(url, params)
+    fetch(process.env.REACT_APP_BACKEND_URL + url, params)
     .then(response => {
         if (response.ok) {
             return response.json();
@@ -18,7 +16,7 @@ function _fetch(url: string, params: any, responseCallback : Function, errorCall
 
 export function apiCreator(data : any, responseCallback : Function, errorCallback : Function = (e: any) => {}): any
 {
-    _fetch(BACKEND_URL + '/creator', {
+    _fetch('/creator', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -29,7 +27,7 @@ export function apiCreator(data : any, responseCallback : Function, errorCallbac
 
 export function apiLogin(data: any, responseCallback: Function, errorCallback: Function = () => {}): void
 {
-    _fetch(BACKEND_URL + '/login', {
+    _fetch('/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -40,7 +38,7 @@ export function apiLogin(data: any, responseCallback: Function, errorCallback: F
 
 export function apiCreatorMe(responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/creator/me', {
+    _fetch('/creator/me', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -51,7 +49,7 @@ export function apiCreatorMe(responseCallback : Function, errorCallback : Functi
 
 export function apiQuizMe(responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/quiz/me', {
+    _fetch('/quiz/me', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -62,7 +60,7 @@ export function apiQuizMe(responseCallback : Function, errorCallback : Function 
 
 export function apiQuizPublic(responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/quiz/public', {
+    _fetch('/quiz/public', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -72,7 +70,7 @@ export function apiQuizPublic(responseCallback : Function, errorCallback : Funct
 
 export function apiQuizGet(id : number, responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/quiz/' + id, {
+    _fetch('/quiz/' + id, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -83,7 +81,7 @@ export function apiQuizGet(id : number, responseCallback : Function, errorCallba
 
 export function apiQuizSet(data : any, responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/quiz', {
+    _fetch('/quiz', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -95,7 +93,7 @@ export function apiQuizSet(data : any, responseCallback : Function, errorCallbac
 
 export function apiQuizDel(id : number, responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/quiz/' + id, {
+    _fetch('/quiz/' + id, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -106,7 +104,7 @@ export function apiQuizDel(id : number, responseCallback : Function, errorCallba
 
 export function apiRuncode(quizId : number, responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/runcode/' + quizId, {
+    _fetch('/runcode/' + quizId, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -117,7 +115,7 @@ export function apiRuncode(quizId : number, responseCallback : Function, errorCa
 
 export function apiPlay(runcode : string, responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/play/' + runcode, {
+    _fetch('/play/' + runcode, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -127,7 +125,7 @@ export function apiPlay(runcode : string, responseCallback : Function, errorCall
 
 export function apiTagTop(responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/tag/top', {
+    _fetch('/tag/top', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -137,7 +135,7 @@ export function apiTagTop(responseCallback : Function, errorCallback : Function 
 
 export function apiScoreboard(data : any, responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/scoreboard', {
+    _fetch('/scoreboard', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -148,7 +146,7 @@ export function apiScoreboard(data : any, responseCallback : Function, errorCall
 
 export function apiScoreboardShow(quizId : number, responseCallback : Function, errorCallback : Function = () => {}): any
 {
-    _fetch(BACKEND_URL + '/scoreboard/quiz/'+ quizId, {
+    _fetch('/scoreboard/quiz/'+ quizId, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

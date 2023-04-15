@@ -102,7 +102,7 @@ function onScoreboardClick(id:number){
 //     }
 //   ]
 // })
-console.log(process.env.BACKEND_URL);
+console.log(process.env.REACT_APP_BACKEND_URL);
   return (
     <>
     <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick} logoutClick={Logout}/>
