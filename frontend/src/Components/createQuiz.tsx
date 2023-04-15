@@ -1,6 +1,8 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useState } from "react";
 import { apiQuizSet } from "../api/api";
+import { PlusSquare, PlusSquareFill } from "react-bootstrap-icons";
+
 //<div class="form-check form-switch"><input type="checkbox" id="custom-switch" class="form-check-input"><label title="" for="custom-switch" class="form-check-label">Check this switch</label></div>
 
 export default function CreateQuiz(){
@@ -60,74 +62,90 @@ export default function CreateQuiz(){
     }
     return(
         <Form onSubmit={save}>
-            <Form.Group>
-                <Form.Label>Quiz name:</Form.Label>
-                <Form.Control type="text" name="name" required placeholder="My best quiz"/>
+            <Form.Group className="centering">
+                <Form.Label><h4>Quiz name:</h4></Form.Label><br />
+                <Form.Control type="text" className="input" name="name" required placeholder="My best quiz"/>
             </Form.Group>
             <Form.Group>
             </Form.Group>
-            <Form.Group>
-            <Form.Label>Public:</Form.Label>
+            <Form.Group className="centering">
+            <Form.Label><h4 className="mt-2">Public:</h4> </Form.Label>
             <Form.Check 
                 type="switch"
                 name="public"
                 />
             </Form.Group>
-            <Button onClick={addQuestion}>asd</Button>
+            <hr/>
             {questions.map((q:any, index : number) => {
                 return  <div key={"question" + index}>
-                <Form.Group>
-                    <Form.Label>Question:</Form.Label>
-                    <Form.Control type="text" name={"text" + index}/>
+                    
+                <Form.Group className="centering">
+                    <Form.Label><h5>Question {index+1}:</h5></Form.Label> <br />
+                    <Form.Control className="input" type="text" name={"text" + index}/>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label>Answer 1:</Form.Label>
-                    <Form.Control type="text" name={"answer1"+ index}/>
-                </Form.Group>
-                <Form.Check
+                <Row>
+                    <Col><Form.Group>
+                    <Form.Label>Answer 1:</Form.Label> <br />
+                    <Form.Control type="text" className="input" name={"answer1"+ index}/> <Form.Check
                 inline
-                label="Right Answer"
+                label=" Right"
                 name={"right" + index}
                 type="radio"
                 value="1"
               />
-                <Form.Group>
-                    <Form.Label>Answer 2:</Form.Label>
-                    <Form.Control type="text" name={"answer2"+ index}/>
                 </Form.Group>
-                <Form.Check
+               </Col>
+                    <Col> <Form.Group>
+                    <Form.Label>Answer 2:</Form.Label> <br />
+                    <Form.Control type="text" className="input" name={"answer2"+ index}/>
+                    <Form.Check
                 inline
-                label="Right Answer"
+                label=" Right"
                 name={"right" + index}
                 type="radio"
                 value="2"
               />
-                <Form.Group>
-                    <Form.Label>Answer 3:</Form.Label>
-                    <Form.Control type="text" name={"answer3"+ index}/>
                 </Form.Group>
-                <Form.Check
-                inline
-                label="Right Answer"
-                name={"right" + index}
-                type="radio"
-                value="3"
-              />
-                <Form.Group>
-                    <Form.Label>Answer 4:</Form.Label>
-                    <Form.Control type="text" name={"answer4"+ index}/>
-                </Form.Group>
-                <Form.Check
-                inline
-                label="Right Answer"
-                name={"right" + index}
-                type="radio"
-                value="4"
-              />
+                </Col>
+                </Row>
+                <Row>
+                    <Col>
+                    <Form.Group>
+                    <Form.Label>Answer 3:</Form.Label> <br />
+                    <Form.Control type="text" className="input" name={"answer3"+ index}/>
+                    <Form.Check
+                    inline
+                    label=" Right"
+                    name={"right" + index}
+                    type="radio"
+                    value="3"
+                    />
+                    </Form.Group>
+                    
+                    </Col>
+                    <Col>
+                     <Form.Group>
+                    <Form.Label>Answer 4:</Form.Label> <br />
+                    <Form.Control type="text" className="input" name={"answer4"+ index}/>
+                    <Form.Check
+                    inline
+                    label=" Right"
+                    name={"right" + index}
+                    type="radio"
+                    value="4"
+                    />
+                    </Form.Group>
+                    
+                    </Col>
+                    </Row>
+              <br />
+              <hr />
               </div>
+              
             })}
-            <br />
-            <Button type="submit">Create Quiz</Button>
+            <div className="centering">
+            <Button className="mt-2" onClick={addQuestion}><PlusSquareFill/>Add Question</Button> <br />
+            <Button type="submit" className="mt-5">Create Quiz</Button></div>
         </Form>
     )
 }

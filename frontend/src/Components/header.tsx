@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { PAGES } from "../pages";
-import { BoxArrowRight, PersonPlus, PersonSquare } from "react-bootstrap-icons";
+import { BoxArrowRight, PersonFillAdd, PersonPlus, PersonPlusFill, PersonSquare } from "react-bootstrap-icons";
 //border-bottom border-1 border-warning box-shaddow
 
 export default function Header(
@@ -13,7 +13,7 @@ export default function Header(
         <div className="square header">
         <img src="images/logo.png" className="logo centering"  onClick={mainClick} alt="logo"/>
         <Button className={`btn ${loginVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={loginClick}><PersonSquare></PersonSquare> Login</Button>
-        <Button className={`btn ${signupVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={registerClick}><PersonPlus></PersonPlus> Signup</Button>
+        <Button className={`btn ${signupVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={registerClick}><PersonFillAdd></PersonFillAdd> Signup</Button>
         <Button className={`btn ${loggedIn ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={logoutClick}><BoxArrowRight/> Logout</Button>
         </div>
     )

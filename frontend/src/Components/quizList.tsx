@@ -21,10 +21,15 @@ export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboa
         <>
         <div className="centering"><h2>{runcode}</h2></div>
         {list.map((e:any, index:any) => {
-            return <Row  key={"key "+ index} className={"quizes border " + (index % 2 ? "color1" : "color2") }>
-                <Col className={"quizrow centering "} onClick={() => runCodeCreate(e.id)}>{e.name}</Col>
-                <Col className={"quizrow centering "} onClick={() => runCodeCreate(e.id)}>{e.creator.name}</Col>
-                <Col className={"quizrow centering borderRight"} onClick={() => runCodeCreate(e.id)}>{}</Col>
+            return <Row  key={"key "+ index} className={"border "}>
+                <Col></Col>
+                <Col>
+                <Row className="quizes ">
+                <Col className={"quizrow centering " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id)}>{e.name}</Col>
+                <Col className={"quizrow centering " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id)}>{e.creator.name}</Col>
+                <Col className={"quizrow centering borderRight " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id)}>{}</Col>
+                </Row>
+                </Col>
                 <Col className={"quizrow centering"} ><span className="spandecorate" >Scoreboard</span><PersonLinesFill className="spandecorate mx-2" onClick={() => onScoreboardClick(e.id)}/></Col>
             </Row>
         })}
