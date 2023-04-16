@@ -12,13 +12,13 @@ export class RuncodeController {
     private readonly quizService: QuizService
   ) {}
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get("/runcode/:quizId")
   async getRuncode(@Param('quizId') id: number, @Request() req: any): Promise<RuncodeEntity> {
     const quiz = await this.quizService.findById(id);
-    if (quiz?.creator?.id !== req.user.id) {
-      throw new UnauthorizedException();
-    }
+    // if (quiz?.creator?.id !== req.user.id) {
+    //  throw new UnauthorizedException();
+    // }
     return this.runcodeService.create(quiz);
   }
   

@@ -12,7 +12,6 @@ export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboa
             apiRuncode(
                 id
             , (response : any) => {
-                console.log(response.runCode);
                 setRuncode(response.runCode);
             }, (error : any) => {
             });

@@ -11,7 +11,7 @@ export default function Header(
     const signupVisible = (page !== PAGES.register) && (!loggedIn);
     return (
         <div className="square header">
-        <img src="images/logo.png" className="logo centering"  onClick={mainClick} alt="logo"/>
+        <img src="images/logo.png" className="logo centering mx-3"  onClick={mainClick} alt="logo"/>
         <Button className={`btn ${loginVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={loginClick}><PersonSquare></PersonSquare> Login</Button>
         <Button className={`btn ${signupVisible ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={registerClick}><PersonFillAdd></PersonFillAdd> Signup</Button>
         <Button className={`btn ${loggedIn ? 'd-inline-block btn-header' : 'd-none btn-header'}`} onClick={logoutClick}><BoxArrowRight/> Logout</Button>
