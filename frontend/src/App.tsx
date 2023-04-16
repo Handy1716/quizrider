@@ -12,6 +12,7 @@ import Scoreboard from './Components/scoreboard';
 import { PAGES } from './pages';
 import { clearToken, getToken, setToken } from './api/session';
 import { apiPlay, apiScoreboardShow } from './api/api';
+import Result from './Components/result';
 
 
 
@@ -70,9 +71,15 @@ function App() {
     clearToken();
   }
 
-function startClick(event:any) {
-  apiPlay("609814836", (response:any) => {
+function startClick(event:any) {  
+  console.log(event.target.runcode.value)
+  apiPlay(event.target.runcode.value, (response:any) => {
     setQuiz(response.quiz);
+    setState({
+      page: PAGES.game,
+      loggedIn: state.loggedIn,
+      creator: state.creator,
+    })
   })
   event.preventDefault();
   return false;
@@ -87,6 +94,13 @@ function onScoreboardClick(id:number, name:string){
    setScoreboard(response);
    setQuizName(name);
   })
+  }
+  function Finish(){
+    setState({
+      page: PAGES.result,
+      loggedIn: state.loggedIn,
+      creator: state.creator,
+     })
   }
 
 // apiScoreboard({
@@ -114,9 +128,9 @@ console.log(process.env.REACT_APP_BACKEND_URL);
       {state.loggedIn===false && state.page===PAGES.login &&(<Login submitLogin={submitLogin}/>)}
       {state.loggedIn===false && state.page===PAGES.register &&(<Register submitLogin={submitLogin}/>)}
       {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick} onScoreboardClick={onScoreboardClick}/>)}
-      {state.loggedIn===false && state.page===PAGES.main &&(<Game quiz={quiz}/>)}
+      {state.loggedIn===false && state.page===PAGES.game &&(<Game quiz={quiz} Finish={Finish}/>)}
       {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard scoreboard={scoreboard} quizName={quizName}/>)}
-      
+      {state.loggedIn===false && state.page===PAGES.result &&(<Result />)}    
       </div>
     </>
   );

@@ -5,5 +5,5 @@ export enum PAGES {
     register,
     game,
     scoreboard,
-    
+    result,
 }

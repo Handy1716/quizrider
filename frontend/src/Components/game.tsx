@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
-export default function Game({quiz} : {quiz : any}) {
+export default function Game({quiz, Finish} : {quiz : any, Finish:()=>void}) {
     const [round, setRound] = useState<number>(0);
     const [color, setColor] = useState<boolean>(false);
     const [result, setResult] = useState<Array<any>>([]);
+    const [isempty, setIsemty] = useState<boolean>(false);
  
     if (!quiz || !quiz.questions) {
         return (<></>);
@@ -28,20 +29,24 @@ export default function Game({quiz} : {quiz : any}) {
                 setRound(round + 1);
             } else {
                 console.log('vege', result);
-                // todo ivssza felfele
+                Finish();
+                return( 
+                    <>asd</>
+                )
             }
         }, 2000);
     }
     return(
         <div>
-            <div className="main centering question">{quiz.name}</div>
             <div className="main centering question">{quiz.questions[round].text}</div>
             <Row className="answerRow">
                 {quiz.questions[round].answers.map((answer : any, index : number) => {
+                    if (answer.text!=="") {
                     return <Col key={"answer" + index}>
                         <div className={"answer " + (color ? buttonColors[index] : '')} onClick={() => onAnswerClick(index)}>{answer.text}</div>
-                    </Col>
+                    </Col>}
                 })}
+                
             </Row>
         </div>
     )
