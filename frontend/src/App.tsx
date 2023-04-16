@@ -27,6 +27,7 @@ function App() {
   });
   const [quiz, setQuiz] = useState({});
   const [scoreboard, setScoreboard] = useState({});
+  const [quizName, setQuizName] = useState({});
 
   function loginClick() {
     setState({
@@ -76,7 +77,7 @@ function startClick(event:any) {
   event.preventDefault();
   return false;
 }
-function onScoreboardClick(id:number){
+function onScoreboardClick(id:number, name:string){
   apiScoreboardShow(id, (response:any) => {
    setState({
     page: PAGES.scoreboard,
@@ -84,6 +85,7 @@ function onScoreboardClick(id:number){
     creator: state.creator,
    })
    setScoreboard(response);
+   setQuizName(name);
   })
   }
 
@@ -113,7 +115,7 @@ console.log(process.env.REACT_APP_BACKEND_URL);
       {state.loggedIn===false && state.page===PAGES.register &&(<Register submitLogin={submitLogin}/>)}
       {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick} onScoreboardClick={onScoreboardClick}/>)}
       {state.loggedIn===false && state.page===PAGES.main &&(<Game quiz={quiz}/>)}
-      {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard scoreboard={scoreboard}/>)}
+      {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard scoreboard={scoreboard} quizName={quizName}/>)}
       
       </div>
     </>

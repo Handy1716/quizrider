@@ -5,7 +5,7 @@ import CreateQuiz from "./createQuiz";
 import QuizList from "./quizList";
 import { Info, InfoCircle, InfoSquareFill } from 'react-bootstrap-icons';
 
-export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuizClick:() => void, onScoreboardClick:(id:number)=> void}) {
+export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuizClick:() => void, onScoreboardClick:(id:number, name:string)=> void}) {
     const [quizMeList, setQuizMeList] = useState([]);
     const [quizPublicList, setQuizPublicList] = useState([]);
    

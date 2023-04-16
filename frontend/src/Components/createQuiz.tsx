@@ -88,6 +88,7 @@ export default function CreateQuiz(){
                     <Form.Label>Answer 1:</Form.Label> <br />
                     <Form.Control type="text" className="input" name={"answer1"+ index}/> <Form.Check
                 inline
+                checked
                 label=" Right"
                 name={"right" + index}
                 type="radio"

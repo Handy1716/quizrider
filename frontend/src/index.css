@@ -173,6 +173,7 @@ body {
   -7px 10px 15px #aaaaaa80;
   backdrop-filter: blur(10px);
   border-radius: 2px;
+  cursor: pointer;
 }
 .scoreboard{
 }
