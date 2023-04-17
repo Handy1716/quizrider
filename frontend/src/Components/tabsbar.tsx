@@ -34,7 +34,7 @@ export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuiz
           <Row>
             <Col className='centering'><h4>Quiz name:</h4></Col>
             <Col className='centering'><h4>Creator name:</h4></Col>
-            <Col className='centering'><h4>Playrate:</h4></Col>
+            <Col className='centering'><h4>Runcode:</h4></Col>
             <Col className='centering'><h4>Scoreboard:</h4></Col>
             <hr />
           </Row>
@@ -50,7 +50,7 @@ export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuiz
         <Row>
             <Col className='centering'><h4>Quiz name:</h4></Col>
             <Col className='centering'><h4>Creator name:</h4></Col>
-            <Col className='centering'><h4>Playrate:</h4></Col>
+            <Col className='centering'><h4>Runcode:</h4></Col>
             <Col className='centering'><h4>Scoreboard:</h4></Col>
             <hr />
           </Row>
@@ -61,9 +61,6 @@ export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuiz
         </Tab>
         <Tab eventKey="CreateQuiz" title="Create your quiz" tabClassName="tabs">
             <CreateQuiz />
-        </Tab>
-        <Tab className='sm-1' eventKey="Info" title={<InfoCircle/>} tabClassName="tabs">
-          <Info />
         </Tab>
       </Tabs>
       </Container>

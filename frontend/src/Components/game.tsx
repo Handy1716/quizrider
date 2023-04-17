@@ -37,7 +37,7 @@ export default function Game({quiz, Finish} : {quiz : any, Finish:()=>void}) {
         }, 2000);
     }
     return(
-        <div>
+        <div className='mt-5'>
             <div className="main centering question">{quiz.questions[round].text}</div>
             <Row className="answerRow">
                 {quiz.questions[round].answers.map((answer : any, index : number) => {
