@@ -187,11 +187,14 @@ body {
   display: inline;
 }
 .runcodeVisible{
-  color:black;
+  color:rgb(136, 45, 45);
 }
 .color1text{
   color: #f7f7f7;
 }
 .color2text{
   background-color: #e7e7e7;
+}
+.notvisible{
+  opacity: 0;
 }
