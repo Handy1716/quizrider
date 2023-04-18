@@ -16,6 +16,7 @@ export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboa
                 id
             , (response : any) => {
                 setRuncode(response.runCode);
+                navigator.clipboard.writeText(runcode);
             }, (error : any) => {
             });
             }

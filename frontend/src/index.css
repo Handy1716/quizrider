@@ -187,7 +187,7 @@ body {
   display: inline;
 }
 .runcodeVisible{
-  color:rgb(136, 45, 45);
+  opacity: 1;
 }
 .color1text{
   color: #f7f7f7;
