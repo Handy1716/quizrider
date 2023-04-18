@@ -118,6 +118,14 @@ function onScoreboardClick(id:number, name:string){
 //     }
 //   ]
 // })
+
+function Return(){
+  setState({
+    page: PAGES.main,
+    loggedIn: state.loggedIn,
+    creator: state.creator,
+   })
+}
 console.log(process.env.REACT_APP_BACKEND_URL);
   return (
     <>
@@ -130,7 +138,7 @@ console.log(process.env.REACT_APP_BACKEND_URL);
       {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick} onScoreboardClick={onScoreboardClick}/>)}
       {state.loggedIn===false && state.page===PAGES.game &&(<Game quiz={quiz} Finish={Finish}/>)}
       {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard scoreboard={scoreboard} quizName={quizName}/>)}
-      {state.loggedIn===false && state.page===PAGES.result &&(<Result />)}    
+      {state.loggedIn===false && state.page===PAGES.result &&(<Result retur={Return}/>)}    
       </div>
     </>
   );

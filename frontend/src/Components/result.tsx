@@ -2,13 +2,13 @@ import { Button } from "react-bootstrap";
 
 
 
-export default function Result(){
+export default function Result({ retur } : { retur: ()=>void }){
     return(
         <div className="main ">
             
 
 
-            <Button>Play a new game</Button>
+            <Button onClick={retur}>Play a new game</Button>
         </div>
     )
 }

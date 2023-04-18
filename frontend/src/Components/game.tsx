@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 export default function Game({quiz, Finish} : {quiz : any, Finish:()=>void}) {
+    var startTime = performance.now()
     const [round, setRound] = useState<number>(0);
     const [color, setColor] = useState<boolean>(false);
     const [result, setResult] = useState<Array<any>>([]);
@@ -28,6 +29,8 @@ export default function Game({quiz, Finish} : {quiz : any, Finish:()=>void}) {
             if (round+1 < quiz.questions.length) {
                 setRound(round + 1);
             } else {
+                var endTime = performance.now();
+                console.log(endTime-startTime);
                 console.log('vege', result);
                 Finish();
                 return( 
