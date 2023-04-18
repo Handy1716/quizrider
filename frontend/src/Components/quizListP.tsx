@@ -6,7 +6,7 @@ import { PersonLinesFill, Trash3Fill } from "react-bootstrap-icons";
 
 //e.preventDefault();
 //return false
-export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboardClick: (id:number, name:string) => void}) {
+export default function QuizListP({list, onScoreboardClick}:{list:any, onScoreboardClick: (id:number, name:string) => void}) {
     const [runcode, setRuncode] = useState<string>("");
     const [clicked, setClicked] = useState<number>(-1);
     
@@ -32,7 +32,7 @@ export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboa
                 </Row>
                 </Col>
                 <Col className={"quizrow border mt-2 centering"} onClick={() => onScoreboardClick(e.id, e.name)}><span className="spandecorate" >Scoreboard</span></Col>
-                <Col xs={1}><Button className="delete mt-2"><Trash3Fill></Trash3Fill></Button></Col>
+                
             </Row>
         })}
         </>

@@ -154,8 +154,8 @@ body {
   pointer-events: none;
 }
 .quizrow{
-  padding-top: 5px;
-  padding-bottom: 5px; 
+  padding-top: 10px;
+  padding-bottom: 10px; 
 }
 .quizes{
 }
@@ -197,4 +197,20 @@ body {
 }
 .notvisible{
   opacity: 0;
+}
+.delete{
+  background-color: red;
+  color: black;
+  border-color: red;
+  box-shadow: -0px -0px 0px #710000,
+              2px 2px 4px #710000;
+              backdrop-filter: none;
+}
+.delete:hover{
+  background-color: black;
+  color: red;
+  border-color: black;
+  box-shadow: -0px -0px 0px #710000,
+              2px 2px 4px #710000;
+              backdrop-filter: none;
 }

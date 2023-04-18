@@ -5,7 +5,7 @@ import { PlusSquare, PlusSquareFill } from "react-bootstrap-icons";
 
 //<div class="form-check form-switch"><input type="checkbox" id="custom-switch" class="form-check-input"><label title="" for="custom-switch" class="form-check-label">Check this switch</label></div>
 
-export default function CreateQuiz(){
+export default function CreateQuiz({refreshList}:{refreshList:()=>void}){
     const [questions, setQuestions] = useState<Array<any>>([]);
     function addQuestion(){
         const question = {
@@ -56,7 +56,8 @@ export default function CreateQuiz(){
                 }]
             })
         })
-        apiQuizSet(quiz, () => {});
+        apiQuizSet(quiz, () => { refreshList();});
+       
         e.preventDefault();
         return false;
     }
