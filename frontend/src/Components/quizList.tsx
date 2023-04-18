@@ -28,7 +28,7 @@ export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboa
                 <Row className={"quizes border mt-2"}>
                 <Col className={"quizrow centering " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id, index)}>{e.name}</Col>
                 <Col className={"quizrow centering " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id, index)}>{e.creator.name}</Col>
-                <Col className={"quizrow centering borderRight " + (index % 2 ? "color1 " : "color2 ") +(clicked == index ? "runcodeVisible" : "runcodeNotVisible")} onClick={() => runCodeCreate(e.id, index)}>{runcode}</Col>
+                <Col className={"quizrow centering borderRight " + (index % 2 ? "color1 " : "color2 ") +(clicked == index ? "runcodeVisible" : (index % 2 ? "color1text "  : "color2text "))} onClick={() => runCodeCreate(e.id, index)}>{runcode}</Col>
                 </Row>
                 </Col>
                 <Col className={"quizrow border mt-2 centering"} onClick={() => onScoreboardClick(e.id, e.name)}><span className="spandecorate" >Scoreboard</span></Col>

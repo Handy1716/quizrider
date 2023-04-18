@@ -186,3 +186,12 @@ body {
   width: 75%;
   display: inline;
 }
+.runcodeVisible{
+  color:black;
+}
+.color1text{
+  color: #f7f7f7;
+}
+.color2text{
+  background-color: #e7e7e7;
+}
