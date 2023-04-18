@@ -16,7 +16,7 @@ import { ConfigModule } from '@nestjs/config/dist';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['env/.env.dev', 'env/.env'],
+      envFilePath: ['env/.env', 'env/.env.dev'],
       isGlobal: true,
     }),
     AuthModule,
