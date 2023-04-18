@@ -8,8 +8,10 @@ import { PersonLinesFill } from "react-bootstrap-icons";
 //return false
 export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboardClick: (id:number, name:string) => void}) {
     const [runcode, setRuncode] = useState<string>("");
+    const [clicked, setClicked] = useState<number>(-1);
     
-    function runCodeCreate(id: number){
+    function runCodeCreate(id: number, i: number){
+            setClicked(i);
             apiRuncode(
                 id
             , (response : any) => {
@@ -24,12 +26,12 @@ export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboa
             return <Row  key={"key "+ index} >
                 <Col xs={9}>
                 <Row className={"quizes border mt-2"}>
-                <Col className={"quizrow centering " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id)}>{e.name}</Col>
-                <Col className={"quizrow centering " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id)}>{e.creator.name}</Col>
-                <Col className={"quizrow centering borderRight " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id)}>{}</Col>
+                <Col className={"quizrow centering " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id, index)}>{e.name}</Col>
+                <Col className={"quizrow centering " + (index % 2 ? "color1" : "color2")} onClick={() => runCodeCreate(e.id, index)}>{e.creator.name}</Col>
+                <Col className={"quizrow centering borderRight " + (index % 2 ? "color1 " : "color2 ") +(clicked == index ? "runcodeVisible" : "runcodeNotVisible")} onClick={() => runCodeCreate(e.id, index)}>{runcode}</Col>
                 </Row>
                 </Col>
-                <Col className={"quizrow border mt-2 centering"} ><span className="spandecorate" >Scoreboard</span><PersonLinesFill className="spandecorate mx-2" onClick={() => onScoreboardClick(e.id, e.name)}/></Col>
+                <Col className={"quizrow border mt-2 centering"} onClick={() => onScoreboardClick(e.id, e.name)}><span className="spandecorate" >Scoreboard</span></Col>
             </Row>
         })}
         </>
