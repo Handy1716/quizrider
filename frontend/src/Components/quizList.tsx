@@ -1,15 +1,19 @@
 import { Button, Col, Row } from "react-bootstrap";
-import { apiRuncode } from "../api/api";
+import { apiPlay, apiQuizDel, apiRuncode } from "../api/api";
 import Runcode from "./runcode";
 import { useState } from "react";
 import { PersonLinesFill, Trash3Fill } from "react-bootstrap-icons";
 
 //e.preventDefault();
 //return false
-export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboardClick: (id:number, name:string) => void}) {
+export default function QuizList({list, onScoreboardClick, reloadList}:{list:any, onScoreboardClick: (id:number, name:string) => void, reloadList:()=>void}) {
     const [runcode, setRuncode] = useState<string>("");
     const [clicked, setClicked] = useState<number>(-1);
-    
+    function DeleteQuiz(id:number){
+        apiQuizDel(id,(response: any) => {
+            reloadList();
+          });
+    }
     function runCodeCreate(id: number, i: number){
             setClicked(i);
             apiRuncode(
@@ -32,7 +36,7 @@ export default function QuizList({list, onScoreboardClick}:{list:any, onScoreboa
                 </Row>
                 </Col>
                 <Col className={"quizrow border mt-2 centering"} onClick={() => onScoreboardClick(e.id, e.name)}><span className="spandecorate" >Scoreboard</span></Col>
-                <Col xs={1}><Button className="delete mt-2"><Trash3Fill></Trash3Fill></Button></Col>
+                <Col xs={1}><Button className="delete mt-2" onClick={()=>DeleteQuiz(e.id)}><Trash3Fill></Trash3Fill></Button></Col>
             </Row>
         })}
         </>

@@ -59,7 +59,7 @@ export default function Tabsbar({createQuizClick, onScoreboardClick}:{createQuiz
             <Col xs={1} className='centering'></Col>
             <hr />
           </Row>
-          <QuizList list={quizMeList} onScoreboardClick={onScoreboardClick}/>
+          <QuizList list={quizMeList} onScoreboardClick={onScoreboardClick} reloadList={ReloadList}/>
           </Col>
         <Col />
       </Row>

@@ -53,7 +53,7 @@ export class QuizController {
       throw new UnauthorizedException();
     }
     this.quizService.delete(id);
-    return res.status(HttpStatus.OK).json();
+    return res.status(HttpStatus.OK).json({});
   }
 
 }
