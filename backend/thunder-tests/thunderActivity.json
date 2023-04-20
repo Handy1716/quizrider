@@ -22,7 +22,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-31T08:46:35.182Z",
-    "modified": "2023-03-31T08:54:29.760Z",
+    "modified": "2023-04-20T15:17:48.554Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -32,7 +32,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Test\",\n  \"email\": \"test@quizrider.online\",\n  \"password\": \"12345\"\n}",
+      "raw": "{\n  \"name\": \"Testa\",\n  \"email\": \"testa@quizrider.online\",\n  \"password\": \"12345\"\n}",
       "form": []
     },
     "tests": []
@@ -46,7 +46,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-31T08:46:35.182Z",
-    "modified": "2023-03-31T08:55:52.239Z",
+    "modified": "2023-04-20T15:45:56.848Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -226,7 +226,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-31T14:59:15.241Z",
-    "modified": "2023-04-03T06:46:49.391Z",
+    "modified": "2023-04-20T15:46:44.001Z",
     "headers": [],
     "params": [],
     "body": {

@@ -7,6 +7,7 @@ export default function Game({quiz, Finish} : {quiz : any, Finish:()=>void}) {
     const [color, setColor] = useState<boolean>(false);
     const [result, setResult] = useState<Array<any>>([]);
     const [isempty, setIsemty] = useState<boolean>(false);
+    let points = 0;
  
     if (!quiz || !quiz.questions) {
         return (<></>);
