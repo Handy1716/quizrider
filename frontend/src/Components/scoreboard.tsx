@@ -1,4 +1,4 @@
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 
 export default function Scoreboard({scoreboard, quizName}:{scoreboard:any, quizName:any}) {

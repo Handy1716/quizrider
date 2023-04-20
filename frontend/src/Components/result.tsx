@@ -1,16 +1,16 @@
 import { Button, Form } from "react-bootstrap";
 import { apiScoreboard } from "../api/api";
 import { getDevice } from "../api/session";
-import {useRef} from 'react';
 
 export default function Result({ result, runCode, retur } : { result : any, runCode : string, retur: ()=>void }) {
-    const inputRef = useRef();
+    
 
     let rightAnswers = 0;
     let time = 0;
     result.map((answer : any) => {
         rightAnswers += answer.rightAnswer === true ? 1 : 0;
         time += answer.time;
+        return;
     });
     let points = Math.round(((60*30) - (time/1000)) * rightAnswers);
 

@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
-import { ArrayNotEmpty, arrayNotEmpty, IsArray, IsBoolean, IsDate, IsNotEmpty, IsNumber, IsString, ValidateNested } from 'class-validator';
-import { RuncodeDto } from './runcode.dto';
+import { ArrayNotEmpty, IsArray, IsNotEmpty, IsNumber, IsString, ValidateNested } from 'class-validator';
+
 
 export class ScoreboardAnswerDto {
   @IsNumber()
