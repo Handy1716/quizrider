@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
-export default function Game({quiz, Finish} : {quiz : any, Finish:()=>void}) {
-    var startTime = performance.now()
+export default function Game({quiz, Finish} : {quiz : any, Finish:(result: any)=>void}) {
     const [round, setRound] = useState<number>(0);
     const [color, setColor] = useState<boolean>(false);
     const [result, setResult] = useState<Array<any>>([]);
     const [isempty, setIsemty] = useState<boolean>(false);
-    let points = 0;
+    const [startTime, setStartTime] = useState<number>(Date.now());
  
     if (!quiz || !quiz.questions) {
         return (<></>);
@@ -18,10 +17,12 @@ export default function Game({quiz, Finish} : {quiz : any, Finish:()=>void}) {
     });
 
     function onAnswerClick(index : number) {
-        // const rightAnswer = quiz.questions[round].answers[index].rightAnswer;
+        var endTime = Date.now();
         result.push({
             questionId: quiz.questions[round].id,
-            answerId: quiz.questions[round].answers[index].id
+            answerId: quiz.questions[round].answers[index].id,
+            rightAnswer: quiz.questions[round].answers[index].rightAnswer,
+            time: endTime - startTime
         });
         setResult(result);
         setColor(true);
@@ -29,14 +30,9 @@ export default function Game({quiz, Finish} : {quiz : any, Finish:()=>void}) {
             setColor(false);
             if (round+1 < quiz.questions.length) {
                 setRound(round + 1);
+                setStartTime(Date.now());
             } else {
-                var endTime = performance.now();
-                console.log(endTime-startTime);
-                console.log('vege', result);
-                Finish();
-                return( 
-                    <>asd</>
-                )
+                Finish(result);
             }
         }, 2000);
     }

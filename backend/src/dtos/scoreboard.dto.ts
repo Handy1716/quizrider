@@ -10,6 +10,10 @@ export class ScoreboardAnswerDto {
   @IsNumber()
   @IsNotEmpty()
   answerId: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  time: number;
 }
 
 export class ScoreboardDto {

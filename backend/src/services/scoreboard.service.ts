@@ -33,7 +33,9 @@ export class ScoreboardService {
 
   private calculatePoints(results: ScoreboardAnswerDto[], questions: QuestionEntity[]): number {
     let points = 0;
+    let time = 0;
     results.forEach((result) => {
+      time += result.time;
       const question = questions.find((question) => question.id === result.questionId);
       if (question) {
         const answer = question.answers.find((answer) => answer.id === result.answerId);
@@ -44,6 +46,7 @@ export class ScoreboardService {
         }
       }
     });
+    points = Math.round(((60 * 30) - (time/1000)) * points);
     return points;
   }
 

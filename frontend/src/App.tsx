@@ -29,6 +29,8 @@ function App() {
   const [quiz, setQuiz] = useState({});
   const [scoreboard, setScoreboard] = useState({});
   const [quizName, setQuizName] = useState({});
+  const [result, setResult] = useState({});
+  const [runCode, setRunCode] = useState("");
 
   function loginClick() {
     setState({
@@ -72,8 +74,8 @@ function App() {
   }
 
 function startClick(event:any) {  
-  console.log(event.target.runcode.value)
   apiPlay(event.target.runcode.value, (response:any) => {
+    setRunCode(event.target.runcode.value);
     setQuiz(response.quiz);
     setState({
       page: PAGES.game,
@@ -95,29 +97,14 @@ function onScoreboardClick(id:number, name:string){
    setQuizName(name);
   })
   }
-  function Finish(){
+  function Finish(result: any){
+    setResult(result);
     setState({
       page: PAGES.result,
       loggedIn: state.loggedIn,
       creator: state.creator,
      })
   }
-
-// apiScoreboard({
-//   "runCode": "119577337",
-//   "deviceId": getDevice(),
-//   "name": "Pistike",
-//   "answers": [
-//     {
-//       "questionId": 162,
-//       "answerId": 106
-//     },
-//     {
-//       "questionId": 163,
-//       "answerId": 108
-//     }
-//   ]
-// })
 
 function Return(){
   setState({
@@ -126,8 +113,8 @@ function Return(){
     creator: state.creator,
    })
 }
-console.log(process.env.REACT_APP_BACKEND_URL);
-  return (
+
+return (
     <>
     <Header page={state.page} loggedIn={state.loggedIn} loginClick={loginClick} registerClick={registerClick} mainClick={mainClick} logoutClick={Logout}/>
     <div className='background'>
@@ -138,7 +125,7 @@ console.log(process.env.REACT_APP_BACKEND_URL);
       {state.loggedIn===true && state.page===PAGES.main &&(<Tabsbar createQuizClick={createQuizClick} onScoreboardClick={onScoreboardClick}/>)}
       {state.loggedIn===false && state.page===PAGES.game &&(<Game quiz={quiz} Finish={Finish}/>)}
       {state.loggedIn===true && state.page===PAGES.scoreboard &&(<Scoreboard scoreboard={scoreboard} quizName={quizName}/>)}
-      {state.loggedIn===false && state.page===PAGES.result &&(<Result retur={Return}/>)}    
+      {state.loggedIn===false && state.page===PAGES.result &&(<Result result={result} runCode={runCode} retur={Return}/>)}    
       </div>
     </>
   );

@@ -76,7 +76,8 @@
         answers: [
             {
                 questionId,
-                answerId
+                answerId,
+                time
             }
         ]
     }
