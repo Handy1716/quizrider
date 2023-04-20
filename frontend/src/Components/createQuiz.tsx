@@ -1,7 +1,7 @@
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { useState } from "react";
 import { apiQuizSet } from "../api/api";
-import { PlusSquare, PlusSquareFill } from "react-bootstrap-icons";
+import { PlusSquareFill } from "react-bootstrap-icons";
 
 //<div class="form-check form-switch"><input type="checkbox" id="custom-switch" class="form-check-input"><label title="" for="custom-switch" class="form-check-label">Check this switch</label></div>
 
@@ -43,16 +43,16 @@ export default function CreateQuiz({refreshList}:{refreshList:()=>void}){
                 text: e.target["text"+ index].value,
                 answers: [{
                     text: e.target["answer1"+index].value,
-                    rightAnswer: e.target["right"+ index].value==1,
+                    rightAnswer: e.target["right"+ index].value===1,
                 },{
                     text: e.target["answer2"+index].value,
-                    rightAnswer: e.target["right"+ index].value==2,
+                    rightAnswer: e.target["right"+ index].value===2,
                 },{
                     text: e.target["answer3"+index].value,
-                    rightAnswer: e.target["right"+ index].value==3,
+                    rightAnswer: e.target["right"+ index].value===3,
                 },{
                     text: e.target["answer4"+index].value,
-                    rightAnswer: e.target["right"+ index].value==4,
+                    rightAnswer: e.target["right"+ index].value===4,
                 }]
             })
         })
@@ -89,7 +89,7 @@ export default function CreateQuiz({refreshList}:{refreshList:()=>void}){
                     <Form.Label>Answer 1:</Form.Label> <br />
                     <Form.Control type="text" className="input" name={"answer1"+ index}/> <Form.Check
                 inline
-                checked
+                defaultChecked
                 label=" Right"
                 name={"right" + index}
                 type="radio"

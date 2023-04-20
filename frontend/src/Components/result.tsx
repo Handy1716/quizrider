@@ -10,7 +10,7 @@ export default function Result({ result, runCode, retur } : { result : any, runC
     result.map((answer : any) => {
         rightAnswers += answer.rightAnswer === true ? 1 : 0;
         time += answer.time;
-        return;
+        return 1;
     });
     let points = Math.round(((60*30) - (time/1000)) * rightAnswers);
 

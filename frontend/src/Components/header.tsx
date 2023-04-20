@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { PAGES } from "../pages";
-import { BoxArrowRight, PersonFillAdd, PersonPlus, PersonPlusFill, PersonSquare } from "react-bootstrap-icons";
+import { BoxArrowRight, PersonFillAdd, PersonSquare } from "react-bootstrap-icons";
 //border-bottom border-1 border-warning box-shaddow
 
 export default function Header(

@@ -106,3 +106,11 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'patrick_hand_scregular';
+    src: url('/public/fonts/patrickhandsc-regular-webfont.woff2') format('woff2'),
+         url('/public/fonts/patrickhandsc-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

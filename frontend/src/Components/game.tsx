@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import React, {  useState } from 'react';
+import { Col, Row } from "react-bootstrap";
 
 export default function Game({quiz, Finish} : {quiz : any, Finish:(result: any)=>void}) {
     const [round, setRound] = useState<number>(0);
     const [color, setColor] = useState<boolean>(false);
     const [result, setResult] = useState<Array<any>>([]);
-    const [isempty, setIsemty] = useState<boolean>(false);
     const [startTime, setStartTime] = useState<number>(Date.now());
  
     if (!quiz || !quiz.questions) {
@@ -45,6 +44,7 @@ export default function Game({quiz, Finish} : {quiz : any, Finish:(result: any)=
                     return <Col key={"answer" + index}>
                         <div className={"answer " + (color ? buttonColors[index] : '')} onClick={() => onAnswerClick(index)}>{answer.text}</div>
                     </Col>}
+                    return <></>
                 })}
                 
             </Row>

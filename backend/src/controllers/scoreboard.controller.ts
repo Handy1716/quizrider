@@ -4,8 +4,6 @@ import { RuncodeService } from 'src/services/runcode.service';
 import { ScoreboardDto } from '../dtos/scoreboard.dto';
 import ScoreboardEntity from '../entities/scoreboard.entity';
 import { ScoreboardService } from '../services/scoreboard.service';
-import RuncodeEntity from 'src/entities/runcode.entity';
-import QuizEntity from 'src/entities/quiz.entity';
 
 @Controller("/scoreboard")
 export class ScoreboardController {

@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Login from './Components/login';
 import Register from './Components/register';
 import Header from './Components/header';
-import { Container, Button } from 'react-bootstrap';
 import Main from './Components/main';
-import CreateQuiz from './Components/createQuiz';
 import Tabsbar from './Components/tabsbar';
 import Game from './Components/game';
 import Scoreboard from './Components/scoreboard';
